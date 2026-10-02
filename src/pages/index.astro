@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { products } from '../data/catalog';
+---
+
+<BaseLayout title="Professional French Skincare">
+  <section class="hero shell">
+    <div class="hero-copy">
+      <p class="eyebrow">French skincare · Since 1946</p>
+      <h1 class="display">Sothys Kuantan</h1>
+      <p class="lede">Professional skincare shaped by French science, sensorial formulas, and eighty years of institute expertise.</p>
+      <div class="hero-actions">
+        <a class="pill" href="/shop">Explore the collection <span>↗</span></a>
+        <a class="pill-secondary" href="/about">Our story</a>
+      </div>
+    </div>
+    <a class="hero-product-stage" href="/shop" aria-label="Explore the Sothys skincare collection">
+      <img src="/sothys-product-flatlay-cutout.png" alt="Five Sothys skincare products arranged in an editorial flat-lay" />
+    </a>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      {[0, 1, 2, 3, 4].map(() => (
+        <div class="marquee-group">
+          <span>Made in France</span><span>Professional expertise</span><span>Power of natural actives</span><span>Visible results</span><span>Committed to nature</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <section class="home-section shell">
+    <div class="heading-block">
+      <p class="eyebrow">The icons</p>
+      <h2 class="section-heading">Skin-first formulas.<br />No guesswork.</h2>
+      <p class="lede">A focused edit of the products Sothys clients return to.</p>
+      <a class="blue-link" href="/shop">See all 105 products</a>
+    </div>
+    <div class="featured-grid">
+      {products.slice(0, 3).map((product, index) => <ProductCard product={product} index={index} />)}
+    </div>
+  </section>
+
+  <section class="home-section shell" style="padding-top: 0;">
+    <div class="principles">
+      <div>
+        <p class="eyebrow">Science meets results</p>
+        <h2>Precision for every skin story.</h2>
+      </div>
+      <div class="principle-list">
+        <div class="principle"><span>01</span><p>Made with precision in Corrèze, the heart of French skincare.</p></div>
+        <div class="principle"><span>02</span><p>Advanced research and proven efficacy you can see and feel.</p></div>
+        <div class="principle"><span>03</span><p>Exclusive botanicals cultivated in Les Jardins Sothys™.</p></div>
+        <div class="principle"><span>04</span><p>Sustainable practices designed to protect the planet.</p></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

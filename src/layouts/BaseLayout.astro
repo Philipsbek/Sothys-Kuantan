@@ -1,0 +1,117 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Sothys Malaysia professional skincare and treatments in a precise, modern gallery.',
+} = Astro.props;
+
+const path = Astro.url.pathname;
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/shop', label: 'Shop' },
+  { href: '/terms-and-conditions', label: 'Terms' },
+  { href: '/contact', label: 'Contact' },
+];
+const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith(href);
+const whatsappMessage = "Hi! I'm interested in your products and services, I would like to know more!";
+const whatsappHref = `https://wa.me/60129816966?text=${encodeURIComponent(whatsappMessage)}`;
+const appointmentMessage = "Hi! I'd like to book an appointment at Sothys Kuantan.";
+const appointmentHref = `https://wa.me/60129816966?text=${encodeURIComponent(appointmentMessage)}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/brand/sothys-favicon.png" />
+    <title>{title} · Sothys Malaysia</title>
+  </head>
+  <body class:list={{ 'home-page': path === '/' }}>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Sothys Malaysia home">
+        <img src="/brand/sothys-logo.png" alt="Sothys Malaysia" />
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        {links.map((link) => (
+          <a class:list={{ active: isActive(link.href) }} href={link.href}>{link.label}</a>
+        ))}
+      </nav>
+      <a class="header-booking" href={appointmentHref} target="_blank" rel="noopener noreferrer">Book appointment</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">
+        <span>Menu</span><span class="menu-mark">+</span>
+      </button>
+      <div class="mobile-menu" id="mobile-menu" hidden>
+        {links.map((link, index) => (
+          <a class:list={{ active: isActive(link.href) }} href={link.href}>
+            <span>0{index + 1}</span>{link.label}
+          </a>
+        ))}
+        <a class="mobile-booking" href={appointmentHref} target="_blank" rel="noopener noreferrer">Book appointment <span>↗</span></a>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer shell">
+      <div class="footer-lead">
+        <p class="eyebrow">Sothys Malaysia</p>
+        <h2>Beauty is personal.<br />The care should be too.</h2>
+      </div>
+      <div class="footer-grid">
+        <div>
+          <p class="footer-label">Visit</p>
+          <p>43, Jalan Putra Square 3, China Town<br />25200 Kuantan, Pahang</p>
+        </div>
+        <div>
+          <p class="footer-label">Contact</p>
+          <a href="mailto:ivonliew@gmail.com">ivonliew@gmail.com</a>
+          <a href="tel:+60129816966">012-981 6966</a>
+          <a href="tel:+6095173699">09-517 3699</a>
+        </div>
+        <div>
+          <p class="footer-label">Explore</p>
+          {links.slice(1).map((link) => <a href={link.href}>{link.label}</a>)}
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Sothys Malaysia</span>
+        <span>French skincare since 1946</span>
+      </div>
+    </footer>
+    <a class="floating-action" href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label="Chat with Sothys on WhatsApp" title="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.966-.273-.099-.471-.149-.67.149-.198.297-.768.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.058-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.173.198-.297.297-.495.099-.198.05-.372-.025-.52-.074-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.57-.01s-.52.074-.792.372c-.273.297-1.04 1.016-1.04 2.479s1.065 2.875 1.213 3.073c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.693.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.035 21.868h-.004a9.93 9.93 0 0 1-5.06-1.386l-.363-.216-3.762.987 1.004-3.667-.236-.376a9.93 9.93 0 0 1-1.523-5.315c.002-5.478 4.46-9.936 9.94-9.936a9.88 9.88 0 0 1 7.03 2.912 9.88 9.88 0 0 1 2.909 7.035c-.003 5.478-4.461 9.936-9.935 9.936zm8.455-18.39A11.88 11.88 0 0 0 12.034 0C5.446 0 .084 5.362.082 11.952a11.9 11.9 0 0 0 1.595 5.96L0 24l6.233-1.635a11.95 11.95 0 0 0 5.796 1.476h.005c6.589 0 11.951-5.362 11.954-11.952a11.88 11.88 0 0 0-3.498-8.411z" />
+      </svg>
+    </a>
+    <script>
+      const header = document.querySelector<HTMLElement>('.site-header');
+      const button = document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const menu = document.querySelector<HTMLElement>('#mobile-menu');
+
+      const updateHeader = () => {
+        header?.classList.toggle('is-scrolled', window.scrollY > 24);
+      };
+
+      updateHeader();
+      window.addEventListener('scroll', updateHeader, { passive: true });
+
+      button?.addEventListener('click', () => {
+        const open = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!open));
+        if (menu) menu.hidden = open;
+        header?.classList.toggle('menu-open', !open);
+        const mark = button.querySelector('.menu-mark');
+        if (mark) mark.textContent = open ? '+' : '×';
+      });
+    </script>
+  </body>
+</html>

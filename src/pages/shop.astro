@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { products, services, categories } from '../data/catalog';
+---
+
+<BaseLayout title="Shop" description="Browse all Sothys Malaysia skincare products and professional treatment services.">
+  <section class="page-hero shop-hero shell">
+    <p class="eyebrow">Products + services</p>
+    <h1 class="display display-sm">Your skin.<br />Your edit.</h1>
+    <div class="shop-meta">
+      <p>105 products and 7 professional treatment paths,<br />curated from Sothys Malaysia.</p>
+      <div class="tab-controls" role="tablist" aria-label="Shop sections">
+        <button class="tab-control active" data-tab="products" role="tab" aria-selected="true">Products</button>
+        <button class="tab-control" data-tab="services" role="tab" aria-selected="false">Services</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-panel" data-panel="products">
+    <div class="shop-tools">
+      <div class="shop-tools-inner shell">
+        <div class="search-wrap">
+          <input id="product-search" type="search" placeholder="Search products" aria-label="Search products" />
+          <span>⌕</span>
+        </div>
+        <span class="catalog-count" id="catalog-count">{products.length} products</span>
+      </div>
+      <div class="filter-row shell" aria-label="Filter product categories">
+        {categories.map((category, index) => (
+          <button class:list={['filter-chip', { active: index === 0 }]} data-filter={category}>{category}</button>
+        ))}
+      </div>
+    </div>
+    <div class="catalog-grid shell" id="catalog-grid">
+      {products.map((product, index) => <ProductCard product={product} index={index} />)}
+      <div class="no-results" id="no-results" hidden>
+        <p class="eyebrow">No match</p><h2 class="section-heading">Try another search.</h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-panel shell" data-panel="services" hidden>
+    <div class="heading-block">
+      <p class="eyebrow">Professional beauty treatments</p>
+      <h2 class="section-heading">Begin with<br />your concern.</h2>
+      <p class="lede">Choose the result you want to work toward. A Sothys professional can guide the rest.</p>
+    </div>
+    <div class="service-list">
+      {services.map((service) => (
+        <a class="service-row" href={service.href}>
+          <span class="number">{service.number}</span>
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+          <span class="arrow">↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <script>
+    const tabButtons = document.querySelectorAll<HTMLButtonElement>('[data-tab]');
+    const panels = document.querySelectorAll<HTMLElement>('[data-panel]');
+    tabButtons.forEach((button) => button.addEventListener('click', () => {
+      tabButtons.forEach((item) => {
+        const active = item === button;
+        item.classList.toggle('active', active);
+        item.setAttribute('aria-selected', String(active));
+      });
+      panels.forEach((panel) => panel.hidden = panel.dataset.panel !== button.dataset.tab);
+    }));
+
+    const search = document.querySelector<HTMLInputElement>('#product-search');
+    const chips = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+    const cards = [...document.querySelectorAll<HTMLElement>('[data-product]')];
+    const count = document.querySelector<HTMLElement>('#catalog-count');
+    const empty = document.querySelector<HTMLElement>('#no-results');
+    let activeCategory = 'All';
+
+    const filterProducts = () => {
+      const query = search?.value.trim().toLowerCase() || '';
+      let visible = 0;
+      cards.forEach((card) => {
+        const matchesSearch = card.dataset.title?.includes(query);
+        const matchesCategory = activeCategory === 'All' || card.dataset.category === activeCategory;
+        card.hidden = !(matchesSearch && matchesCategory);
+        if (!card.hidden) visible += 1;
+      });
+      if (count) count.textContent = `${visible} product${visible === 1 ? '' : 's'}`;
+      if (empty) empty.hidden = visible !== 0;
+    };
+
+    search?.addEventListener('input', filterProducts);
+    chips.forEach((chip) => chip.addEventListener('click', () => {
+      activeCategory = chip.dataset.filter || 'All';
+      chips.forEach((item) => item.classList.toggle('active', item === chip));
+      filterProducts();
+    }));
+  </script>
+</BaseLayout>

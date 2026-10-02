@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const timeline = [
+  ['1946', 'Born in Paris', 'Dr. Max Hotz founded Sothys during the new wave of French beauty.'],
+  ['1947', 'A world first', 'Production of the first biologically active serum in ampoules.'],
+  ['1966', 'The Mas family', 'The Mas family acquired Sothys and began a new chapter of family stewardship.'],
+  ['1968', 'Institute expertise', 'The first Sothys lifting facial treatment was introduced.'],
+  ['1978', 'Training the experts', 'The Sothys training school was founded.'],
+  ['1993', 'From Paris to Malaysia', 'Société Française De Cosmétiques was established in Malaysia.'],
+  ['2006', 'Les Jardins Sothys™', 'The botanical gardens opened in Auriac, Corrèze.'],
+  ['Today', '120 countries', 'A third-generation family brand combining professional technique, science, and sensoriality.'],
+];
+---
+
+<BaseLayout title="About">
+  <section class="page-hero shell">
+    <p class="eyebrow">Our story</p>
+    <h1 class="display display-sm">French excellence.<br />Personal care.</h1>
+    <div class="intro-grid">
+      <p class="eyebrow">Since 1946</p>
+      <p>Sothys is one of the original beauty institute and spa brands—an exclusively professional approach practised by highly trained beauty therapists across 120 countries.</p>
+    </div>
+  </section>
+
+  <section class="home-section shell" style="padding-top: 40px;">
+    <div class="heading-block">
+      <p class="eyebrow">The founding vision</p>
+      <h2 class="section-heading">Care can restore<br />confidence.</h2>
+      <p class="lede">Founded in Paris by Dr. Max Hotz, Sothys began with a mission to restore skin health. His pioneering serum in ampoules changed professional skincare.</p>
+    </div>
+    <div class="timeline">
+      {timeline.map(([year, title, copy]) => (
+        <div class="timeline-row">
+          <span class="year">{year}</span>
+          <h3>{title}</h3>
+          <p>{copy}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="home-section shell" style="padding-top: 30px;">
+    <div class="heading-block">
+      <p class="eyebrow">The science of results</p>
+      <h2 class="section-heading">Four standards.<br />One promise.</h2>
+    </div>
+    <div class="value-grid">
+      <article class="value-card"><span>01</span><h3>Safety</h3><p>Carefully selected ingredients and clinical testing under medical supervision.</p></article>
+      <article class="value-card"><span>02</span><h3>Sensoriality</h3><p>Exquisite textures and more than 130 signature fragrances developed in-house.</p></article>
+      <article class="value-card"><span>03</span><h3>Efficiency</h3><p>Formulas evaluated by experts and hundreds of participants for visible results.</p></article>
+      <article class="value-card"><span>04</span><h3>Naturalness</h3><p>Plant-based actives, green chemistry, and inspiration from Les Jardins Sothys™.</p></article>
+    </div>
+  </section>
+</BaseLayout>

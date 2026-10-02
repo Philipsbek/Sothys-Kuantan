@@ -1,0 +1,25 @@
+---
+import type { Product } from '../data/catalog';
+
+interface Props { product: Product; index?: number; }
+const { product, index = 0 } = Astro.props;
+---
+
+<article class="product-card" data-product data-title={product.title.toLowerCase()} data-category={product.category}>
+  <a class="product-visual" href={`/products/${product.handle}`}>
+    <span class="card-index">{String(index + 1).padStart(2, '0')}</span>
+    {product.image ? (
+      <img src={product.image} alt={product.title} loading="lazy" />
+    ) : (
+      <span class="product-placeholder">SOTHYS</span>
+    )}
+    <span class="view-pill">View details ↗</span>
+  </a>
+  <div class="product-card-info">
+    <div>
+      <p class="product-category">{product.category}</p>
+      <h3><a href={`/products/${product.handle}`}>{product.title}</a></h3>
+    </div>
+    <p class="price">{product.price}</p>
+  </div>
+</article>

@@ -1,0 +1,842 @@
+[
+  {
+    "description": "Powered by 4 molecular weights of hyaluronic acid, this serum delivers multi-level hydration—from the surface to deep within the skin. It helps plump, smooth, and visibly reduce fine lines and wrinkles for a fresher, more youthful look.",
+    "handle": "hydra-hyaluronic-acid-intensive-serum",
+    "image": "/products/product-001.png",
+    "meta": "Skin type: All Skin Type Texture: Fluid Scents: Aquatic, Floral, Musky Size: 50ML",
+    "price": "RM560.00",
+    "title": "Hydra Hyaluronic Acid⁴ Intensive Serum"
+  },
+  {
+    "description": "Daily cleanser suitable for morning and evening use, ideal for double cleansing (use after makeup removal). Start your day with fresh, balanced skin. This gentle cream cleanser enriched with exfoliating pomegranate enzymes, chamomile extract and sweet almond oil gently removes overnight impurities while softening and soothing the skin. Leaves your complexion clean, comfortable, and ready for skincare. Skin is supple and softness are restored day after day. Skin type: All Skin TypesTexture: CreamScents: Floral, Citrus, WoodySize: 125ML",
+    "handle": "morning-cleanser",
+    "image": "/products/product-002.png",
+    "meta": "Daily cleanser suitable for morning and evening use, ideal for double cleansing (use after makeup removal). Start your day with fresh, balanced skin. This gentle cream cleanser enriched with exfoliating pomegranate enzymes, chamomile extract and sweet almond oil gently removes overnight impurities while softening and soothing the skin. Leaves your complexion clean, comfortable, and ready for skincare. Skin is supple and softness are restored day after day. Skin type: All Skin TypesTexture: CreamScents: Floral, Citrus, WoodySize: 125ML",
+    "price": "RM370.00",
+    "title": "Morning Cleanser"
+  },
+  {
+    "description": "A hypoallergenic milk with Spa™ Thermal Water to cleanse sensitive skin with the utmost respect for its fragile nature. Free your skin from superficial impurities (make-up, pollution, dust).",
+    "handle": "comfort-cleansing-milk",
+    "image": "/products/product-003.png",
+    "meta": "Skin type: Dry & Sensitive Skin Texture: Milk Scents: Fragrance Free Size: 200ML",
+    "price": "RM290.00",
+    "title": "Comfort Cleansing Milk 200ml"
+  },
+  {
+    "description": "Your Daily Hydration Shield With patented actives and hyaluronic acid, this cream hydrates, plumps, and smooths while strengthening skin’s moisture memory. Available in 2 textures: Satin Cream – normal to combination skin Velvet Cream – normal to dry skin",
+    "handle": "hydra-hyaluronic-acid-velvet-youth-cream",
+    "image": "/products/product-004.png",
+    "meta": "Skin type: Normal to dry skin Texture: Cream Scents: Aquatic, Floral, Musky Size: 50ML",
+    "price": "RM490.00",
+    "title": "Hydra Hyaluronic Acid⁴ Velvet Youth Cream"
+  },
+  {
+    "description": "A soothing toner with Spa™ Thermal Water to gently complete cleansing, calm sensitivity, and restore skin comfort.",
+    "handle": "comfort-lotion",
+    "image": "/products/product-005.png",
+    "meta": "Skin type: Dry & Sensitive Skin Texture: Lotion Scents: Fragrance Free Size: 200ML",
+    "price": "RM290.00",
+    "title": "Comfort Lotion 200ml"
+  },
+  {
+    "description": "This fast-acting serum calms discomfort and restores balance to your skin’s natural ecosystem. Skin feels soothed, more resilient, and visibly at ease. Ideal for fragile or weakened skin barriers. Skin type: All Skin Type Texture: Fluid Scents: Floral, Fruity, Passion Size: 30ML",
+    "handle": "ultra-lipid-sos-serum",
+    "image": "/products/product-006.png",
+    "meta": "This fast-acting serum calms discomfort and restores balance to your skin’s natural ecosystem. Skin feels soothed, more resilient, and visibly at ease. Ideal for fragile or weakened skin barriers. Skin type: All Skin Type Texture: Fluid Scents: Floral, Fruity, Passion Size: 30ML",
+    "price": "RM500.00",
+    "title": "Ultra-Lipid SOS Serum"
+  },
+  {
+    "description": "This iconic ampoule, enriched with ultra-hydrating active ingredients, delivers an intense moisture boost for visibly plumper, softer, and more supple skin. In just 7 days of concentrated action, it restores hydration levels and enhances the effectiveness of your daily serum and cream ritual.",
+    "handle": "pro-dermobooster-ampoule-moisturizing",
+    "image": "/products/product-007.png",
+    "meta": "Skin type: All skin types Texture: Aqueous, very slightly textured, immediate absorption Scents: Fresh, Musky, Woody Size: 1.5ML X 7",
+    "price": "RM290.00",
+    "title": "Pro Dermobooster Ampoule - Moisturizing 7x1.5ml"
+  },
+  {
+    "description": "A luxurious balm with a silky, melting texture that smooths and plumps the delicate eye and lip contours. Instantly creates a “lift and fill” effect, leaving skin looking firmer, brighter, and more youthful.",
+    "handle": "secrets-de-sothys%C2%AE-la-creme-eye-lip-youth-cream",
+    "image": "/products/product-008.png",
+    "meta": "Skin type: All skin types Texture: Cream Scents: Fragrance-free Size: 15ML",
+    "price": "RM690.00",
+    "title": "Secrets De Sothys® La Crème Eye & Lip Youth Cream"
+  },
+  {
+    "description": "Shield your skin from sun damage and premature aging. This lightweight, silky cream provides broad-spectrum protection while supporting the skin’s natural defenses—helping to preserve youthfulness and prevent visible signs of photo-aging.Skin type: All Skin TypeTexture: CreamScents: Solar FloralSize: 50ML",
+    "handle": "youth-protective-cream-spf49",
+    "image": "/products/product-009.png",
+    "meta": "Shield your skin from sun damage and premature aging. This lightweight, silky cream provides broad-spectrum protection while supporting the skin’s natural defenses—helping to preserve youthfulness and prevent visible signs of photo-aging.Skin type: All Skin TypeTexture: CreamScents: Solar FloralSize: 50ML",
+    "price": "RM430.00",
+    "title": "Youth Protective Cream SPF50"
+  },
+  {
+    "description": "Your Daily Hydration Shield With patented actives and hyaluronic acid, this cream hydrates, plumps, and smooths while strengthening skin’s moisture memory. Available in 2 textures: Satin Cream – normal to combination skin Velvet Cream – normal to dry skin.",
+    "handle": "hydra-hyaluronic-acid-satin-youth-cream",
+    "image": "/products/product-010.png",
+    "meta": "Skin type: Normal or combination skin Texture: Cream Scents: Aquatic, Floral, Musky Size: 50ML",
+    "price": "RM490.00",
+    "title": "Hydra Hyaluronic Acid⁴ Satin Youth Cream"
+  },
+  {
+    "description": "This silky, milky essence melts into the skin to visibly reduce pigmentation, deeply hydrate, and boost radiance. It also primes your skin to maximize absorption of the products that follow. Skin type: All Skin Type Texture: Fluid Scents: Citrus, Floral, Green Size: 200ML",
+    "handle": "illuminating-essence",
+    "image": "/products/product-011.png",
+    "meta": "This silky, milky essence melts into the skin to visibly reduce pigmentation, deeply hydrate, and boost radiance. It also primes your skin to maximize absorption of the products that follow. Skin type: All Skin Type Texture: Fluid Scents: Citrus, Floral, Green Size: 200ML",
+    "price": "RM290.00",
+    "title": "Illuminating Essence"
+  },
+  {
+    "description": "Target all the signs of tired eyes in one step. This fresh, smoothing cream helps reduce wrinkles, fine lines, dark circles, and puffiness. The delicate texture melts into the skin, leaving the eye area looking brighter, smoother, and visibly rejuvenated.",
+    "handle": "radiance-cream-for-wrinkles-dark-circles-puffiness",
+    "image": "/products/product-012.png",
+    "meta": "Skin type: All Skin TypesTexture: CreamScents: Fragrance FreeSize: 15ML",
+    "price": "RM390.00",
+    "title": "Radiance Cream For Wrinkles - Dark Circles & Puffiness"
+  },
+  {
+    "description": "This intensive 7-day ampoule program is infused with powerful youth-restoring ingredients to deliver firmer, smoother, more radiant skin. Formulated with plant collagen, it helps boost elasticity, smooth fine lines, and visibly reduce wrinkles. After just one week, the skin appears lifted and rejuvenated with a renewed youthful glow.",
+    "handle": "pro-dermobooster-ampoule-youth",
+    "image": "/products/product-013.png",
+    "meta": "Skin type: All skin types Texture: Aqueous, slightly textured Scents: Fragrance-free Size: 1.5ML X 7",
+    "price": "RM290.00",
+    "title": "Pro Dermobooster Ampoule - Youth 7x1.5ml"
+  },
+  {
+    "description": "The Reconstructive youth serum with its gel-oil texture, envelopes the skin and intensely nourishes it, bringing greater density and vitality and improving all the signs of ageing.",
+    "handle": "reconstructive-youth-serum",
+    "image": "/products/product-014.png",
+    "meta": "Skin type: All skin types Texture: FluidScents: Floral, Fruity, MuskySize: 30ML",
+    "price": "RM660.00",
+    "title": "Reconstructive Youth Serum"
+  },
+  {
+    "description": "This gel-cream cleanser transforms into a silky milk that lifts away impurities without stripping your skin. Leaves skin fresh, hydrated, and radiant—while helping to visibly reduce pigmentation and reveal a more even glow. Skin type: All Skin Types Texture: Gel Scents: Citrus, Floral, Green Size:125ML",
+    "handle": "illuminating-facial-cleanser",
+    "image": "/products/product-015.png",
+    "meta": "This gel-cream cleanser transforms into a silky milk that lifts away impurities without stripping your skin. Leaves skin fresh, hydrated, and radiant—while helping to visibly reduce pigmentation and reveal a more even glow. Skin type: All Skin Types Texture: Gel Scents: Citrus, Floral, Green Size:125ML",
+    "price": "RM290.00",
+    "title": "Illuminating Facial Cleanser"
+  },
+  {
+    "description": "A true powerhouse in skincare, each capsule delivers 0.15% pure retinol to effectively target multiple skin concerns. Retinol stimulates collagen production, accelerates cell turnover, refines skin texture, and helps reduce acne for a smoother, healthier-looking complexion.Skin type: All Skin TypeTexture: GelScents: Fragrance FreeSize: 60s Microcapsules",
+    "handle": "noctuelle%E2%84%A2-resurfacing-micro-capsules-serum-with-pure-retinol-60s",
+    "image": "/products/product-016.png",
+    "meta": "A true powerhouse in skincare, each capsule delivers 0.15% pure retinol to effectively target multiple skin concerns. Retinol stimulates collagen production, accelerates cell turnover, refines skin texture, and helps reduce acne for a smoother, healthier-looking complexion.Skin type: All Skin TypeTexture: GelScents: Fragrance FreeSize: 60s Microcapsules",
+    "price": "RM800.00",
+    "title": "Noctuelle™ Resurfacing Micro Capsules - Serum With Pure Retinol 60s"
+  },
+  {
+    "description": "The restructuring youth cream allow to fight against visible signs of ageing: wrinkles, even deep ones, skin slackening.",
+    "handle": "restructuring-youth-cream",
+    "image": "/products/product-017.png",
+    "meta": "Skin type: All skin typesTexture: CreamScents: Citrus, Floral, PowderySize: 50ML",
+    "price": "RM530.00",
+    "title": "Restructuring Youth Cream"
+  },
+  {
+    "description": "A refreshing toner with grapefruit extract that completes cleansing and balances combination skin. Leaves skin feeling fresh, toned, and ready for skincare.",
+    "handle": "vitality-lotion",
+    "image": "/products/product-018.png",
+    "meta": "Skin type: Normal to combination skin Texture: Lotion Scents: Citrus, Fresh Size: 200ML",
+    "price": "RM290.00",
+    "title": "Vitality Lotion 200ml"
+  },
+  {
+    "description": "Wake up to fresher, more radiant skin. Infused with organic black currant buds, this night cream helps oxygenate and renew your skin while you sleep. Perfect for dull or tired-looking complexions, it supports overnight regeneration and strengthens skin against daily aggressors. Skin type: All Skin Type even Sensitive Texture: Cream Scents: Fresh, Orange Size: 50ML",
+    "handle": "noctuelle%E2%84%A2-renovative-night-cream",
+    "image": "/products/product-019.png",
+    "meta": "Wake up to fresher, more radiant skin. Infused with organic black currant buds, this night cream helps oxygenate and renew your skin while you sleep. Perfect for dull or tired-looking complexions, it supports overnight regeneration and strengthens skin against daily aggressors. Skin type: All Skin Type even Sensitive Texture: Cream Scents: Fresh, Orange Size: 50ML",
+    "price": "RM560.00",
+    "title": "Noctuelle™ Renovative Night Cream"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "tr-hydra-plumping-mask-15ml",
+    "image": "",
+    "meta": "",
+    "price": "RM150.00",
+    "title": "Tr. Hydra Plumping Mask 15ml"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "ech-noctuelle-night-cream-1-5ml",
+    "image": "",
+    "meta": "",
+    "price": "RM21.00",
+    "title": "Ech. Noctuelle Night Cream 1.5ml"
+  },
+  {
+    "description": "An intensified version of Sothys’ iconic deep cleanser, enriched with higher acid content to target normal to combination-oily skin. Ideal for skin that feels clogged, thickened, uneven, or showing early signs of ageing or pigmentation. Delivers a powerful deep-pore cleansing while refining skin texture with salicylic acid and rice micro-grains for a smoother, more radiant complexion.",
+    "handle": "dermobooster-desquacrem-forte-microderm",
+    "image": "/products/product-022.png",
+    "meta": "Skin type: Normal, Combination, Oily Skin Texture: Soapy and grainy wax, iridescent white Scents: Floral, Musky, Powdery Size: 50ML",
+    "price": "RM320.00",
+    "title": "Dermobooster Desquacrem Forte Microderm"
+  },
+  {
+    "description": "This serum with a stretch-effect gel texture helps to limit skin slackening to tone, firm and visibly lift the features.",
+    "handle": "firming-specific-youth-serum",
+    "image": "/products/product-023.png",
+    "meta": "Skin type: All skin typesTexture: GelScents: Floral, Fruity, MuskySize: 30ML",
+    "price": "RM660.00",
+    "title": "Firming Specific Youth Serum"
+  },
+  {
+    "description": "A refreshing, lightweight milk with grapefruit extract that gently removes makeup, pollution, and impurities—leaving skin soft, clean, and toned.",
+    "handle": "vitality-cleansing-milk",
+    "image": "/products/product-024.png",
+    "meta": "Skin type: Normal to combination skin Texture: Milk Scents: Citrus, Fresh Size: 200ML",
+    "price": "RM290.00",
+    "title": "Vitality Cleansing Milk 200ml"
+  },
+  {
+    "description": "Infused with 2 exclusive Sothys patented actives and high molecular weight hyaluronic acid, this rich mask delivers an instant surge of hydration. In just minutes, skin looks plumper, smoother, and more radiant.",
+    "handle": "hydra-hyaluronic-acid-plumping-mask",
+    "image": "/products/product-025.png",
+    "meta": "Skin type: All Skin Type Texture: Gel-Cream Scents: Aquatic, Floral, Musky Size: 50ML",
+    "price": "RM420.00",
+    "title": "Hydra Hyaluronic Acid⁴ Plumping Mask"
+  },
+  {
+    "description": "Target all types of dark spots—emerging, visible, or established—with this powerful serum. The essential first step in your illuminating beauty routine for a more even, radiant complexion. Skin type: All Skin Type Texture: Emulsion Scents: Citrus, Floral, Green Size: 30ML",
+    "handle": "flawless-complexion-serum",
+    "image": "/products/product-026.png",
+    "meta": "Target all types of dark spots—emerging, visible, or established—with this powerful serum. The essential first step in your illuminating beauty routine for a more even, radiant complexion. Skin type: All Skin Type Texture: Emulsion Scents: Citrus, Floral, Green Size: 30ML",
+    "price": "RM390.00",
+    "title": "Flawless Complexion Serum"
+  },
+  {
+    "description": "Boosted with high-performance active ingredients, this serum targets oily and blemish-prone skin with precision. Its fresh aqueous texture not only absorbs excess sebum but also provides a dual corrective action: reducing visible blemishes and rebalancing the skin. Formulated with gentle exfoliating PHA (gluconolactone) and chestnut extract from the Sothys Gardens, it helps refine skin texture and restore clarity. Day after day, skin looks smoother, clearer, and more balanced.",
+    "handle": "dermobooster-purifying-serum",
+    "image": "/products/product-027.png",
+    "meta": "Skin type: Combination to oily skin Texture: Aqueous, very slightly textured, immediate absorption Scents: Fragrance-free Size: 20ML",
+    "price": "RM260.00",
+    "title": "Dermobooster Purifying Serum"
+  },
+  {
+    "description": "The final step in your daily routine. This lightweight fluid combines broad-spectrum UVA/UVB protection with organic white nettle extract to shield skin from photo-ageing while keeping it youthful and radiant. Perfect for everyday wear, wherever life takes you.",
+    "handle": "protective-youth-fluid-spf49",
+    "image": "/products/product-028.png",
+    "meta": "Skin type: All Skin TypesTexture: EmulsionScents: Fragrance FreeSize: 50ML",
+    "price": "RM290.00",
+    "title": "Protective Youth Fluid SPF50"
+  },
+  {
+    "description": "Your daily support and ally against the effects of everyday stressors, this cream provides a real boost to your skin. Skin is rebalanced, with radiant vitality to preserve its beauty.",
+    "handle": "glow%E2%84%A2-defense-cream",
+    "image": "/products/product-029.png",
+    "meta": "",
+    "price": "RM690.00",
+    "title": "Glow™ Defense Cream"
+  },
+  {
+    "description": "A refreshing daily cleanser with iris and meadowsweet extracts. Effectively removes impurities, excess oil, and build-up to keep combination to oily skin clear, balanced, and shine-free.",
+    "handle": "purifying-foaming-gel",
+    "image": "/products/product-030.png",
+    "meta": "Skin type: All Skin TypesTexture: GelScents: Floral, Fresh, GreenSize: 125ML",
+    "price": "RM370.00",
+    "title": "Purifying Foaming Gel"
+  },
+  {
+    "description": "A universal treatment that works as both a serum and mask to deeply hydrate and comfort ultra-weakened skin. Free from fragrance and colorants, it is safe for use on the face as well as other delicate areas of the body. Clinically tested and dermatologist-approved for post-dermoaesthetic care, it helps restore suppleness and reinforce skin recovery.",
+    "handle": "dermobooster-regenerative-solution",
+    "image": "/products/product-031.png",
+    "meta": "Skin type: All skin types Texture: Gel Scents: Fragrance-free Size: 50ML",
+    "price": "RM390.00",
+    "title": "Dermobooster Regenerative Solution"
+  },
+  {
+    "description": "A luxurious daily moisturizer with a silky, biomimetic texture that creates a satin-like lifting film on the skin’s surface. Its delicate fragrance enhances the ritual with a sense of well-being. Day after day, this universal cream delivers complete pro-youth action, visibly reducing the signs of ageing while preserving radiance and vitality.",
+    "handle": "secrets-de-sothys%C2%AE-la-creme-premium-youth-cream",
+    "image": "/products/product-032.png",
+    "meta": "Skin type: All skin typesTexture: CreamScents: Fruity, WoodySize: 50ML",
+    "price": "RM1,290.00",
+    "title": "Secrets De Sothys® La Crème Premium Youth Cream"
+  },
+  {
+    "description": "Gently removes all types of eye and lip make-up, even waterproof, without leaving greasy residue. Ophthalmologically tested and suitable for sensitive eyes and contact lens wearers.",
+    "handle": "eye-lip-make-up-removing-fluid",
+    "image": "/products/product-033.png",
+    "meta": "Skin type: All Skin TypesTexture: FluidScents: Fragrance FreeSize: 100ML",
+    "price": "RM230.00",
+    "title": "Eye & Lip Make-Up Removing Fluid"
+  },
+  {
+    "description": "Designed to help your skin combat the effects of all the aggression it suffers. Protect and treat your skin from harmful blue lights and UV rays that accelerate the process of skin aging.",
+    "handle": "glow%E2%84%A2-defense-serum",
+    "image": "/products/product-034.png",
+    "meta": "Skin type: All Skin Types Texture: Fluid Scents: Citrus, Fresh, Anise Size: 30ML",
+    "price": "RM800.00",
+    "title": "Glow™ Defense Serum"
+  },
+  {
+    "description": "This haute couture serum holds 17,000 precious drops, each infused with high-performance actives to target visible signs of ageing. Its secret: Revitalizing peptides Retinol-like sea fennel Pro-enhancing polysaccharides Energy-boosting and firming postbiotic",
+    "handle": "secrets-de-sothys%C2%AE-le-serum-50ml",
+    "image": "/products/product-035.jpg",
+    "meta": "Skin type: All Skin Types Texture: Gel Scents: Fragrance based on heart of peach Size: 50ML",
+    "price": "RM1,950.00",
+    "title": "Secrets De Sothys® Le Serum 50ML"
+  },
+  {
+    "description": "Inspired by Japanese beauty rituals, this silky shower cream gently cleanses while enveloping your skin in the delicate fragrance of cherry blossom and lotus. Skin is left soft, satiny, and beautifully perfumed.",
+    "handle": "hanakasumi-shower-cream-cherry-blossom-lotus-escape",
+    "image": "/products/product-036.png",
+    "meta": "Skin type: All Skin Types Texture: Cream Scents: Floral, Musky, Powdery Size: 200ML",
+    "price": "RM260.00",
+    "title": "Hanakasumi Shower Cream Cherry Blossom & Lotus Escape"
+  },
+  {
+    "description": "A masterpiece of skincare luxury, infused with Sothys rose stem cells and precious porcelain flower oil. This cream works to: ∙ Re-establish skin integrity with repairing action. ∙ Preserve the foundations of youthful skin with preventive action.",
+    "handle": "secrets-la-creme-128-refill",
+    "image": "/products/product-037.png",
+    "meta": "Skin type: All skin types Texture: Cream Scents: Floral, Fruity, Cyprus Size: 50ML",
+    "price": "RM2,470.00",
+    "title": "Secrets La Crème 128 Refill"
+  },
+  {
+    "description": "A rich, comforting cream that deeply nourishes and restores skin balance. Its velvety texture melts into the skin, replenishing suppleness while protecting against daily stressors and visible signs of ageing. Skin feels stronger, softer, and beautifully renewed.",
+    "handle": "nutritive-replenishing-rich-cream",
+    "image": "/products/product-038.png",
+    "meta": "Skin type: All Skin Type Texture: Cream Scents: Floral, Fruity, Passion Size: 50ML",
+    "price": "RM500.00",
+    "title": "Nutritive Replenishing Rich Cream"
+  },
+  {
+    "description": "This intensive 7-day ampoule program is enriched with high-performance active ingredients to help regenerate and strengthen sensitive skin. In just one week, redness is visibly reduced, discomfort is eased, and skin feels soothed and balanced.",
+    "handle": "pro-dermobooster-ampoule-relief",
+    "image": "/products/product-039.png",
+    "meta": "Skin type: Rosacea or skin with redness Texture: Aqueous Scents: Fragrance-free Size: 1.5ML X 7",
+    "price": "RM290.00",
+    "title": "Pro Dermobooster - Ampoule Relief 7x1.5ml"
+  },
+  {
+    "description": "A soft, soothing cream designed to reduce visible redness and bring instant comfort to skin prone to occasional or persistent sensitivity. Enriched with calming active ingredients, it helps diminish the appearance of redness day after day, leaving the complexion more even and balanced. Product advantage: Its subtle green tint provides an immediate colour-correcting effect to visibly neutralize redness.",
+    "handle": "dermobooster-relief-cream",
+    "image": "/products/product-040.png",
+    "meta": "Skin type: Rosacea or skin with rednessTexture: CreamScents: Citrus, Floral, GreenSize: 50ML",
+    "price": "RM330.00",
+    "title": "Dermobooster Relief Cream"
+  },
+  {
+    "description": "A concentrated serum with a multi-active formula that helps reduce redness and calm skin reactions caused by external aggressors. Infused with deeply soothing ingredients, including centella asiatica known for its regenerating properties, this serum immediately comforts sensitive skin and restores a more even, balanced complexion.",
+    "handle": "dermobooster-relief-serum",
+    "image": "/products/product-041.png",
+    "meta": "Skin type: Rosacea or skin with redness Texture: Emulsion Scents: Citrus, Floral, Green Size: 20ML",
+    "price": "RM330.00",
+    "title": "Dermobooster Relief Serum"
+  },
+  {
+    "description": "This serum with its melting texture helps visibly fill existing wrinkles, smooth the skin surface and limit signs of ageing.",
+    "handle": "wrinkle-specific-youth-serum",
+    "image": "/products/product-042.png",
+    "meta": "Skin type: All skin typesTexture: FluidScents: Floral, Fruity, MuskySize: 30ML",
+    "price": "RM660.00",
+    "title": "Wrinkle Specific Youth Serum"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "youthful-complexion-ivory-30ml",
+    "image": "",
+    "meta": "",
+    "price": "RM290.00",
+    "title": "Youthful Complexion Ivoire 30ml"
+  },
+  {
+    "description": "This cream helps visibly smooth wrinkles and reduce signs of skin slackening. The face appears lifted, firmer, and revitalized—revealing youthful-looking skin.",
+    "handle": "firming-youth-cream",
+    "image": "/products/product-044.png",
+    "meta": "Skin type: Normal or combination skin Texture: Cream Scents: Citrus, Floral, Powdery Size: 50ML",
+    "price": "RM530.00",
+    "title": "Firming Youth Cream"
+  },
+  {
+    "description": "A gel cleanser powered by glycolic acid and salicylic acid to deeply cleanse and gently exfoliate the skin. It helps remove surface dead cells, refine pores, smooth uneven texture, and restore a healthy glow. Ideal for oily or problem skin, uneven skin tone, visible pores, sun-damaged or dull complexions. Not recommended for sensitive skin.",
+    "handle": "glysalac-skin-preparer",
+    "image": "/products/product-045.png",
+    "meta": "Skin type: All skin types, except sensitized and reactive skinTexture: GelScents: Floral, Citrus, GreenSize: 200ML",
+    "price": "RM330.00",
+    "title": "Dermobooster Glysalac Skin Preparer"
+  },
+  {
+    "description": "This iconic deep cleanser from SOTHYS is enriched with pomegranate enzymes and phytosqualane for guaranteed deep cleansing, a radiant complexion, and supple skin.",
+    "handle": "desquacrem-1",
+    "image": "/products/product-046.png",
+    "meta": "Skin type: All Skin TypesTexture: Soapy paste that transforms into a milky, water-activated foamScents: Floral, Musky, WoodySize: 50ML",
+    "price": "RM290.00",
+    "title": "Desquacrem"
+  },
+  {
+    "description": "A lightweight daily cream with a second-skin effect, designed to visibly reduce pigmentation imperfections while preserving skin’s youthful radiance. Your everyday ally for a more even, luminous complexion. Skin type: All Skin Type Texture: Cream Scents: Citrus, Floral, Green Size: 50ml",
+    "handle": "flawless-complexion-cream",
+    "image": "/products/product-047.png",
+    "meta": "A lightweight daily cream with a second-skin effect, designed to visibly reduce pigmentation imperfections while preserving skin’s youthful radiance. Your everyday ally for a more even, luminous complexion. Skin type: All Skin Type Texture: Cream Scents: Citrus, Floral, Green Size: 50ml",
+    "price": "RM390.00",
+    "title": "Flawless Complexion Cream"
+  },
+  {
+    "description": "A gentle yet powerful serum that instantly calms discomfort and reduces visible signs of sensitivity. Perfect for both sensitive skin (daily comfort) and sensitized skin (occasional flare-ups), it works like an SOS treatment to restore balance and comfort.",
+    "handle": "soothing-sos-serum",
+    "image": "/products/product-048.png",
+    "meta": "Skin type: Sensitive SkinTexture: FluidScents: Fragrance FreeSize: 20ML",
+    "price": "RM330.00",
+    "title": "Soothing SOS Serum"
+  },
+  {
+    "description": "This serum inspired by dermo-aesthetic techniques smooths the lids leaving them defined and radiant with youth. Its synergy of high definition active ingredients visibly lifts the eyelids.",
+    "handle": "eyelid-lifting-serum",
+    "image": "/products/product-049.png",
+    "meta": "Skin type: All skin types Texture: Serum Scents: Fragrance-free Size: 20ML",
+    "price": "RM390.00",
+    "title": "Eyelid Lifting Serum"
+  },
+  {
+    "description": "Say goodbye to expression lines with this high-precision wrinkle corrector. Formulated with a dermo-relaxing peptide complex, it helps reduce the look of tension in facial features while visibly softening and filling wrinkles. Clinical studies conducted with dermatologists and botulinum toxin users confirm its effectiveness. Designed for targeted, wrinkle-to-wrinkle application.",
+    "handle": "bx-wrinkle-corrector",
+    "image": "/products/product-050.png",
+    "meta": "Skin type: All skin typeTexture: Very fluid cream gel, emulsifies with waterScents: Fragrance-freeSize: 15ML",
+    "price": "RM590.00",
+    "title": "Dermobooster BX Wrinkle Corrector 15ml"
+  },
+  {
+    "description": "Instantly refresh and revive tired eyes. This roll-on combines marine-origin actives with caffeine to visibly reduce puffiness and signs of fatigue. Its cooling triple metal-ball applicator delivers a cryo effect that soothes, depuffs, and brightens in one step.",
+    "handle": "anti-puffiness-cryo-roll-on",
+    "image": "/products/product-051.png",
+    "meta": "Skin type: All Skin TypesTexture: Gel with RollerScents: Fragrance FreeSize: 15ML",
+    "price": "RM390.00",
+    "title": "Anti-Puffiness Cryo Roll-On"
+  },
+  {
+    "description": "Complete your brightening routine with this radiance-boosting mask. Enriched with Vitamin C and kaolin, it helps diminish pigmentation imperfections while leaving skin luminous, smooth, and refreshed. A rich, creamy texture transforms masking into a true moment of relaxation. Skin type: All Skin Type Texture: Cream Scents: Citrus, Floral, Green Size: 50ml",
+    "handle": "illuminating-mask",
+    "image": "/products/product-052.png",
+    "meta": "Complete your brightening routine with this radiance-boosting mask. Enriched with Vitamin C and kaolin, it helps diminish pigmentation imperfections while leaving skin luminous, smooth, and refreshed. A rich, creamy texture transforms masking into a true moment of relaxation. Skin type: All Skin Type Texture: Cream Scents: Citrus, Floral, Green Size: 50ml",
+    "price": "RM290.00",
+    "title": "Illuminating Mask"
+  },
+  {
+    "description": "This fine, lightweight cream with a matte finish is specially formulated to balance oily skin.It absorbs excess sebum while maintaining essential hydration. With daily use, skin feels smoother, softer, and visibly rebalanced.",
+    "handle": "dermobooster-purifying-cream",
+    "image": "/products/product-053.png",
+    "meta": "Skin type: Combination to oily skin Texture: Fine, light cream with a matte finish Scents: Citrus, Floral, Green Size: 50ML",
+    "price": "RM250.00",
+    "title": "Dermobooster Purifying Cream"
+  },
+  {
+    "description": "An instant relief treatment for sensitive skin. This creamy mask envelops the skin in a soft, comforting texture to soothe, reduce redness, and restore balance. Skin feels calm, supple, and refreshed after every use.",
+    "handle": "nutri-soothing-mask",
+    "image": "/products/product-054.png",
+    "meta": "Skin type: Sensitive SkinTexture: CreamScents: Fragrance FreeSize: 50ML",
+    "price": "RM300.00",
+    "title": "Nutri-Soothing Mask"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "dem-hydra-protec-serum-20ml",
+    "image": "",
+    "meta": "",
+    "price": "RM290.00",
+    "title": "DEM.HYDRA PROTEC.SERUM 20ML"
+  },
+  {
+    "description": "The firming youth cream allow to visibly smooth wrinkles, and limit the visible signs of skin slackening",
+    "handle": "firming-comfort-youth-cream",
+    "image": "/products/product-056.png",
+    "meta": "Skin type: Normal to dry skin Texture: Cream Scents: Citrus, Floral, Powdery Size: 50ML",
+    "price": "RM530.00",
+    "title": "Firming Comfort Youth Cream"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "perfect-mask-protective-cream-50ml",
+    "image": "",
+    "meta": "",
+    "price": "RM580.00",
+    "title": "PERFECT MASK + PROTECTIVE CREAM 50ML"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "demo-ss-shimmering-lotion-200ml",
+    "image": "",
+    "meta": "",
+    "price": "RM290.00",
+    "title": "DEMO.SS SHIMMERING LOTION 200ML"
+  },
+  {
+    "description": "An advanced night cream enriched with niacinamide, enzymes, and probiotics, specially formulated to support the skin’s natural renewal process while you sleep. Suitable for all skin types, it delivers visible results from the very first skin renewal cycle—leaving skin smoother, more radiant, and refreshed upon waking.",
+    "handle": "noctazyme-enhancing-cream",
+    "image": "/products/product-059.png",
+    "meta": "Skin type: All skin typeTexture: Ultra-meltingScents: Citrus, Floral, GreenSize: 50ML",
+    "price": "RM390.00",
+    "title": "Dermobooster Noctazyme Enhancing Cream"
+  },
+  {
+    "description": "Your 7-day intensive solution for young, acne-prone skin. Specifically designed for use on the T-zone, this targeted treatment helps to purify oily skin, smooth texture, and visibly reduce blemishes. Enriched with high-performance active ingredients, each ampoule delivers precise, powerful results. Bonus: The roll-on applicator ensures easy, mess-free application right where your skin needs it most.",
+    "handle": "pro-dermobooster-ampoule-correcting",
+    "image": "/products/product-060.png",
+    "meta": "Skin type: Combination to oily skinTexture: Aqueous, slightly texturedScents: Fragrance-freeSize: 1.5ML X 7",
+    "price": "RM290.00",
+    "title": "Pro Dermobooster Ampoule - Correcting 7x1.5ml"
+  },
+  {
+    "description": "A gentle cleansing milk with witch hazel extract that removes makeup, pollution, and daily impurities while helping to purify and unify the complexion. Leaves acne-prone skin feeling fresh, calm, and comfortable.",
+    "handle": "clarity-cleansing-milk",
+    "image": "/products/product-061.png",
+    "meta": "Skin type: Fragile Capillaries Texture: Milk Scents: Floral, Powdery, Woody Size: 200ML",
+    "price": "RM290.00",
+    "title": "Clarity Cleansing Milk 200ml"
+  },
+  {
+    "description": "A light milk cleanser with iris extract to remove make-up and purify. Free your skin from superficial impurities (Make-up, pollution, dust).",
+    "handle": "purity-cleansing-milk",
+    "image": "/products/product-062.png",
+    "meta": "Skin type: Oily Skin Texture: Milk Scents: Floral, Fresh, Green Size: 200ML",
+    "price": "RM290.00",
+    "title": "Purity Cleansing Milk 200ml"
+  },
+  {
+    "description": "A delicate toner with witch hazel extract to calm, freshen, and reinforce fragile or redness-prone skin after cleansing.",
+    "handle": "clarity-lotion",
+    "image": "/products/product-063.png",
+    "meta": "Skin type: Fragile Capillaries Texture: Lotion Scents: Floral, Powdery, Woody Size: 200ML",
+    "price": "RM290.00",
+    "title": "Clarity Lotion 200ml"
+  },
+  {
+    "description": "A bi-phase toner with iris extract that purifies, mattifies, and refreshes acne-prone skin after cleansing — without stripping",
+    "handle": "purity-lotion",
+    "image": "/products/product-064.png",
+    "meta": "Skin type: Oily Skin Texture: Lotion Scents: Floral, Fresh, Green Size: 200ML",
+    "price": "RM290.00",
+    "title": "Purity Lotion 200ml"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "youthful-complexion-vanilla-30ml",
+    "image": "",
+    "meta": "",
+    "price": "RM290.00",
+    "title": "Youthful Complexion Vanille 30ml"
+  },
+  {
+    "description": "Comfort Lotion:",
+    "handle": "comfort-cleansing-milk-comfort-lotion-1x-24-glow-defense-kit-glow-defense-serum-10ml-glow-defense-cream-15ml-set",
+    "image": "/products/product-066.png",
+    "meta": "Skin type: Dry & Sensitive SkinTexture: MilkScents: Fragrance FreeSize: 400ML",
+    "price": "Price on request",
+    "title": "Comfort Cleansing Milk 400ML+ Comfort Lotion 400ML Set"
+  },
+  {
+    "description": "This cream visibly smooths fine lines and wrinkles, helps maintain skin tone, and supports a more even complexion. Day by day, the skin looks refreshed, smoother, and more youthful.",
+    "handle": "wrinkle-targeting-youth-cream",
+    "image": "/products/product-067.png",
+    "meta": "Skin type: Normal or combination skin Texture: Cream Scents: Citrus, Floral, Powdery Size: 50ML",
+    "price": "RM530.00",
+    "title": "Wrinkle-Targeting Youth Cream"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "blue-pouch-hydra-promo",
+    "image": "",
+    "meta": "",
+    "price": "RM0.00",
+    "title": "Blue Pouch - Hydra Promo"
+  },
+  {
+    "description": "A restorative balm specially formulated to support skin that has been left ultra-weakened by dermo-aesthetic procedures. Its comforting formula helps to restore balance, replenish moisture, and soothe discomfort. Suitable for both face and body, it provides daily care to help skin regain strength and resilience. Result: Skin feels calmer, more comfortable, and gradually returns to its natural balance.",
+    "handle": "dermobooster-repair-balm",
+    "image": "/products/product-069.png",
+    "meta": "Skin type: All skin typesTexture: Enveloping balmScents: Fragrance-freeSize: 50ML",
+    "price": "RM390.00",
+    "title": "Dermobooster Repair Balm"
+  },
+  {
+    "description": "A gentle weekly cream mask powered by two clays to purify, mattify, and rebalance the skin. It helps minimize imperfections, tighten pores, and leave the skin feeling fresh, smooth, and refined. Can also be applied as a targeted overnight treatment on blemishes to help reduce inflammation.",
+    "handle": "purifying-two-clay-mask",
+    "image": "/products/product-070.png",
+    "meta": "Skin type: Combination to oily skin Texture: Cream Scents: Floral, Fresh Size: 50ML",
+    "price": "RM230.00",
+    "title": "Purifying Two-Clay Mask"
+  },
+  {
+    "description": "Lightweight daily protection for sensitive, combination skin. This fresh fluid is enriched with Spa™ Thermal Water from the Belgian Ardennes, known since the 16th century for its soothing benefits. Fragrance-free and specially formulated to respect and comfort fragile, sensitive, or temporarily sensitized skin.",
+    "handle": "soothing-melting-fluid",
+    "image": "/products/product-071.png",
+    "meta": "Skin type: Sensitive Skin Texture: Fluid Scents: Fragrance Free Size: 50ML",
+    "price": "RM340.00",
+    "title": "Soothing Melting Fluid"
+  },
+  {
+    "description": "The redensifying youth cream allow to restore a radiant complexion that is full of vitality while reducing the visible signs of ageing.",
+    "handle": "redensifying-youth-cream",
+    "image": "/products/product-072.png",
+    "meta": "Skin type: All skin types Texture: Cream Scents: Citrus, Floral, Powdery Size: 50ML",
+    "price": "RM530.00",
+    "title": "Redensifying Youth Cream"
+  },
+  {
+    "description": "A daily essential for sensitive, dry-prone skin. This comforting cream, enriched with Spa™ Thermal Water from the Belgian Ardennes, helps calm, protect, and restore fragile skin while reinforcing its natural defenses. Fragrance-free and specially formulated for maximum tolerance.",
+    "handle": "soothing-velvet-cream",
+    "image": "/products/product-073.png",
+    "meta": "Skin type: Sensitive Skin Texture: Cream Scents: Fragrance Free Size: 50ML",
+    "price": "RM340.00",
+    "title": "Soothing Velvet Cream"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "youthful-complexion-ficelle-30ml",
+    "image": "",
+    "meta": "",
+    "price": "RM290.00",
+    "title": "Youthful Complexion Ficelle 30ml"
+  },
+  {
+    "description": "This hydra-nourishing body lotion restores the skin’s protective film, leaving it soft and comfortable.",
+    "handle": "dx-body-hydra-nourishing-body-lotion",
+    "image": "/products/product-075.png",
+    "meta": "Skin type: All skin types Texture: Milk Scents: Floral, Fruity, Green Size: 200ML",
+    "price": "RM290.00",
+    "title": "DX Body Hydra-Nourishing Body Lotion"
+  },
+  {
+    "description": "A lightweight serum with a soft matte finish that targets uneven skin tone, visible pores, and surface wrinkles. Skin looks smoother, more refined, and more even day after day.",
+    "handle": "unifying-youth-serum",
+    "image": "/products/product-076.png",
+    "meta": "Skin type: All skin types Texture: Cream Scents: Floral, Fruity, Musky Size: 30ML",
+    "price": "RM660.00",
+    "title": "Unifying Youth Serum"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "perfecting-mask-50ml",
+    "image": "",
+    "meta": "",
+    "price": "RM290.00",
+    "title": "Perfecting Mask 50ml"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "hydra-protective-serum-20ml",
+    "image": "",
+    "meta": "",
+    "price": "RM290.00",
+    "title": "Hydra Protective Serum 20ml"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "hydra-protective-cream-50ml",
+    "image": "",
+    "meta": "",
+    "price": "RM290.00",
+    "title": "Hydra Protective Cream 50ml"
+  },
+  {
+    "description": "Vitality Lotion:",
+    "handle": "vitality-cleansing-milk-vitality-lotion-1x-24-glow-defense-kit-glow-defense-serum-10ml-glow-defense-cream-15ml-set",
+    "image": "/products/product-080.png",
+    "meta": "A refreshing, lightweight milk with grapefruit extract that gently removes makeup, pollution, and impurities—leaving skin soft, clean, and toned.Skin type: Normal to combination skinTexture: MilkScents: Citrus, FreshSize: 400ML",
+    "price": "Price on request",
+    "title": "Vitality Cleansing Milk 400ML+ Vitality Lotion 400ML Set"
+  },
+  {
+    "description": "The 7-day intensive solution for adult acne-prone skin, specially designed for the U-zone (jawline, cheeks, chin) where hormonal or stress-related breakouts often appear. This treatment works to rebalance skin, reduce blemishes, and restore a clearer, more even complexion. Enriched with zinc derivative and succinic acid, the formula helps regulate skin imbalances while refining texture for healthier-looking skin.",
+    "handle": "pro-dermobooster-ampoule-clarifying",
+    "image": "/products/product-081.png",
+    "meta": "Skin type: Combination to oily skin Texture: Aqueous, slightly textured Scents: Fragrance-free Size: 1.5ML X 7",
+    "price": "RM290.00",
+    "title": "Pro Dermobooster Ampoule - Clarifying 7x1.5ml"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "multivit-discovery-kit-trial",
+    "image": "",
+    "meta": "",
+    "price": "RM370.00",
+    "title": "MULTIVIT DISCOVERY KIT-TRIAL"
+  },
+  {
+    "description": "Ideal for all skin types, this 2-in-1 cleansing water removes face and eye make-up and impurities in a single step — no rinsing needed. Gentle yet effective, it leaves your skin clean and ready for toner. Perfect for: busy mornings, travel, post-gym refresh, or when you want a convenient cleanse without packing multiple products.",
+    "handle": "micellar-cleansing-water",
+    "image": "/products/product-083.png",
+    "meta": "Skin type: All Skin TypesTexture: LotionScents: Fragrance FreeSize: 200ML",
+    "price": "RM240.00",
+    "title": "Micellar Cleansing Water"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "tr-perfecting-mask-15ml",
+    "image": "",
+    "meta": "",
+    "price": "RM100.00",
+    "title": "Tr. Perfecting Mask 15ml"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "tr-hydra-protectuive-serum-10ml",
+    "image": "",
+    "meta": "",
+    "price": "RM170.00",
+    "title": "Tr. Hydra Protectuive Serum 10ml"
+  },
+  {
+    "description": "A creamy emulsion that absorbs quickly to preserve the balance, natural radiance, and youthfulness of normal to combination skin. Featuring Postbiotic Lactobacillus bulgaricus, this formula promotes gentle cell renewal to refine skin texture and maintain an even, shine-free complexion.",
+    "handle": "hydra-protective-cream",
+    "image": "/products/product-086.png",
+    "meta": "Skin type: Normal to Combination SkinTexture: Creamy emulsion, excellent absorbencyScents: Citrus, Tangy GrapefruitSize: 50ML",
+    "price": "RM290.00",
+    "title": "Multivit Hydra Protective Cream"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "youthful-complexion-lin-30ml",
+    "image": "",
+    "meta": "",
+    "price": "RM290.00",
+    "title": "Youthful Complexion Lin 30ml"
+  },
+  {
+    "description": "Inspired by lipofilling techniques, this serum restructures the lip tissue for naturally plumper and fuller lips. With its hyaluronic injection-like complex, the serum plumps the lips intensely for a 3D effect while smoothing out wrinkles and fine lines around the contour.",
+    "handle": "lip-plumping-serum",
+    "image": "/products/product-088.png",
+    "meta": "Skin type: All skin types Texture: Serum Scents: Fragrance-free Size: 20ML",
+    "price": "RM380.00",
+    "title": "Lip Plumping Serum"
+  },
+  {
+    "description": "A masterpiece of skincare luxury, infused with Sothys rose stem cells and precious porcelain flower oil. This cream works to: ∙ Re-establish skin integrity with repairing action. ∙ Preserve the foundations of youthful skin with preventive action.",
+    "handle": "secrets-la-creme-127",
+    "image": "/products/product-089.png",
+    "meta": "Skin type: All skin types Texture: Cream Scents: Floral, Fruity, Cyprus Size: 50ML",
+    "price": "RM3,190.00",
+    "title": "Secrets La Crème 128"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "secrets-enhancing-scented-body-creamwithout-box",
+    "image": "",
+    "meta": "",
+    "price": "RM420.00",
+    "title": "SECRETS ENHANCING SCENTED BODY CREAM[WITHOUT BOX]"
+  },
+  {
+    "description": "Multivit Discovery Kit Trial Size",
+    "handle": "multivit-discovery-trial-size-kit",
+    "image": "/products/product-091.png",
+    "meta": "Skin type: Normal to Combination SkinTexture: Cream & EmulsionScents: Citrus, Tangy Grapefruit",
+    "price": "RM370.00",
+    "title": "Multivit Discovery Kit Trial Size"
+  },
+  {
+    "description": "Note: The Multivit Serum comes in demo packaging without the outer box, with the same formula and volume as the standard product.",
+    "handle": "multivit-perfecting-mask-50ml-hydra-protective-cream-50ml-hydra-protective-serum-20ml-set",
+    "image": "/products/product-092.png",
+    "meta": "Skin type: Normal to Combination Skin",
+    "price": "Price on request",
+    "title": "MULTIVIT TRIO SET - Serum + Cream + Mask"
+  },
+  {
+    "description": "A dual-action mask that balances the T-zone and renews the U-zone, combining the lightness of a cream with the effectiveness of a mask. Featuring a high 10% Niacinamide concentration and a cooling effect, this formula gently renews the skin to leave it soft and smooth. With regular use, skin texture is refined and pores are visibly tightened. This mask effectively reduces excess shine and smooths the skin, leaving the complexion more even, radiant, and soft to the touch.",
+    "handle": "perfecting-mask",
+    "image": "/products/product-093.png",
+    "meta": "Skin type: Normal to Combination SkinTexture: A soft, creamy cream that transforms into a gel when appliedScents: Citrus, Tangy GrapefruitSize: 50ML",
+    "price": "RM290.00",
+    "title": "Multivit Perfecting Mask"
+  },
+  {
+    "description": "Designed to protect and enhance the quality of normal to combination skin, this serum revitalizes the complexion while preserving its natural vitality. It is specifically formulated to address the first signs of aging and provide balance during skin changes related to the menstrual cycle.",
+    "handle": "hydra-protective-serum",
+    "image": "/products/product-094.png",
+    "meta": "Skin type: Normal to Combination SkinTexture: Lightly textured fluid emulsionScents: Citrus, Fruity, Tangy GrapefruitSize: 20ML",
+    "price": "RM290.00",
+    "title": "Multivit Hydra Protective Serum"
+  },
+  {
+    "description": "This refreshing gel gently cleanses impurities from the skin, with its formula containing aloe vera extract. Skin is revived and ready for the treatment ritual. Product benefit: Ideal for contouring beards. Can also be used daily to shave shorter hairs.",
+    "handle": "homme-facial-cleansing-gel-eden-park",
+    "image": "/products/product-095.png",
+    "meta": "Skin type: All skin typesTexture: GelScents: Citrus, Musky, WoodySize: 125ML",
+    "price": "RM250.00",
+    "title": "Homme Facial Cleansing Gel Eden Park"
+  },
+  {
+    "description": "Multivit Sample - Nurture & Conversion Flow",
+    "handle": "sothys-multivit-email-sample-kit-3-sachets",
+    "image": "",
+    "meta": "",
+    "price": "RM0.00",
+    "title": "SOTHYS MULTIVIT Email Sample Kit (3 Sachets)"
+  },
+  {
+    "description": "Your Daily Hydration ShieldWith patented actives and hyaluronic acid, this cream hydrates, plumps, and smooths while strengthening skin’s moisture memory.Satin Cream – normal to combination skin",
+    "handle": "hydra-hyaluronic-acid-satin-youth-cream-set",
+    "image": "/products/product-097.png",
+    "meta": "Skin type: Normal or combination skinTexture: CreamScents: Aquatic, Floral, MuskySize: 50ML",
+    "price": "RM490.00",
+    "title": "Hydra Hyaluronic Acid⁴ Satin Youth Cream Set"
+  },
+  {
+    "description": "Daily cleanser suitable for morning and evening use, ideal for double cleansing (use after makeup removal). Start your day with fresh, balanced skin. This gentle cream cleanser enriched with exfoliating pomegranate enzymes, chamomile extract and sweet almond oil gently removes overnight impurities while softening and soothing the skin. Leaves your complexion clean, comfortable, and ready for skincare. Skin is supple and softness are restored day after day.",
+    "handle": "morning-cleanser-set",
+    "image": "/products/product-098.png",
+    "meta": "Skin type: All Skin TypesTexture: CreamScents: Floral, Citrus, WoodySize: 125ML",
+    "price": "RM370.00",
+    "title": "Morning Cleanser Set"
+  },
+  {
+    "description": "This iconic deep cleanser from SOTHYS is enriched with pomegranate enzymes and phytosqualane for guaranteed deep cleansing, a radiant complexion, and supple skin.",
+    "handle": "desquacrem-set",
+    "image": "/products/product-099.png",
+    "meta": "Skin type: All Skin TypesTexture: Soapy paste that transforms into a milky, water-activated foamScents: Floral, Musky, WoodySize: 50ML",
+    "price": "RM290.00",
+    "title": "Desquacrem Set"
+  },
+  {
+    "description": "The 7-day intensive solution for adult acne-prone skin, specially designed for the U-zone (jawline, cheeks, chin) where hormonal or stress-related breakouts often appear. This treatment works to rebalance skin, reduce blemishes, and restore a clearer, more even complexion.Enriched with zinc derivative and succinic acid, the formula helps regulate skin imbalances while refining texture for healthier-looking skin.",
+    "handle": "sothys-blue-pouch-clarifying-ampoule-set",
+    "image": "/products/product-100.png",
+    "meta": "Skin type: Combination to oily skinTexture: Aqueous, slightly texturedScents: Fragrance-freeSize: 1.5ML X 7",
+    "price": "RM290.00",
+    "title": "Pro Dermobooster Clarifying Ampoule Set"
+  },
+  {
+    "description": "Your 7-day intensive solution for young, acne-prone skin. Specifically designed for use on the T-zone, this targeted treatment helps to purify oily skin, smooth texture, and visibly reduce blemishes. Enriched with high-performance active ingredients, each ampoule delivers precise, powerful results. Bonus: The roll-on applicator ensures easy, mess-free application right where your skin needs it most.",
+    "handle": "sothys-blue-pouch-correcting-ampoule-set",
+    "image": "/products/product-101.png",
+    "meta": "Skin type: Combination to oily skinTexture: Aqueous, slightly texturedScents: Fragrance-freeSize: 1.5ML X 7",
+    "price": "RM290.00",
+    "title": "Pro Dermobooster Correcting Ampoule Set"
+  },
+  {
+    "description": "This intensive 7-day ampoule program is infused with powerful youth-restoring ingredients to deliver firmer, smoother, more radiant skin. Formulated with plant collagen, it helps boost elasticity, smooth fine lines, and visibly reduce wrinkles. After just one week, the skin appears lifted and rejuvenated with a renewed youthful glow.",
+    "handle": "sothys-blue-pouch-youth-ampoule-set",
+    "image": "/products/product-102.png",
+    "meta": "Skin type: All skin typesTexture: Aqueous, slightly texturedScents: Fragrance-freeSize: 1.5ML X 7Set contains:1x Pro Dermobooster Youth Ampoule , 5x Noctuelle Night Cream Sachets, 1x Hydra Plumping Mask 15ML",
+    "price": "RM290.00",
+    "title": "Pro Dermobooster Youth Ampoule Set"
+  },
+  {
+    "description": "This intensive 7-day ampoule program is enriched with high-performance active ingredients to help regenerate and strengthen sensitive skin. In just one week, redness is visibly reduced, discomfort is eased, and skin feels soothed and balanced.",
+    "handle": "sothys-blue-pouch-relief-ampoule-set",
+    "image": "/products/product-103.png",
+    "meta": "Skin type: Rosacea or skin with rednessTexture: AqueousScents: Fragrance-freeSize: 1.5ML X 7Set contains:1x Pro Dermobooster Relief Ampoule , 5x Noctuelle Night Cream Sachets, 1x Hydra Plumping Mask 15ML",
+    "price": "RM290.00",
+    "title": "Pro Dermobooster Relief Ampoule Set"
+  },
+  {
+    "description": "This iconic ampoule, enriched with ultra-hydrating active ingredients, delivers an intense moisture boost for visibly plumper, softer, and more supple skin. In just 7 days of concentrated action, it restores hydration levels and enhances the effectiveness of your daily serum and cream ritual.",
+    "handle": "sothys-embroidery-blue-pouch",
+    "image": "/products/product-104.png",
+    "meta": "Skin type: All skin typesTexture: Aqueous, very slightly textured, immediate absorptionScents: Fresh, Musky, WoodySize: 1.5ML X 7Set contains:1x Pro Dermobooster Moisturizing Ampoule , 5x Noctuelle Night Cream Sachets, 1x Hydra Plumping Mask 15ML",
+    "price": "RM290.00",
+    "title": "Pro Dermobooster Moisturizing Ampoule Set"
+  },
+  {
+    "description": "Professional Sothys skincare.",
+    "handle": "tr-hydra-protective-cream-15ml",
+    "image": "",
+    "meta": "",
+    "price": "RM100.00",
+    "title": "Tr. Hydra Protective Cream 15ml"
+  }
+]

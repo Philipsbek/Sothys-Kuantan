@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact Us">
+  <section class="page-hero shell">
+    <p class="eyebrow">Contact us</p>
+    <h1 class="display display-sm">Questions?<br />Let’s talk skin.</h1>
+    <div class="intro-grid"><p class="eyebrow">Customer care</p><p>Tell us what you’re looking for. Our team can help with products, treatments, orders, and salon information.</p></div>
+  </section>
+  <section class="contact-grid shell">
+    <div class="contact-details">
+      <div class="contact-line"><p class="label">Visit</p><p>43, Jalan Putra Square 3,<br />China Town,<br />25200 Kuantan, Pahang</p></div>
+      <div class="contact-line"><p class="label">Mobile / WhatsApp</p><a href="tel:+60129816966">012-981 6966</a></div>
+      <div class="contact-line"><p class="label">Salon line</p><a href="tel:+6095173699">09-517 3699</a></div>
+      <div class="contact-line"><p class="label">Email</p><a class="blue-link" style="margin-top: 0;" href="mailto:ivonliew@gmail.com">ivonliew@gmail.com</a></div>
+      <div class="contact-line"><p class="label">Opening hours</p><p>Monday: Closed<br />Tuesday–Friday: 10am–7pm<br />Saturday–Sunday: 10am–6pm</p></div>
+      <div class="contact-line"><p class="label">Company</p><p>SOCIETE FRANCAISE DE COSMETIQUES SDN. BHD.<br />199101012729 (223041-P)</p></div>
+    </div>
+    <form class="contact-form" id="contact-form">
+      <div class="field"><label for="name">Name *</label><input id="name" name="name" required autocomplete="name" /></div>
+      <div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" required autocomplete="email" /></div>
+      <div class="field full"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" /></div>
+      <div class="field full"><label for="message">Message *</label><textarea id="message" name="message" rows="7" required></textarea></div>
+      <button class="pill form-submit" type="submit">Send via WhatsApp ↗</button>
+      <p class="form-status" id="form-status" role="status" hidden></p>
+    </form>
+  </section>
+  <script>
+    const form = document.querySelector<HTMLFormElement>('#contact-form');
+    const status = document.querySelector<HTMLElement>('#form-status');
+    const message = form?.querySelector<HTMLTextAreaElement>('#message');
+    const params = new URLSearchParams(window.location.search);
+    const product = params.get('product');
+    const service = params.get('service');
+    if (message && product) message.value = `I'd like to ask about ${product}.`;
+    if (message && service) message.value = `I'd like to ask about the ${service} treatment.`;
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const whatsappMessage = encodeURIComponent(
+        `Hi! I have an enquiry for Sothys Kuantan.\n\nName: ${data.get('name')}\nEmail: ${data.get('email')}\nPhone: ${data.get('phone') || 'Not provided'}\n\nMessage:\n${data.get('message')}`
+      );
+      if (status) { status.hidden = false; status.textContent = 'Opening WhatsApp…'; }
+      window.open(`https://wa.me/60129816966?text=${whatsappMessage}`, '_blank', 'noopener,noreferrer');
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import termsRaw from '../data/terms.txt?raw';
+
+const cleaned = termsRaw.replace(/^Home > Terms of Service\s*/i, '').replace(/^Terms of Service\s*/i, '').trim();
+const chunks = cleaned.split(/\n(?=\d+\.\s)/).map((chunk) => chunk.trim()).filter(Boolean);
+const intro = chunks.shift() || '';
+const sections = chunks.map((chunk, index) => {
+  const [heading, ...rest] = chunk.split('\n');
+  return { id: `section-${index + 1}`, heading, body: rest.join('\n').trim() };
+});
+---
+
+<BaseLayout title="Terms and Conditions">
+  <section class="page-hero shell">
+    <p class="eyebrow">Legal · Last updated 18 November 2025</p>
+    <h1 class="display display-sm">Clear terms.<br />No fine-print fog.</h1>
+    <div class="intro-grid"><p class="eyebrow">Sothys Malaysia</p><p>These terms govern use of the Sothys Malaysia website, products, services, and related policies.</p></div>
+  </section>
+  <section class="legal-layout shell">
+    <aside class="legal-index" aria-label="Terms index">
+      {sections.map((section) => <a href={`#${section.id}`}>{section.heading}</a>)}
+    </aside>
+    <div class="legal-copy">
+      <section class="legal-section"><h2>At a glance</h2><p>{intro}</p></section>
+      {sections.map((section) => <section class="legal-section" id={section.id}><h2>{section.heading}</h2><p>{section.body}</p></section>)}
+    </div>
+  </section>
+</BaseLayout>
