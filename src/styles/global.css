@@ -213,8 +213,8 @@ main { padding-top: 96px; }
   .hero { width: 100%; max-width: none; margin-inline: 0; padding: 112px 14px 90px; }
   .hero-actions { flex-direction: column; }
   .hero-actions a { width: 100%; }
-  .hero-product-stage { margin-top: 54px; border-radius: 18px; }
-  .hero-product-stage img { aspect-ratio: 4 / 5; object-position: center; }
+  .hero-product-stage { margin-top: 32px; border-radius: 18px; }
+  .hero-product-stage img { height: auto; aspect-ratio: auto; object-fit: contain; object-position: center; }
   .home-section { padding: 100px 0; }
   .featured-grid, .catalog-grid, .value-grid { grid-template-columns: 1fr; }
   .principles { padding: 28px 20px; }
