@@ -1,58 +1,77 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProductCard from '../components/ProductCard.astro';
-import { products } from '../data/catalog';
+import { appointmentHref, productCategories, productEnquiryHref, services } from '../data/catalog';
 ---
 
-<BaseLayout title="Professional French Skincare">
+<BaseLayout title="Professional Beauty Treatments" description="Discover personalised professional facial treatments and skin consultations at Sothys Kuantan.">
   <section class="hero shell">
     <div class="hero-copy">
-      <p class="eyebrow">French skincare · Since 1946</p>
-      <h1 class="display">Sothys Kuantan</h1>
-      <p class="lede">Professional skincare shaped by French science, sensorial formulas, and eighty years of institute expertise.</p>
+      <p class="eyebrow">Sothys Kuantan · Professional skin treatments</p>
+      <h1 class="display">Your skin.<br />Our expertise.</h1>
+      <p class="lede">Personalised facial treatments shaped around your concerns, comfort, and treatment goals.</p>
       <div class="hero-actions">
-        <a class="pill" href="/shop">Explore the collection <span>↗</span></a>
-        <a class="pill-secondary" href="/about">Our story</a>
+        <a class="pill" href="/shop">Explore our treatments <span>↗</span></a>
+        <a class="pill-secondary" href={appointmentHref} target="_blank" rel="noopener noreferrer">Book an appointment</a>
       </div>
     </div>
-    <a class="hero-product-stage" href="/shop" aria-label="Explore the Sothys skincare collection">
-      <img src="/sothys-product-flatlay-cutout.png" alt="Five Sothys skincare products arranged in an editorial flat-lay" />
-    </a>
   </section>
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
       {[0, 1, 2, 3, 4].map(() => (
         <div class="marquee-group">
-          <span>Made in France</span><span>Professional expertise</span><span>Power of natural actives</span><span>Visible results</span><span>Committed to nature</span>
+          <span>Personal skin consultation</span><span>Professional expertise</span><span>Targeted facial care</span><span>Visible-looking results</span><span>Relaxing salon experience</span>
         </div>
       ))}
     </div>
   </div>
 
-  <section class="home-section shell">
+  <section class="home-section shell services-intro">
     <div class="heading-block">
-      <p class="eyebrow">The icons</p>
-      <h2 class="section-heading">Skin-first formulas.<br />No guesswork.</h2>
-      <p class="lede">A focused edit of the products Sothys clients return to.</p>
-      <a class="blue-link" href="/shop">See all 105 products</a>
+      <p class="eyebrow">Professional treatments</p>
+      <h2 class="section-heading">Start with your skin.<br />We’ll shape the care.</h2>
+      <p class="lede">Every appointment begins with your concern. Explore our treatment paths, then speak with our team for a personalised recommendation.</p>
     </div>
-    <div class="featured-grid">
-      {products.slice(0, 3).map((product, index) => <ProductCard product={product} index={index} />)}
+    <div class="service-card-grid">
+      {services.slice(0, 6).map((service) => (
+        <a class="service-card" href={service.whatsappHref} target="_blank" rel="noopener noreferrer">
+          <div class="service-card-top"><span>{service.number}</span><span aria-hidden="true">↗</span></div>
+          <div><h3>{service.title}</h3><p>{service.description}</p></div>
+          <strong>{service.outcome}</strong>
+        </a>
+      ))}
+    </div>
+    <div class="section-action"><a class="pill-secondary" href="/shop">View all treatment paths</a></div>
+  </section>
+
+  <section class="consultation-band shell">
+    <div><p class="eyebrow">Not sure where to begin?</p><h2>Your best treatment starts with a conversation.</h2></div>
+    <div>
+      <p>Tell us what your skin is experiencing. Our team will help you choose the most suitable treatment path and appointment.</p>
+      <a class="pill" href={appointmentHref} target="_blank" rel="noopener noreferrer">Ask on WhatsApp <span>↗</span></a>
+    </div>
+  </section>
+
+  <section class="home-section shell product-enquiry-section">
+    <div class="product-enquiry-copy">
+      <p class="eyebrow">Professional homecare</p>
+      <h2 class="section-heading">Support your results<br />between visits.</h2>
+      <p class="lede">We also carry selected Sothys homecare categories in salon. For recommendations, availability, and pricing, contact our team on WhatsApp.</p>
+      <a class="pill" href={productEnquiryHref} target="_blank" rel="noopener noreferrer">Ask about homecare <span>↗</span></a>
+    </div>
+    <div class="product-category-list" aria-label="Available homecare categories">
+      {productCategories.map((category, index) => <div><span>{String(index + 1).padStart(2, '0')}</span><p>{category}</p></div>)}
     </div>
   </section>
 
   <section class="home-section shell" style="padding-top: 0;">
     <div class="principles">
-      <div>
-        <p class="eyebrow">Science meets results</p>
-        <h2>Precision for every skin story.</h2>
-      </div>
+      <div><p class="eyebrow">The Sothys approach</p><h2>Expert hands.<br />Personal care.</h2></div>
       <div class="principle-list">
-        <div class="principle"><span>01</span><p>Made with precision in Corrèze, the heart of French skincare.</p></div>
-        <div class="principle"><span>02</span><p>Advanced research and proven efficacy you can see and feel.</p></div>
-        <div class="principle"><span>03</span><p>Exclusive botanicals cultivated in Les Jardins Sothys™.</p></div>
-        <div class="principle"><span>04</span><p>Sustainable practices designed to protect the planet.</p></div>
+        <div class="principle"><span>01</span><p>A conversation focused on your skin concerns and treatment goals.</p></div>
+        <div class="principle"><span>02</span><p>A professional treatment path selected for your individual needs.</p></div>
+        <div class="principle"><span>03</span><p>French institute expertise delivered in a calm salon setting.</p></div>
+        <div class="principle"><span>04</span><p>Thoughtful homecare guidance to support your salon results.</p></div>
       </div>
     </div>
   </section>

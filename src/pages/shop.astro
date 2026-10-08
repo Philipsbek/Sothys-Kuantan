@@ -1,100 +1,51 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProductCard from '../components/ProductCard.astro';
-import { products, services, categories } from '../data/catalog';
+import { appointmentHref, productCategories, productEnquiryHref, services } from '../data/catalog';
 ---
 
-<BaseLayout title="Shop" description="Browse all Sothys Malaysia skincare products and professional treatment services.">
-  <section class="page-hero shop-hero shell">
-    <p class="eyebrow">Products + services</p>
-    <h1 class="display display-sm">Your skin.<br />Your edit.</h1>
-    <div class="shop-meta">
-      <p>105 products and 7 professional treatment paths,<br />curated from Sothys Malaysia.</p>
-      <div class="tab-controls" role="tablist" aria-label="Shop sections">
-        <button class="tab-control active" data-tab="products" role="tab" aria-selected="true">Products</button>
-        <button class="tab-control" data-tab="services" role="tab" aria-selected="false">Services</button>
+<BaseLayout title="Professional Treatments" description="Explore personalised professional facial treatment paths at Sothys Kuantan and book a consultation on WhatsApp.">
+  <section class="page-hero services-hero shell">
+    <p class="eyebrow">Professional beauty treatments</p>
+    <h1 class="display display-sm">Treatments shaped<br />around your skin.</h1>
+    <div class="intro-grid">
+      <p class="eyebrow">Personalised care</p>
+      <div>
+        <p>Choose the concern closest to your skin today. Our team will listen, guide you, and help select the right professional treatment path.</p>
+        <a class="pill" href={appointmentHref} target="_blank" rel="noopener noreferrer">Book a consultation <span>↗</span></a>
       </div>
     </div>
   </section>
 
-  <section class="products-panel" data-panel="products">
-    <div class="shop-tools">
-      <div class="shop-tools-inner shell">
-        <div class="search-wrap">
-          <input id="product-search" type="search" placeholder="Search products" aria-label="Search products" />
-          <span>⌕</span>
-        </div>
-        <span class="catalog-count" id="catalog-count">{products.length} products</span>
-      </div>
-      <div class="filter-row shell" aria-label="Filter product categories">
-        {categories.map((category, index) => (
-          <button class:list={['filter-chip', { active: index === 0 }]} data-filter={category}>{category}</button>
-        ))}
-      </div>
-    </div>
-    <div class="catalog-grid shell" id="catalog-grid">
-      {products.map((product, index) => <ProductCard product={product} index={index} />)}
-      <div class="no-results" id="no-results" hidden>
-        <p class="eyebrow">No match</p><h2 class="section-heading">Try another search.</h2>
-      </div>
-    </div>
-  </section>
-
-  <section class="services-panel shell" data-panel="services" hidden>
-    <div class="heading-block">
-      <p class="eyebrow">Professional beauty treatments</p>
-      <h2 class="section-heading">Begin with<br />your concern.</h2>
-      <p class="lede">Choose the result you want to work toward. A Sothys professional can guide the rest.</p>
-    </div>
+  <section class="services-directory shell">
     <div class="service-list">
       {services.map((service) => (
-        <a class="service-row" href={service.href}>
+        <article class="service-row-expanded">
           <span class="number">{service.number}</span>
-          <h3>{service.title}</h3>
-          <p>{service.description}</p>
-          <span class="arrow">↗</span>
-        </a>
+          <div class="service-name"><p class="eyebrow">Treatment path</p><h2>{service.title}</h2></div>
+          <div class="service-copy"><p>{service.description}</p><strong>{service.outcome}</strong></div>
+          <a href={service.whatsappHref} target="_blank" rel="noopener noreferrer" aria-label={`Ask about ${service.title}`}>Ask about this treatment <span>↗</span></a>
+        </article>
       ))}
     </div>
   </section>
 
-  <script>
-    const tabButtons = document.querySelectorAll<HTMLButtonElement>('[data-tab]');
-    const panels = document.querySelectorAll<HTMLElement>('[data-panel]');
-    tabButtons.forEach((button) => button.addEventListener('click', () => {
-      tabButtons.forEach((item) => {
-        const active = item === button;
-        item.classList.toggle('active', active);
-        item.setAttribute('aria-selected', String(active));
-      });
-      panels.forEach((panel) => panel.hidden = panel.dataset.panel !== button.dataset.tab);
-    }));
+  <section class="consultation-band shell">
+    <div><p class="eyebrow">Your first step</p><h2>Let’s understand your skin.</h2></div>
+    <div>
+      <p>You do not need to know which treatment to choose. Share your concern with us and we’ll help you begin.</p>
+      <a class="pill" href={appointmentHref} target="_blank" rel="noopener noreferrer">Message our team <span>↗</span></a>
+    </div>
+  </section>
 
-    const search = document.querySelector<HTMLInputElement>('#product-search');
-    const chips = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
-    const cards = [...document.querySelectorAll<HTMLElement>('[data-product]')];
-    const count = document.querySelector<HTMLElement>('#catalog-count');
-    const empty = document.querySelector<HTMLElement>('#no-results');
-    let activeCategory = 'All';
-
-    const filterProducts = () => {
-      const query = search?.value.trim().toLowerCase() || '';
-      let visible = 0;
-      cards.forEach((card) => {
-        const matchesSearch = card.dataset.title?.includes(query);
-        const matchesCategory = activeCategory === 'All' || card.dataset.category === activeCategory;
-        card.hidden = !(matchesSearch && matchesCategory);
-        if (!card.hidden) visible += 1;
-      });
-      if (count) count.textContent = `${visible} product${visible === 1 ? '' : 's'}`;
-      if (empty) empty.hidden = visible !== 0;
-    };
-
-    search?.addEventListener('input', filterProducts);
-    chips.forEach((chip) => chip.addEventListener('click', () => {
-      activeCategory = chip.dataset.filter || 'All';
-      chips.forEach((item) => item.classList.toggle('active', item === chip));
-      filterProducts();
-    }));
-  </script>
+  <section class="home-section shell product-enquiry-section">
+    <div class="product-enquiry-copy">
+      <p class="eyebrow">Homecare, by consultation</p>
+      <h2 class="section-heading">Selected support<br />for your routine.</h2>
+      <p class="lede">Our salon carries selected homecare categories. We do not list individual products online; contact us for a recommendation, availability, and pricing.</p>
+      <a class="pill-secondary" href={productEnquiryHref} target="_blank" rel="noopener noreferrer">Ask on WhatsApp <span>↗</span></a>
+    </div>
+    <div class="product-category-list" aria-label="Available homecare categories">
+      {productCategories.map((category, index) => <div><span>{String(index + 1).padStart(2, '0')}</span><p>{category}</p></div>)}
+    </div>
+  </section>
 </BaseLayout>

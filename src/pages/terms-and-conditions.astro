@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import termsRaw from '../data/terms.txt?raw';
+import termsRaw from '../data/terms-service.txt?raw';
 
-const cleaned = termsRaw.replace(/^Home > Terms of Service\s*/i, '').replace(/^Terms of Service\s*/i, '').trim();
+const cleaned = termsRaw.replace(/^Sothys Kuantan – Website Terms\s*/i, '').trim();
 const chunks = cleaned.split(/\n(?=\d+\.\s)/).map((chunk) => chunk.trim()).filter(Boolean);
 const intro = chunks.shift() || '';
 const sections = chunks.map((chunk, index) => {
@@ -13,9 +13,9 @@ const sections = chunks.map((chunk, index) => {
 
 <BaseLayout title="Terms and Conditions">
   <section class="page-hero shell">
-    <p class="eyebrow">Legal · Last updated 18 November 2025</p>
+    <p class="eyebrow">Legal · Last updated 8 October 2026</p>
     <h1 class="display display-sm">Clear terms.<br />No fine-print fog.</h1>
-    <div class="intro-grid"><p class="eyebrow">Sothys Malaysia</p><p>These terms govern use of the Sothys Malaysia website, products, services, and related policies.</p></div>
+    <div class="intro-grid"><p class="eyebrow">Sothys Kuantan</p><p>These terms govern use of this website, treatment enquiries, appointment requests, and salon communications.</p></div>
   </section>
   <section class="legal-layout shell">
     <aside class="legal-index" aria-label="Terms index">

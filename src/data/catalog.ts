@@ -1,40 +1,27 @@
-import rawProducts from './products.json';
+const whatsappNumber = '60129816966';
 
-export interface Product {
-  handle: string;
-  title: string;
-  price: string;
-  description: string;
-  meta: string;
-  image: string;
-  category: string;
-}
-
-export const categoryFor = (title: string) => {
-  const value = title.toLowerCase();
-  if (value.includes('serum') || value.includes('ampoule')) return 'Serums';
-  if (value.includes('clean') || value.includes('lotion') || value.includes('essence')) return 'Cleansers';
-  if (value.includes('mask') || value.includes('desquacrem')) return 'Masks';
-  if (value.includes('eye') || value.includes('lip')) return 'Eye & Lip';
-  if (value.includes('set') || value.includes('kit') || value.includes('tr.')) return 'Sets';
-  if (value.includes('spf') || value.includes('sun')) return 'Sun Care';
-  return 'Moisturisers';
-};
-
-export const products: Product[] = rawProducts.map((product) => ({
-  ...product,
-  handle: decodeURIComponent(product.handle),
-  category: categoryFor(product.title),
-}));
+export const whatsappLink = (message: string) =>
+  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
 export const services = [
-  { number: '01', title: 'Hydration & Dryness', description: 'For dehydrated, dry, or tight-feeling skin.' },
-  { number: '02', title: 'Acne & Blemishes', description: 'For breakouts, clogged pores, and imperfections.' },
-  { number: '03', title: 'Redness & Sensitivity', description: 'For fragile, reactive, or sensitised skin.' },
-  { number: '04', title: 'Pigmentation & Dark Spots', description: 'For uneven skin tone, sun damage, or post-acne marks.' },
-  { number: '05', title: 'Ageing: Elasticity & Wrinkle', description: 'For visible ageing signs, expression lines, or sagging.' },
-  { number: '06', title: 'Dullness & Lack of Radiance', description: 'For tired, lifeless, or pollution-exposed skin.' },
-  { number: '07', title: 'Eye & Neck Care', description: 'Targeted care to effectively combat signs of ageing.' },
-].map((service) => ({ ...service, href: `/contact?service=${encodeURIComponent(service.title)}` }));
+  { number: '01', title: 'Hydration & Dryness', description: 'A comfort-focused treatment path for skin that feels dehydrated, dry, or tight.', outcome: 'Restore comfort and a fresh, supple-looking finish.' },
+  { number: '02', title: 'Acne & Blemishes', description: 'Professional care for breakouts, clogged pores, and visible imperfections.', outcome: 'Support clearer-looking, more balanced skin.' },
+  { number: '03', title: 'Redness & Sensitivity', description: 'A gentle treatment direction for fragile, reactive, or sensitised skin.', outcome: 'Soothe the look of redness and reinforce skin comfort.' },
+  { number: '04', title: 'Pigmentation & Dark Spots', description: 'Targeted professional care for uneven tone, sun damage, and post-acne marks.', outcome: 'Reveal a brighter, more even-looking complexion.' },
+  { number: '05', title: 'Elasticity & Wrinkles', description: 'An age-defying treatment path for visible lines, loss of firmness, and sagging.', outcome: 'Refine the look of lines and support firmer-looking skin.' },
+  { number: '06', title: 'Radiance & Vitality', description: 'Revitalising care for tired, dull, or pollution-exposed skin.', outcome: 'Bring back a rested, luminous-looking glow.' },
+  { number: '07', title: 'Eye & Neck Care', description: 'Focused professional care for delicate areas that show signs of ageing first.', outcome: 'Smooth and refresh the appearance of the eye and neck areas.' },
+].map((service) => ({
+  ...service,
+  whatsappHref: whatsappLink(`Hi! I'm interested in the ${service.title} treatment at Sothys Kuantan. I would like to know more and book a consultation.`),
+}));
 
-export const categories = ['All', ...new Set(products.map((product) => product.category))];
+export const productCategories = ['Cleansers', 'Serums', 'Moisturisers', 'Masks', 'Eye & Lip Care', 'Sun Care', 'Skincare Sets'];
+
+export const productEnquiryHref = whatsappLink(
+  "Hi! I'm interested in Sothys homecare products. Could you recommend the right product category for my skin?",
+);
+
+export const appointmentHref = whatsappLink(
+  "Hi! I'd like to book a skin consultation and treatment appointment at Sothys Kuantan.",
+);

@@ -5,8 +5,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="Contact Us">
   <section class="page-hero shell">
     <p class="eyebrow">Contact us</p>
-    <h1 class="display display-sm">Questions?<br />Let’s talk skin.</h1>
-    <div class="intro-grid"><p class="eyebrow">Customer care</p><p>Tell us what you’re looking for. Our team can help with products, treatments, orders, and salon information.</p></div>
+    <h1 class="display display-sm">Ready for care?<br />Let’s talk skin.</h1>
+    <div class="intro-grid"><p class="eyebrow">Appointments & consultations</p><p>Tell us about your skin concern or the treatment result you want. Our team can guide you and help arrange your visit.</p></div>
   </section>
   <section class="contact-grid shell">
     <div class="contact-details">
@@ -15,7 +15,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="contact-line"><p class="label">Salon line</p><a href="tel:+6095173699">09-517 3699</a></div>
       <div class="contact-line"><p class="label">Email</p><a class="blue-link" style="margin-top: 0;" href="mailto:ivonliew@gmail.com">ivonliew@gmail.com</a></div>
       <div class="contact-line"><p class="label">Opening hours</p><p>Monday: Closed<br />Tuesday–Friday: 10am–7pm<br />Saturday–Sunday: 10am–6pm</p></div>
-      <div class="contact-line"><p class="label">Company</p><p>SOCIETE FRANCAISE DE COSMETIQUES SDN. BHD.<br />199101012729 (223041-P)</p></div>
     </div>
     <form class="contact-form" id="contact-form">
       <div class="field"><label for="name">Name *</label><input id="name" name="name" required autocomplete="name" /></div>
@@ -31,9 +30,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     const status = document.querySelector<HTMLElement>('#form-status');
     const message = form?.querySelector<HTMLTextAreaElement>('#message');
     const params = new URLSearchParams(window.location.search);
-    const product = params.get('product');
     const service = params.get('service');
-    if (message && product) message.value = `I'd like to ask about ${product}.`;
     if (message && service) message.value = `I'd like to ask about the ${service} treatment.`;
     form?.addEventListener('submit', (event) => {
       event.preventDefault();
