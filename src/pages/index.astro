@@ -4,14 +4,61 @@ import { appointmentHref, productCategories, productEnquiryHref, services } from
 ---
 
 <BaseLayout title="Professional Beauty Treatments" description="Discover personalised professional facial treatments and skin consultations at Sothys Kuantan.">
-  <section class="hero shell">
-    <div class="hero-copy">
-      <p class="eyebrow">Sothys Kuantan · Professional skin treatments</p>
-      <h1 class="display">Your skin.<br />Our expertise.</h1>
-      <p class="lede">Personalised facial treatments shaped around your concerns, comfort, and treatment goals.</p>
-      <div class="hero-actions">
-        <a class="pill" href="/shop">Explore our treatments <span>↗</span></a>
-        <a class="pill-secondary" href={appointmentHref} target="_blank" rel="noopener noreferrer">Book an appointment</a>
+  <section class="hero hero-carousel" data-hero-carousel aria-label="Featured skincare messages">
+    <article class="hero-slide hero-slide-current is-active" data-hero-slide aria-hidden="false">
+      <div class="hero-copy">
+        <p class="eyebrow">Sothys Kuantan · Professional skin treatments</p>
+        <h1 class="display">Your skin.<br />Our expertise.</h1>
+        <p class="lede">Personalised facial treatments shaped around your concerns, comfort, and treatment goals.</p>
+        <div class="hero-actions">
+          <a class="pill" href="/shop">Explore our treatments <span>↗</span></a>
+          <a class="pill-secondary" href={appointmentHref} target="_blank" rel="noopener noreferrer">Book an appointment</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hero-slide hero-slide-services" data-hero-slide aria-hidden="true">
+      <div class="hero-copy">
+        <p class="eyebrow">Professional salon treatments</p>
+        <h2 class="display">Care shaped<br />around you.</h2>
+        <p class="lede">From hydration and sensitivity to radiance and visible ageing concerns, every treatment path begins with your skin.</p>
+        <div class="hero-actions">
+          <a class="pill" href="/shop">Explore services <span>↗</span></a>
+          <a class="pill-secondary" href={appointmentHref} target="_blank" rel="noopener noreferrer">Book a consultation</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hero-slide hero-slide-products" data-hero-slide aria-hidden="true">
+      <div class="hero-copy">
+        <p class="eyebrow">Sothys homecare · By consultation</p>
+        <h2 class="display">Your ritual,<br />personally selected.</h2>
+        <p class="lede">Discover cleansers, serums, moisturisers, masks, sun care, and more—recommended around your skin and salon treatment plan.</p>
+        <div class="hero-actions">
+          <a class="pill" href={productEnquiryHref} target="_blank" rel="noopener noreferrer">Ask about homecare <span>↗</span></a>
+          <a class="pill-secondary" href="#homecare">View categories</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hero-slide hero-slide-benefits" data-hero-slide aria-hidden="true">
+      <div class="hero-copy">
+        <p class="eyebrow">Care that continues beyond today</p>
+        <h2 class="display">Comfort. Radiance.<br />Confidence.</h2>
+        <p class="lede">Professional treatments and thoughtful homecare work together to support balanced, healthy-looking skin over time.</p>
+        <div class="hero-actions">
+          <a class="pill" href={appointmentHref} target="_blank" rel="noopener noreferrer">Start with a consultation <span>↗</span></a>
+          <a class="pill-secondary" href="/about">Our approach</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="hero-slider-controls" aria-label="Hero slider controls">
+      <div class="hero-dots" role="tablist" aria-label="Choose a hero slide">
+        <button class="hero-dot is-active" type="button" data-hero-dot role="tab" aria-label="Show introduction slide" aria-selected="true"></button>
+        <button class="hero-dot" type="button" data-hero-dot role="tab" aria-label="Show services slide" aria-selected="false"></button>
+        <button class="hero-dot" type="button" data-hero-dot role="tab" aria-label="Show homecare slide" aria-selected="false"></button>
+        <button class="hero-dot" type="button" data-hero-dot role="tab" aria-label="Show skincare benefits slide" aria-selected="false"></button>
       </div>
     </div>
   </section>
@@ -52,7 +99,7 @@ import { appointmentHref, productCategories, productEnquiryHref, services } from
     </div>
   </section>
 
-  <section class="home-section shell product-enquiry-section">
+  <section class="home-section shell product-enquiry-section" id="homecare">
     <div class="product-enquiry-copy">
       <p class="eyebrow">Professional homecare</p>
       <h2 class="section-heading">Support your results<br />between visits.</h2>
@@ -75,4 +122,74 @@ import { appointmentHref, productCategories, productEnquiryHref, services } from
       </div>
     </div>
   </section>
+
+  <script>
+    const carousel = document.querySelector<HTMLElement>('[data-hero-carousel]');
+    const slides = Array.from(carousel?.querySelectorAll<HTMLElement>('[data-hero-slide]') ?? []);
+    const dots = Array.from(carousel?.querySelectorAll<HTMLButtonElement>('[data-hero-dot]') ?? []);
+    const previous = carousel?.querySelector<HTMLButtonElement>('[data-hero-prev]');
+    const next = carousel?.querySelector<HTMLButtonElement>('[data-hero-next]');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let activeSlide = 0;
+    let timer: number | undefined;
+
+    const showSlide = (index: number) => {
+      activeSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === activeSlide;
+        slide.classList.toggle('is-active', isActive);
+        slide.setAttribute('aria-hidden', String(!isActive));
+        slide.querySelectorAll<HTMLElement>('a, button').forEach((control) => {
+          control.tabIndex = isActive ? 0 : -1;
+        });
+      });
+      dots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === activeSlide;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-selected', String(isActive));
+      });
+    };
+
+    const stopAutoplay = () => {
+      if (timer !== undefined) window.clearInterval(timer);
+      timer = undefined;
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      if (!reduceMotion.matches && slides.length > 1) {
+        timer = window.setInterval(() => showSlide(activeSlide + 1), 6500);
+      }
+    };
+
+    previous?.addEventListener('click', () => {
+      showSlide(activeSlide - 1);
+      startAutoplay();
+    });
+    next?.addEventListener('click', () => {
+      showSlide(activeSlide + 1);
+      startAutoplay();
+    });
+    dots.forEach((dot, index) => dot.addEventListener('click', () => {
+      showSlide(index);
+      startAutoplay();
+    }));
+
+    carousel?.addEventListener('mouseenter', stopAutoplay);
+    carousel?.addEventListener('mouseleave', startAutoplay);
+    carousel?.addEventListener('focusin', stopAutoplay);
+    carousel?.addEventListener('focusout', (event) => {
+      const nextFocus = event.relatedTarget;
+      if (!(nextFocus instanceof Node) || !carousel.contains(nextFocus)) startAutoplay();
+    });
+    carousel?.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') showSlide(activeSlide - 1);
+      if (event.key === 'ArrowRight') showSlide(activeSlide + 1);
+    });
+    document.addEventListener('visibilitychange', () => document.hidden ? stopAutoplay() : startAutoplay());
+    reduceMotion.addEventListener('change', startAutoplay);
+
+    showSlide(0);
+    startAutoplay();
+  </script>
 </BaseLayout>
