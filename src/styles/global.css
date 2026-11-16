@@ -175,6 +175,9 @@ main { padding-top: 96px; }
 .footer-grid a:hover { color: var(--blue); }
 .footer-label { margin-bottom: 14px !important; color: var(--slate); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
 .footer-bottom { padding-top: 18px; border-top: 1px solid var(--mist); display: flex; justify-content: space-between; color: var(--slate); font-size: 12px; }
+.footer-credit { margin: 16px 0 0; color: var(--slate); font-size: 11px; text-align: center; }
+.footer-credit a { color: var(--charcoal); border-bottom: 1px solid var(--mist); transition: border-color .2s ease; }
+.footer-credit a:hover { border-color: var(--charcoal); }
 .floating-action { position: fixed; right: 24px; bottom: 24px; z-index: 30; width: 52px; height: 52px; display: grid; place-items: center; color: #fff; background: #25d366; border-radius: 50%; transition: transform .2s ease, background-color .2s ease; }
 .floating-action svg { width: 29px; height: 29px; fill: currentColor; }
 .floating-action:hover { background: #1ebe5d; transform: translateY(-3px); }
