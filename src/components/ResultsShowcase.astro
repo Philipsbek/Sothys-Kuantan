@@ -1,0 +1,225 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { services } from '../data/catalog';
+
+import acneBefore from '../assets/results/acne-before.jpg';
+import acneAfter from '../assets/results/acne-after.jpg';
+import sensitivityBefore from '../assets/results/sensitivity-before.jpg';
+import sensitivityAfter from '../assets/results/sensitivity-after.jpg';
+import antiAgeingBefore from '../assets/results/anti-ageing-before.jpg';
+import antiAgeingAfter from '../assets/results/anti-ageing-after.jpg';
+import rednessCaseOneBefore from '../assets/results/redness-case-1-before.png';
+import rednessCaseOneAfter from '../assets/results/redness-case-1-after.png';
+import rednessCaseOneComparison from '../assets/results/redness-case-1-comparison.png';
+import rednessCaseTwoBefore from '../assets/results/redness-case-2-before.png';
+import rednessCaseTwoAfter from '../assets/results/redness-case-2-after.png';
+import rednessCaseTwoComparison from '../assets/results/redness-case-2-comparison.png';
+import youthAmpouleResult from '../assets/results/youth-ampoule-result.png';
+
+type StoryBase = {
+  category: string;
+  title: string;
+  description: string;
+  href: string;
+};
+
+type PairStory = StoryBase & {
+  type: 'pair';
+  before: ImageMetadata;
+  after: ImageMetadata;
+  beforeAlt: string;
+  afterAlt: string;
+};
+
+type SingleStory = StoryBase & {
+  type: 'single';
+  image: ImageMetadata;
+  alt: string;
+};
+
+const resultStories: Array<PairStory | SingleStory> = [
+  {
+    type: 'pair',
+    category: 'Acne & blemishes',
+    title: 'Clarity-focused care',
+    description: 'A visible-results example for skin experiencing breakouts and post-blemish marks.',
+    before: acneBefore,
+    after: acneAfter,
+    beforeAlt: 'Skin experiencing visible acne and blemishes before treatment',
+    afterAlt: 'The same skin appearing clearer after treatment',
+    href: services[1].whatsappHref,
+  },
+  {
+    type: 'pair',
+    category: 'Redness & sensitivity',
+    title: 'Comfort for reactive skin',
+    description: 'A soothing treatment example focused on visible redness and skin comfort.',
+    before: sensitivityBefore,
+    after: sensitivityAfter,
+    beforeAlt: 'Sensitive skin with visible redness before treatment',
+    afterAlt: 'The same skin appearing calmer after treatment',
+    href: services[2].whatsappHref,
+  },
+  {
+    type: 'pair',
+    category: 'Elasticity & wrinkles',
+    title: 'Age-defying support',
+    description: 'A professional care example for smoother, more refined-looking skin.',
+    before: antiAgeingBefore,
+    after: antiAgeingAfter,
+    beforeAlt: 'Mature skin before an age-defying treatment',
+    afterAlt: 'The same mature skin after an age-defying treatment',
+    href: services[4].whatsappHref,
+  },
+  {
+    type: 'pair',
+    category: 'Dermo Booster relief',
+    title: 'Redness result · Case 01',
+    description: 'Double Peel Professional treatment paired with the Pro Dermo Booster Relief ampoule.',
+    before: rednessCaseOneBefore,
+    after: rednessCaseOneAfter,
+    beforeAlt: 'Visible facial redness before the Dermo Booster relief protocol, case one',
+    afterAlt: 'The same skin after the Dermo Booster relief protocol, case one',
+    href: services[2].whatsappHref,
+  },
+  {
+    type: 'pair',
+    category: 'Dermo Booster relief',
+    title: 'Redness result · Case 02',
+    description: 'A second professional protocol example for visibly redness-prone skin.',
+    before: rednessCaseTwoBefore,
+    after: rednessCaseTwoAfter,
+    beforeAlt: 'Visible facial redness before the Dermo Booster relief protocol, case two',
+    afterAlt: 'The same skin after the Dermo Booster relief protocol, case two',
+    href: services[2].whatsappHref,
+  },
+];
+
+const protocolStories: Array<PairStory | SingleStory> = [
+  {
+    type: 'single',
+    category: 'Professional protocol',
+    title: 'Relief protocol · Case 01',
+    description: 'The complete Sothys comparison panel for the professional Double Peel and Relief ampoule protocol.',
+    image: rednessCaseOneComparison,
+    alt: 'Sothys before and after comparison for Double Peel Professional treatment with Dermo Booster Relief ampoule, case one',
+    href: services[2].whatsappHref,
+  },
+  {
+    type: 'single',
+    category: 'Professional protocol',
+    title: 'Relief protocol · Case 02',
+    description: 'A second complete comparison panel showing the professional redness-care protocol.',
+    image: rednessCaseTwoComparison,
+    alt: 'Sothys before and after comparison for Double Peel Professional treatment with Dermo Booster Relief ampoule, case two',
+    href: services[2].whatsappHref,
+  },
+  {
+    type: 'single',
+    category: 'Youth ampoule',
+    title: 'Smoother-looking skin',
+    description: 'A prepared Sothys comparison showing the visible-looking result of the Youth ampoule.',
+    image: youthAmpouleResult,
+    alt: 'Sothys Youth ampoule before and after comparison',
+    href: services[4].whatsappHref,
+  },
+];
+
+const galleries = [
+  {
+    id: 'results-heading',
+    eyebrow: 'Dermo Booster · Visible results',
+    heading: ['Real skin.', 'Professional care.'],
+    intro: 'Explore professional treatment examples across acne, sensitivity, redness, and visible ageing concerns.',
+    viewportLabel: 'Treatment result gallery',
+    note: 'Images supplied by Sothys. Treatment suitability and outcomes vary by individual skin condition.',
+    stories: resultStories,
+  },
+  {
+    id: 'protocols-heading',
+    eyebrow: 'Professional treatment protocols',
+    heading: ['Focused protocols.', 'Closer detail.'],
+    intro: 'Explore complete professional comparison panels for redness relief and youth-supporting care.',
+    viewportLabel: 'Professional treatment protocol gallery',
+    note: 'Protocol images supplied by Sothys. Your beauty professional will recommend the most suitable treatment for your skin.',
+    stories: protocolStories,
+  },
+];
+---
+
+{galleries.map((gallery) => (
+  <section
+    class:list={['results-showcase home-section', { 'results-showcase--protocols': gallery.id === 'protocols-heading' }]}
+    aria-labelledby={gallery.id}
+    data-results-gallery
+  >
+    <div class="results-heading shell">
+      <div>
+        <p class="eyebrow">{gallery.eyebrow}</p>
+        <h2 class="section-heading" id={gallery.id}>{gallery.heading[0]}<br />{gallery.heading[1]}</h2>
+      </div>
+      <div class="results-intro">
+        <p>{gallery.intro}</p>
+        <div class="results-controls" aria-label={`${gallery.eyebrow} gallery controls`}>
+          <button type="button" data-results-prev aria-label="Show previous result">←</button>
+          <button type="button" data-results-next aria-label="Show next result">→</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-viewport" data-results-viewport tabindex="0" aria-label={gallery.viewportLabel}>
+      <div class="results-track">
+        {gallery.stories.map((story, index) => (
+          <article class:list={['result-story', { 'result-story--single': story.type === 'single' }]}>
+            <div class="result-story-index">{String(index + 1).padStart(2, '0')} / {String(gallery.stories.length).padStart(2, '0')}</div>
+            {story.type === 'pair' ? (
+              <div class="result-pair">
+                <figure>
+                  <Image src={story.before} alt={story.beforeAlt} widths={[260, 420, 560]} sizes="(max-width: 640px) 46vw, 340px" quality={80} loading="lazy" />
+                  <figcaption>Before</figcaption>
+                </figure>
+                <figure>
+                  <Image src={story.after} alt={story.afterAlt} widths={[260, 420, 560]} sizes="(max-width: 640px) 46vw, 340px" quality={80} loading="lazy" />
+                  <figcaption>After</figcaption>
+                </figure>
+              </div>
+            ) : (
+              <div class="result-single">
+                <Image src={story.image} alt={story.alt} widths={[360, 540, 720]} sizes="(max-width: 640px) 82vw, 430px" quality={80} loading="lazy" />
+              </div>
+            )}
+            <div class="result-story-copy">
+              <div>
+                <p class="eyebrow">{story.category}</p>
+                <h3>{story.title}</h3>
+                <p>{story.description}</p>
+              </div>
+              <a href={story.href} target="_blank" rel="noopener noreferrer">Ask about this treatment <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="results-note shell">
+      <p>{gallery.note}</p>
+      <span>Scroll to explore all results</span>
+    </div>
+  </section>
+))}
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-results-gallery]').forEach((gallery) => {
+    const resultsViewport = gallery.querySelector<HTMLElement>('[data-results-viewport]');
+    const resultsPrevious = gallery.querySelector<HTMLButtonElement>('[data-results-prev]');
+    const resultsNext = gallery.querySelector<HTMLButtonElement>('[data-results-next]');
+
+    const scrollResults = (direction: number) => {
+      resultsViewport?.scrollBy({ left: direction * resultsViewport.clientWidth * 0.78, behavior: 'smooth' });
+    };
+
+    resultsPrevious?.addEventListener('click', () => scrollResults(-1));
+    resultsNext?.addEventListener('click', () => scrollResults(1));
+  });
+</script>

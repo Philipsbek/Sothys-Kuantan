@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ResultsShowcase from '../components/ResultsShowcase.astro';
 import { appointmentHref, productCategories, productEnquiryHref, services } from '../data/catalog';
 ---
 
@@ -90,6 +91,8 @@ import { appointmentHref, productCategories, productEnquiryHref, services } from
     </div>
     <div class="section-action"><a class="pill-secondary" href="/shop">View all treatment paths</a></div>
   </section>
+
+  <ResultsShowcase />
 
   <section class="consultation-band shell">
     <div><p class="eyebrow">Not sure where to begin?</p><h2>Your best treatment starts with a conversation.</h2></div>

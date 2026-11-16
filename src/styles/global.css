@@ -94,6 +94,44 @@ main { padding-top: 96px; }
 .service-card strong { display: block; padding-top: 18px; border-top: 1px solid var(--mist); font-size: 13px; font-weight: 500; }
 .service-card:hover p { color: rgba(255,255,255,.7); }
 .section-action { margin-top: 38px; text-align: center; }
+.results-showcase { padding-top: 30px; overflow: hidden; }
+.results-heading { margin-bottom: 52px; display: grid; grid-template-columns: 1.25fr .75fr; gap: 80px; align-items: end; }
+.results-intro { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; }
+.results-intro > p { max-width: 480px; margin: 0; color: var(--granite); font-size: 18px; }
+.results-controls { display: flex; gap: 8px; }
+.results-controls button { width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid var(--charcoal); border-radius: 50%; color: var(--ink); background: #fff; font-size: 18px; cursor: pointer; transition: color .2s ease, background-color .2s ease, transform .2s ease; }
+.results-controls button:hover { color: #fff; background: var(--ink); transform: translateY(-2px); }
+.results-controls button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.results-viewport { width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x mandatory; scroll-padding-inline: max(24px, calc((100vw - var(--max)) / 2)); scrollbar-width: none; }
+.results-viewport::-webkit-scrollbar { display: none; }
+.results-viewport:focus-visible { outline: 1px solid var(--charcoal); outline-offset: 6px; }
+.results-track { width: max-content; display: flex; gap: 16px; padding: 0 max(24px, calc((100vw - var(--max)) / 2)) 8px; }
+.result-story { position: relative; flex: 0 0 min(76vw, 760px); padding: 14px; border: 1px solid var(--charcoal); border-radius: 22px; background: #fff; scroll-snap-align: start; }
+.result-story--single { flex-basis: min(45vw, 480px); }
+.result-story-index { position: absolute; top: 28px; right: 28px; z-index: 2; padding: 7px 11px; border-radius: 999px; color: #fff; background: rgba(0,0,0,.78); font-size: 10px; letter-spacing: .08em; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.result-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.result-pair figure { position: relative; aspect-ratio: 4 / 5; margin: 0; overflow: hidden; border-radius: 14px; background: var(--soft); }
+.result-pair img, .result-single img { width: 100%; height: 100%; object-fit: cover; }
+.result-pair figcaption { position: absolute; left: 12px; bottom: 12px; padding: 7px 12px; border-radius: 999px; color: var(--ink); background: rgba(255,255,255,.84); border: 1px solid rgba(0,0,0,.15); font-size: 11px; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.result-single { aspect-ratio: 4 / 5; overflow: hidden; border-radius: 14px; background: var(--soft); }
+.result-story-copy { padding: 24px 10px 10px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: end; }
+.result-story-copy .eyebrow { margin-bottom: 10px; }
+.result-story-copy h3 { margin: 0 0 10px; color: var(--ink); font-size: clamp(30px, 3.2vw, 44px); line-height: .98; letter-spacing: -.045em; }
+.result-story-copy div > p:last-child { max-width: 520px; margin: 0; color: var(--granite); }
+.result-story-copy > a { align-self: end; white-space: nowrap; padding-bottom: 3px; border-bottom: 1px solid currentColor; font-size: 13px; transition: transform .2s ease; }
+.result-story-copy > a:hover { transform: translateX(4px); }
+.result-story--single .result-story-copy { grid-template-columns: 1fr; gap: 22px; }
+.result-story--single .result-story-copy > a { justify-self: start; }
+.results-note { margin-top: 24px; display: flex; justify-content: space-between; gap: 30px; color: var(--slate); font-size: 11px; }
+.results-note p { margin: 0; }
+.results-note span { white-space: nowrap; }
+@media (min-width: 901px) {
+  .results-showcase--protocols .results-viewport { width: min(calc(100% - 48px), var(--max)); margin-inline: auto; overflow: visible; }
+  .results-showcase--protocols .results-track { width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 0 0 8px; }
+  .results-showcase--protocols .result-story,
+  .results-showcase--protocols .result-story--single { min-width: 0; width: 100%; }
+  .results-showcase--protocols .results-controls { visibility: hidden; }
+}
 .consultation-band { position: relative; isolation: isolate; margin-bottom: 40px; padding: 62px; border-radius: 22px; overflow: hidden; background: #252a2d url('/sothys-beach-care-hero-no-model.png') center / cover no-repeat fixed; color: #fff; display: grid; grid-template-columns: 1.25fr .75fr; gap: 80px; align-items: end; }
 .consultation-band::before { content: ''; position: absolute; inset: 0; z-index: -1; background: rgba(37,42,45,.78); }
 .consultation-band h2 { margin: 0; max-width: 720px; font-size: clamp(45px, 5.7vw, 78px); line-height: .94; letter-spacing: -.055em; }
@@ -188,6 +226,7 @@ main { padding-top: 96px; }
   .header-booking { display: none; }
   .menu-toggle { display: flex; }
   .service-card-grid { grid-template-columns: repeat(2, 1fr); }
+  .results-heading { grid-template-columns: 1fr; gap: 32px; }
   .product-enquiry-section { grid-template-columns: 1fr; gap: 60px; }
   .consultation-band { grid-template-columns: 1fr; gap: 38px; }
   .principles { grid-template-columns: 1fr; gap: 50px; }
@@ -215,6 +254,19 @@ main { padding-top: 96px; }
   .home-section { padding: 100px 0; }
   .service-card-grid, .value-grid { grid-template-columns: 1fr; }
   .service-card { min-height: 290px; }
+  .results-showcase { padding-top: 20px; }
+  .results-heading { margin-bottom: 34px; }
+  .results-controls button { width: 42px; height: 42px; }
+  .results-track { gap: 10px; padding-inline: 14px; }
+  .result-story, .result-story--single { flex-basis: 84vw; max-width: 390px; padding: 9px; border-radius: 18px; }
+  .result-story-index { top: 20px; right: 20px; }
+  .result-pair { gap: 5px; }
+  .result-pair figure, .result-single { border-radius: 11px; }
+  .result-pair figcaption { left: 8px; bottom: 8px; padding: 6px 10px; }
+  .result-story-copy, .result-story--single .result-story-copy { padding: 20px 7px 8px; grid-template-columns: 1fr; gap: 22px; }
+  .result-story-copy > a { justify-self: start; }
+  .results-note { flex-direction: column; gap: 8px; }
+  .results-note span { white-space: normal; }
   .consultation-band { width: calc(100% - 28px); padding: 34px 24px; }
   .product-enquiry-section { gap: 48px; }
   .principles { padding: 28px 20px; }
