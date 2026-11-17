@@ -1,65 +1,94 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FacebookFeed from '../components/FacebookFeed.astro';
 import ResultsShowcase from '../components/ResultsShowcase.astro';
 import { appointmentHref, productCategories, productEnquiryHref, services } from '../data/catalog';
 ---
 
 <BaseLayout title="Professional Beauty Treatments" description="Discover personalised professional facial treatments and skin consultations at Sothys Kuantan.">
-  <section class="hero hero-carousel" data-hero-carousel aria-label="Featured skincare messages">
-    <article class="hero-slide hero-slide-current is-active" data-hero-slide aria-hidden="false">
+  <section class="hero hero-carousel" data-hero-carousel aria-label="Featured treatments and Sothys homecare">
+    <article class="hero-slide hero-slide-hydration is-active" data-hero-slide aria-hidden="false">
       <div class="hero-copy">
-        <p class="eyebrow">Sothys Kuantan · Professional skin treatments</p>
-        <h1 class="display">Your skin.<br />Our expertise.</h1>
-        <p class="lede">Personalised facial treatments shaped around your concerns, comfort, and treatment goals.</p>
-        <div class="hero-actions">
-          <a class="pill" href="/shop">Explore our treatments <span>↗</span></a>
-          <a class="pill-secondary" href={appointmentHref} target="_blank" rel="noopener noreferrer">Book an appointment</a>
+        <div class="hero-content">
+          <p class="eyebrow">01 · Hydration &amp; dryness</p>
+          <h1 class="display">Deep hydration for dry, tight skin.</h1>
+          <p class="lede">A comfort-focused professional facial designed to replenish dehydrated skin and restore a fresh, supple-looking finish.</p>
+          <div class="hero-actions">
+            <a class="pill" href={services[0].whatsappHref} target="_blank" rel="noopener noreferrer">Ask about hydration <span>↗</span></a>
+            <a class="pill-secondary" href="/shop">View treatment details</a>
+          </div>
+        </div>
+        <div class="hero-visual-reserve has-image" aria-hidden="true">
+          <img class="hero-service-image" src="/hero-hydration-care.webp" alt="" width="900" height="1200" loading="eager" fetchpriority="high" decoding="async" />
         </div>
       </div>
     </article>
 
-    <article class="hero-slide hero-slide-services" data-hero-slide aria-hidden="true">
+    <article class="hero-slide hero-slide-acne" data-hero-slide aria-hidden="true">
       <div class="hero-copy">
-        <p class="eyebrow">Professional salon treatments</p>
-        <h2 class="display">Care shaped<br />around you.</h2>
-        <p class="lede">From hydration and sensitivity to radiance and visible ageing concerns, every treatment path begins with your skin.</p>
-        <div class="hero-actions">
-          <a class="pill" href="/shop">Explore services <span>↗</span></a>
-          <a class="pill-secondary" href={appointmentHref} target="_blank" rel="noopener noreferrer">Book a consultation</a>
+        <div class="hero-content">
+          <p class="eyebrow">02 · Acne &amp; blemishes</p>
+          <h2 class="display">Targeted care for breakout-prone skin.</h2>
+          <p class="lede">Professional care for breakouts, clogged pores, and visible imperfections, selected to support clearer-looking, more balanced skin.</p>
+          <div class="hero-actions">
+            <a class="pill" href={services[1].whatsappHref} target="_blank" rel="noopener noreferrer">Ask about acne care <span>↗</span></a>
+            <a class="pill-secondary" href="/shop">View treatment details</a>
+          </div>
+        </div>
+        <div class="hero-visual-reserve has-image" aria-hidden="true">
+          <img class="hero-service-image" src="/hero-acne-care.webp" alt="" width="900" height="1200" loading="eager" decoding="async" />
         </div>
       </div>
     </article>
 
-    <article class="hero-slide hero-slide-products" data-hero-slide aria-hidden="true">
+    <article class="hero-slide hero-slide-ageing" data-hero-slide aria-hidden="true">
       <div class="hero-copy">
-        <p class="eyebrow">Sothys homecare · By consultation</p>
-        <h2 class="display">Your ritual,<br />personally selected.</h2>
-        <p class="lede">Discover cleansers, serums, moisturisers, masks, sun care, and more—recommended around your skin and salon treatment plan.</p>
-        <div class="hero-actions">
-          <a class="pill" href={productEnquiryHref} target="_blank" rel="noopener noreferrer">Ask about homecare <span>↗</span></a>
-          <a class="pill-secondary" href="#homecare">View categories</a>
+        <div class="hero-content">
+          <p class="eyebrow">03 · Elasticity &amp; wrinkles</p>
+          <h2 class="display">Firming care for visible signs of ageing.</h2>
+          <p class="lede">An age-defying treatment path focused on visible lines and loss of firmness for smoother, more refined-looking skin.</p>
+          <div class="hero-actions">
+            <a class="pill" href={services[4].whatsappHref} target="_blank" rel="noopener noreferrer">Ask about firming care <span>↗</span></a>
+            <a class="pill-secondary" href="/shop">View treatment details</a>
+          </div>
+        </div>
+        <div class="hero-visual-reserve has-image" aria-hidden="true">
+          <img class="hero-service-image" src="/hero-firming-care.webp" alt="" width="900" height="1200" loading="eager" decoding="async" />
         </div>
       </div>
     </article>
 
-    <article class="hero-slide hero-slide-benefits" data-hero-slide aria-hidden="true">
+    <article class="hero-slide hero-slide-homecare" data-hero-slide aria-hidden="true">
       <div class="hero-copy">
-        <p class="eyebrow">Care that continues beyond today</p>
-        <h2 class="display">Comfort. Radiance.<br />Confidence.</h2>
-        <p class="lede">Professional treatments and thoughtful homecare work together to support balanced, healthy-looking skin over time.</p>
-        <div class="hero-actions">
-          <a class="pill" href={appointmentHref} target="_blank" rel="noopener noreferrer">Start with a consultation <span>↗</span></a>
-          <a class="pill-secondary" href="/about">Our approach</a>
+        <div class="hero-content">
+          <p class="eyebrow">04 · Sothys skincare products</p>
+          <h2 class="display">Professional homecare, selected for your skin.</h2>
+          <p class="lede">We carry selected Sothys cleansers, serums, moisturisers, masks, sun care, and skincare sets, with recommendations available in salon.</p>
+          <div class="hero-actions">
+            <a class="pill" href={productEnquiryHref} target="_blank" rel="noopener noreferrer">Ask about Sothys products <span>↗</span></a>
+            <a class="pill-secondary" href="#homecare">View product categories</a>
+          </div>
+        </div>
+        <div class="hero-visual-reserve has-image" aria-hidden="true">
+          <img
+            class="hero-service-image hero-product-image"
+            src="/hero-sothys-products.webp"
+            alt=""
+            width="1200"
+            height="1200"
+            loading="eager"
+            decoding="async"
+          />
         </div>
       </div>
     </article>
 
     <div class="hero-slider-controls" aria-label="Hero slider controls">
       <div class="hero-dots" role="tablist" aria-label="Choose a hero slide">
-        <button class="hero-dot is-active" type="button" data-hero-dot role="tab" aria-label="Show introduction slide" aria-selected="true"></button>
-        <button class="hero-dot" type="button" data-hero-dot role="tab" aria-label="Show services slide" aria-selected="false"></button>
-        <button class="hero-dot" type="button" data-hero-dot role="tab" aria-label="Show homecare slide" aria-selected="false"></button>
-        <button class="hero-dot" type="button" data-hero-dot role="tab" aria-label="Show skincare benefits slide" aria-selected="false"></button>
+        <button class="hero-dot is-active" type="button" data-hero-dot role="tab" aria-label="Show hydration treatment slide" aria-selected="true"></button>
+        <button class="hero-dot" type="button" data-hero-dot role="tab" aria-label="Show acne treatment slide" aria-selected="false"></button>
+        <button class="hero-dot" type="button" data-hero-dot role="tab" aria-label="Show firming treatment slide" aria-selected="false"></button>
+        <button class="hero-dot" type="button" data-hero-dot role="tab" aria-label="Show Sothys skincare products slide" aria-selected="false"></button>
       </div>
     </div>
   </section>
@@ -125,6 +154,8 @@ import { appointmentHref, productCategories, productEnquiryHref, services } from
       </div>
     </div>
   </section>
+
+  <FacebookFeed />
 
   <script>
     const carousel = document.querySelector<HTMLElement>('[data-hero-carousel]');
