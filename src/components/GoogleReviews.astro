@@ -1,0 +1,69 @@
+---
+const googleProfileHref = 'https://share.google/y02Yvi5B5SKaETXkV';
+
+const reviews = [
+  {
+    author: 'Janesse Liew',
+    initials: 'JL',
+    quote: '“Staffs are incredibly professional, attentive and skilled.”',
+    href: 'https://www.google.com/maps/contrib/108437253337356478774/reviews',
+  },
+  {
+    author: 'Chia Keow Luang',
+    initials: 'CK',
+    quote: '“The therapists are well-trained and professional.”',
+    href: 'https://www.google.com/maps/contrib/115675920435162923607/reviews',
+  },
+  {
+    author: 'Eng Sek Ooi',
+    initials: 'EO',
+    quote: '“My skin looked fresh and glowing.”',
+    href: 'https://www.google.com/maps/contrib/110039318173149116145/reviews',
+  },
+];
+---
+
+<section class="google-reviews-section shell" aria-labelledby="google-reviews-heading">
+  <div class="google-reviews-panel">
+    <div class="google-reviews-heading">
+      <div>
+        <p class="eyebrow">Client experiences · Google Reviews</p>
+        <h2 id="google-reviews-heading">Real care.<br />Real confidence.</h2>
+      </div>
+
+      <a class="google-rating" href={googleProfileHref} target="_blank" rel="noopener noreferrer" aria-label="View Sothys Kuantan's 5 star rating and 63 reviews on Google">
+        <span class="google-rating-score">5.0</span>
+        <span class="google-rating-details">
+          <span class="google-review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+          <span>63 reviews on Google</span>
+        </span>
+        <span class="google-mark" aria-hidden="true">G</span>
+      </a>
+    </div>
+
+    <div class="google-review-grid" aria-label="Selected Google reviews">
+      {reviews.map((review) => (
+        <article class="google-review-card">
+          <div class="google-review-card-top">
+            <span class="google-review-stars" aria-label="5 out of 5 stars">★★★★★</span>
+            <span class="google-review-source">Google review</span>
+          </div>
+          <blockquote>{review.quote}</blockquote>
+          <div class="google-review-author">
+            <span class="google-review-avatar" aria-hidden="true">{review.initials}</span>
+            <div><strong>{review.author}</strong><span>Google reviewer</span></div>
+            <a href={review.href} target="_blank" rel="noopener noreferrer" aria-label={`View ${review.author}'s reviews on Google`}>↗</a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="google-reviews-footer">
+      <p>Selected from Google’s relevance-ranked reviews. Rating and review count checked in November 2026.</p>
+      <div>
+        <a class="pill google-reviews-primary" href={googleProfileHref} target="_blank" rel="noopener noreferrer">Read all Google reviews <span>↗</span></a>
+        <a class="google-reviews-link" href={googleProfileHref} target="_blank" rel="noopener noreferrer">Share your experience <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>

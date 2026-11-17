@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FacebookFeed from '../components/FacebookFeed.astro';
+import GoogleReviews from '../components/GoogleReviews.astro';
 import MembershipPopup from '../components/MembershipPopup.astro';
 import ReelsShowcase from '../components/ReelsShowcase.astro';
 import ResultsShowcase from '../components/ResultsShowcase.astro';
@@ -173,13 +174,7 @@ const treatmentConcernImages = [
 
   <ReelsShowcase />
 
-  <section class="consultation-band shell">
-    <div><p class="eyebrow">Not sure where to begin?</p><h2>Your best treatment starts with a conversation.</h2></div>
-    <div>
-      <p>Tell us what your skin is experiencing. Our team will help you choose the most suitable treatment path and appointment.</p>
-      <a class="pill" href={appointmentHref} target="_blank" rel="noopener noreferrer">Ask on WhatsApp <span>↗</span></a>
-    </div>
-  </section>
+  <GoogleReviews />
 
   <section class="home-section shell product-enquiry-section" id="homecare">
     <div class="product-enquiry-copy">
