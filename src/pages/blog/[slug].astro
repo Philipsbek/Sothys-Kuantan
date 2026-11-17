@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { appointmentHref } from '../../data/catalog';
+import { blogPosts, blogPublished, getRelatedPosts, type BlogPost } from '../../data/blog';
+
+export function getStaticPaths() {
+  return blogPosts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+interface Props { post: BlogPost }
+const { post } = Astro.props;
+const relatedPosts = getRelatedPosts(post);
+const canonicalPath = `/blog/${post.slug}`;
+const canonicalUrl = new URL(canonicalPath, Astro.site ?? Astro.url.origin).href;
+const imageUrl = new URL(post.image, Astro.site ?? Astro.url.origin).href;
+const wordCount = [post.quickAnswer, ...post.sections.flatMap((section) => section.paragraphs), ...(post.sections.flatMap((section) => section.bullets ?? []))]
+  .join(' ')
+  .split(/\s+/)
+  .length;
+const readingMinutes = Math.max(3, Math.ceil(wordCount / 200));
+const publishedLabel = new Intl.DateTimeFormat('en-MY', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Kuala_Lumpur' }).format(new Date(blogPublished));
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.description,
+  image: [imageUrl],
+  datePublished: blogPublished,
+  dateModified: blogPublished,
+  mainEntityOfPage: canonicalUrl,
+  author: {
+    '@type': 'Organization',
+    name: 'Sothys Kuantan Team',
+    url: new URL('/about', Astro.site ?? Astro.url.origin).href,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Sothys Kuantan Premium Salon',
+    url: new URL('/', Astro.site ?? Astro.url.origin).href,
+    logo: { '@type': 'ImageObject', url: new URL('/brand/sothys-logo.png', Astro.site ?? Astro.url.origin).href },
+  },
+  keywords: post.keywords.join(', '),
+  articleSection: post.category,
+  wordCount,
+};
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site ?? Astro.url.origin).href },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: new URL('/blog', Astro.site ?? Astro.url.origin).href },
+    { '@type': 'ListItem', position: 3, name: post.title, item: canonicalUrl },
+  ],
+};
+---
+
+<BaseLayout
+  title={post.seoTitle}
+  description={post.description}
+  canonicalPath={canonicalPath}
+  image={post.image}
+  pageType="article"
+  publishedTime={blogPublished}
+  modifiedTime={blogPublished}
+  schema={[articleSchema, breadcrumbSchema]}
+>
+  <article class="article-page">
+    <header class="article-header shell">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog">Blog</a><span aria-hidden="true">/</span><span>{post.category}</span>
+      </nav>
+      <p class="eyebrow">{post.category} · Kuantan, Pahang</p>
+      <h1>{post.title}</h1>
+      <p class="article-deck">{post.excerpt}</p>
+      <div class="article-byline">
+        <span>By Sothys Kuantan Team</span>
+        <span>Published {publishedLabel}</span>
+        <span>{readingMinutes} min read</span>
+      </div>
+    </header>
+
+    <figure class="article-hero shell">
+      <img src={post.image} alt={post.imageAlt} width="1400" height="900" loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption>Original editorial image created for the Sothys Kuantan skincare journal.</figcaption>
+    </figure>
+
+    <div class="article-layout shell">
+      <aside class="article-summary" aria-label="Quick answer">
+        <p class="eyebrow">Quick answer</p>
+        <p>{post.quickAnswer}</p>
+        <a href={appointmentHref} target="_blank" rel="noopener noreferrer">Ask our Kuantan team <span aria-hidden="true">↗</span></a>
+      </aside>
+
+      <div class="article-content">
+        {post.sections.map((section, index) => (
+          <section>
+            <p class="article-section-number">0{index + 1}</p>
+            <h2>{section.heading}</h2>
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            {section.bullets && (
+              <ul>
+                {section.bullets.map((bullet) => <li>{bullet}</li>)}
+              </ul>
+            )}
+          </section>
+        ))}
+
+        <aside class="article-local-note">
+          <p class="eyebrow">Local note</p>
+          <h2>Professional guidance in Kuantan.</h2>
+          <p>For a treatment or Sothys homecare recommendation based on your current concerns, book a consultation at Sothys Kuantan. Cosmetic guidance does not replace diagnosis or medical care.</p>
+          <div>
+            <a class="pill" href={appointmentHref} target="_blank" rel="noopener noreferrer">Book a consultation <span>↗</span></a>
+            <a class="pill-secondary" href="/shop">Explore treatments</a>
+          </div>
+        </aside>
+
+        {post.sources && post.sources.length > 0 && (
+          <section class="article-sources">
+            <p class="article-section-number">Sources</p>
+            <h2>Further reading.</h2>
+            <p>These independent resources support the general skincare guidance in this article:</p>
+            <ul>
+              {post.sources.map((source) => <li><a href={source.href} target="_blank" rel="noopener noreferrer external">{source.label} <span aria-hidden="true">↗</span></a></li>)}
+            </ul>
+          </section>
+        )}
+
+        <p class="article-disclaimer"><strong>Editorial note:</strong> This guide provides general cosmetic skincare information and is not medical advice. Results and suitability vary. Seek a qualified healthcare professional for persistent, painful, sudden or concerning skin changes.</p>
+      </div>
+    </div>
+  </article>
+
+  <section class="related-posts shell" aria-labelledby="related-heading">
+    <div class="blog-section-heading">
+      <p class="eyebrow">Keep exploring</p>
+      <h2 id="related-heading">Related guides.</h2>
+    </div>
+    <div class="related-grid">
+      {relatedPosts.map((related) => (
+        <a href={`/blog/${related.slug}`}>
+          <img src={related.image} alt={related.imageAlt} width="1400" height="900" loading="lazy" decoding="async" />
+          <p>{related.category}</p>
+          <h3>{related.title}</h3>
+          <span>Read guide <span aria-hidden="true">↗</span></span>
+        </a>
+      ))}
+    </div>
+    <a class="pill-secondary related-all" href="/blog">View all 30 guides</a>
+  </section>
+</BaseLayout>

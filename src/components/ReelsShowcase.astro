@@ -1,0 +1,146 @@
+---
+const reels = [
+  {
+    number: '01',
+    title: 'Double Peel professional treatment',
+    label: 'Treatment ritual',
+    src: '/reels/double-peel-treatment.mp4',
+    poster: '/reels/double-peel-treatment.jpg',
+  },
+  {
+    number: '02',
+    title: 'Dermo_Booster treatment in action',
+    label: 'Inside the salon',
+    src: '/reels/dermo-booster-treatment.mp4',
+    poster: '/reels/dermo-booster-treatment.jpg',
+  },
+];
+---
+
+<section class="reels-showcase home-section" id="reels" data-reels aria-labelledby="reels-heading">
+  <div class="reels-heading shell">
+    <div>
+      <p class="eyebrow">Inside Sothys Kuantan</p>
+      <h2 class="section-heading" id="reels-heading">Treatment stories.<br />Made to be seen.</h2>
+    </div>
+    <div class="reels-intro">
+      <p>Step inside our professional treatment rituals and discover the care, technique, and calm behind every salon visit.</p>
+      <div class="reels-controls" aria-label="Reel navigation">
+        <button type="button" data-reels-previous aria-label="Show previous reel"><span aria-hidden="true">←</span></button>
+        <button type="button" data-reels-next aria-label="Show next reel"><span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="reels-viewport" data-reels-viewport tabindex="0" aria-label="Sothys Kuantan treatment reels">
+    <div class="reels-track">
+      {reels.map((reel) => (
+        <article class="reel-card" data-reel-card>
+          <div class="reel-media">
+            <video
+              data-reel-video
+              src={reel.src}
+              poster={reel.poster}
+              preload="metadata"
+              muted
+              loop
+              playsinline
+              disablepictureinpicture
+            ></video>
+            <div class="reel-shade" aria-hidden="true"></div>
+            <p class="reel-index"><span>{reel.label}</span><span>{reel.number}</span></p>
+            <button class="reel-sound" type="button" data-reel-sound aria-label={`Turn sound on for ${reel.title}`}>
+              <span data-sound-label>Sound off</span>
+            </button>
+            <button class="reel-play" type="button" data-reel-toggle aria-label={`Play ${reel.title}`}>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.8v12.4L18 12 8 5.8Z" /></svg>
+              <span data-reel-status>Play reel</span>
+            </button>
+            <div class="reel-caption">
+              <h3>{reel.title}</h3>
+              <p>Tap to watch</p>
+            </div>
+          </div>
+        </article>
+      ))}
+
+      <aside class="reels-follow-card">
+        <p class="eyebrow">More from the salon</p>
+        <div>
+          <span class="reels-follow-mark" aria-hidden="true">f</span>
+          <h3>Follow our latest stories.</h3>
+          <p>See new treatments, salon moments, announcements, and skincare updates from Sothys Kuantan.</p>
+        </div>
+        <a class="pill-secondary" href="https://www.facebook.com/SothysKuantan/" target="_blank" rel="noopener noreferrer">Visit Facebook <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+  </div>
+
+  <div class="reels-mobile-note shell" aria-hidden="true"><span>Swipe to explore</span><span>↔</span></div>
+
+  <script>
+    const reelSection = document.querySelector<HTMLElement>('[data-reels]');
+    const reelViewport = reelSection?.querySelector<HTMLElement>('[data-reels-viewport]');
+    const reelCards = Array.from(reelSection?.querySelectorAll<HTMLElement>('[data-reel-card]') ?? []);
+    const reelVideos = Array.from(reelSection?.querySelectorAll<HTMLVideoElement>('[data-reel-video]') ?? []);
+    const previousReel = reelSection?.querySelector<HTMLButtonElement>('[data-reels-previous]');
+    const nextReel = reelSection?.querySelector<HTMLButtonElement>('[data-reels-next]');
+
+    const setCardState = (card: HTMLElement, playing: boolean) => {
+      const toggle = card.querySelector<HTMLButtonElement>('[data-reel-toggle]');
+      const status = card.querySelector<HTMLElement>('[data-reel-status]');
+      const title = card.querySelector('h3')?.textContent?.trim() ?? 'reel';
+      card.classList.toggle('is-playing', playing);
+      if (status) status.textContent = playing ? 'Pause reel' : 'Play reel';
+      toggle?.setAttribute('aria-label', `${playing ? 'Pause' : 'Play'} ${title}`);
+    };
+
+    reelCards.forEach((card) => {
+      const video = card.querySelector<HTMLVideoElement>('[data-reel-video]');
+      const toggle = card.querySelector<HTMLButtonElement>('[data-reel-toggle]');
+      const sound = card.querySelector<HTMLButtonElement>('[data-reel-sound]');
+      const soundLabel = card.querySelector<HTMLElement>('[data-sound-label]');
+      if (!video) return;
+
+      toggle?.addEventListener('click', async () => {
+        if (video.paused) {
+          reelVideos.forEach((other) => {
+            if (other !== video) other.pause();
+          });
+          await video.play().catch(() => undefined);
+        } else {
+          video.pause();
+        }
+      });
+
+      sound?.addEventListener('click', () => {
+        video.muted = !video.muted;
+        const muted = video.muted;
+        if (soundLabel) soundLabel.textContent = muted ? 'Sound off' : 'Sound on';
+        sound.setAttribute('aria-label', `${muted ? 'Turn sound on' : 'Turn sound off'} for ${card.querySelector('h3')?.textContent?.trim() ?? 'this reel'}`);
+      });
+
+      video.addEventListener('play', () => setCardState(card, true));
+      video.addEventListener('pause', () => setCardState(card, false));
+    });
+
+    const scrollReels = (direction: number) => {
+      const cardWidth = reelCards[0]?.getBoundingClientRect().width ?? 360;
+      reelViewport?.scrollBy({ left: direction * (cardWidth + 16), behavior: 'smooth' });
+    };
+
+    previousReel?.addEventListener('click', () => scrollReels(-1));
+    nextReel?.addEventListener('click', () => scrollReels(1));
+    reelViewport?.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') scrollReels(-1);
+      if (event.key === 'ArrowRight') scrollReels(1);
+    });
+
+    const reelObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) entry.target.querySelector<HTMLVideoElement>('video')?.pause();
+      });
+    }, { threshold: 0.25 });
+    reelCards.forEach((card) => reelObserver.observe(card));
+  </script>
+</section>

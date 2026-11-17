@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { appointmentHref } from '../../data/catalog';
+import { blogCategories, blogPosts } from '../../data/blog';
+
+const featuredPosts = blogPosts.slice(0, 3);
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Sothys Kuantan Skin & Facial Care Journal',
+  description: 'Practical professional facial, skincare and beauty salon guides for people in Kuantan and Malaysia.',
+  url: new URL('/blog', Astro.site ?? Astro.url.origin).href,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: blogPosts.map((post, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: post.title,
+      url: new URL(`/blog/${post.slug}`, Astro.site ?? Astro.url.origin).href,
+    })),
+  },
+};
+---
+
+<BaseLayout
+  title="Skin & Facial Care Blog in Kuantan"
+  description="Explore 30 practical skincare, professional facial and beauty salon guides written for Kuantan’s tropical climate and local beauty needs."
+  canonicalPath="/blog"
+  image={featuredPosts[0].image}
+  schema={itemListSchema}
+>
+  <section class="blog-index-hero shell">
+    <p class="eyebrow">The Sothys Kuantan journal</p>
+    <h1 class="display-sm">Better skin starts<br />with better guidance.</h1>
+    <div class="blog-index-intro">
+      <p>Practical, locally relevant guides to professional facials, homecare and everyday skin habits in Kuantan’s warm, humid climate.</p>
+      <span>{blogPosts.length} original guides</span>
+    </div>
+  </section>
+
+  <section class="blog-featured shell" aria-labelledby="featured-heading">
+    <div class="blog-section-heading">
+      <p class="eyebrow">Start here</p>
+      <h2 id="featured-heading">Featured guides.</h2>
+    </div>
+    <div class="blog-featured-grid">
+      {featuredPosts.map((post, index) => (
+        <a class:list={['blog-featured-card', { 'blog-featured-card--lead': index === 0 }]} href={`/blog/${post.slug}`}>
+          <img src={post.image} alt={post.imageAlt} width="1400" height="900" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+          <div>
+            <p><span>{post.category}</span><span>{String(index + 1).padStart(2, '0')}</span></p>
+            <h3>{post.title}</h3>
+            <span class="blog-card-link">Read guide <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="blog-library shell" aria-labelledby="library-heading" data-blog-library>
+    <div class="blog-library-top">
+      <div class="blog-section-heading">
+        <p class="eyebrow">Explore the journal</p>
+        <h2 id="library-heading">Thirty ways to care smarter.</h2>
+      </div>
+      <div class="blog-filters" aria-label="Filter blog guides">
+        {blogCategories.map((category, index) => (
+          <button class:list={{ 'is-active': index === 0 }} type="button" data-blog-filter={category} aria-pressed={index === 0 ? 'true' : 'false'}>{category}</button>
+        ))}
+      </div>
+    </div>
+
+    <div class="blog-grid" data-blog-grid>
+      {blogPosts.map((post, index) => (
+        <article class="blog-card" data-blog-card data-category={post.category}>
+          <a href={`/blog/${post.slug}`} aria-label={`Read ${post.title}`}>
+            <div class="blog-card-image">
+              <img src={post.image} alt={post.imageAlt} width="1400" height="900" loading={index < 6 ? 'eager' : 'lazy'} decoding="async" />
+            </div>
+            <div class="blog-card-copy">
+              <p class="blog-card-meta"><span>{post.category}</span><span>{String(index + 1).padStart(2, '0')}</span></p>
+              <h3>{post.title}</h3>
+              <p>{post.excerpt}</p>
+              <span class="blog-card-link">Read guide <span aria-hidden="true">↗</span></span>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+    <p class="blog-empty" data-blog-empty hidden>No guides found in this category.</p>
+  </section>
+
+  <section class="consultation-band shell blog-consultation">
+    <div><p class="eyebrow">Need personal guidance?</p><h2>Turn reading into a plan for your skin.</h2></div>
+    <div>
+      <p>Tell our Kuantan team what your skin is experiencing. We’ll help you choose a suitable consultation and professional treatment direction.</p>
+      <a class="pill" href={appointmentHref} target="_blank" rel="noopener noreferrer">Ask on WhatsApp <span>↗</span></a>
+    </div>
+  </section>
+
+  <script>
+    const library = document.querySelector<HTMLElement>('[data-blog-library]');
+    const filters = Array.from(library?.querySelectorAll<HTMLButtonElement>('[data-blog-filter]') ?? []);
+    const cards = Array.from(library?.querySelectorAll<HTMLElement>('[data-blog-card]') ?? []);
+    const empty = library?.querySelector<HTMLElement>('[data-blog-empty]');
+
+    filters.forEach((filter) => filter.addEventListener('click', () => {
+      const selected = filter.dataset.blogFilter ?? 'All';
+      filters.forEach((button) => {
+        const active = button === filter;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+      let visible = 0;
+      cards.forEach((card) => {
+        const show = selected === 'All' || card.dataset.category === selected;
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      if (empty) empty.hidden = visible > 0;
+    }));
+  </script>
+</BaseLayout>

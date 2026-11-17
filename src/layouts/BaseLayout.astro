@@ -4,18 +4,33 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  canonicalPath?: string;
+  image?: string;
+  pageType?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
   title,
   description = 'Personalised professional facial treatments and skin consultations at Sothys Kuantan.',
+  canonicalPath,
+  image = '/hero-sothys-products.webp',
+  pageType = 'website',
+  publishedTime,
+  modifiedTime,
+  schema = [],
 } = Astro.props;
 
 const path = Astro.url.pathname;
+const canonicalUrl = new URL(canonicalPath ?? path, Astro.site ?? Astro.url.origin);
+const socialImage = new URL(image, Astro.site ?? Astro.url.origin);
 const links = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/shop', label: 'Services' },
+  { href: '/blog', label: 'Blog' },
   { href: '/terms-and-conditions', label: 'Terms' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -24,6 +39,30 @@ const whatsappMessage = "Hi! I'm interested in your treatments at Sothys Kuantan
 const whatsappHref = `https://wa.me/60129816966?text=${encodeURIComponent(whatsappMessage)}`;
 const appointmentMessage = "Hi! I'd like to book an appointment at Sothys Kuantan.";
 const appointmentHref = `https://wa.me/60129816966?text=${encodeURIComponent(appointmentMessage)}`;
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['BeautySalon', 'DaySpa'],
+  name: 'Sothys Kuantan Premium Salon',
+  url: new URL('/', Astro.site ?? Astro.url.origin).href,
+  image: socialImage.href,
+  telephone: '+60 12-981 6966',
+  email: 'ivonliew@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '43, Jalan Putra Square 3, China Town',
+    addressLocality: 'Kuantan',
+    addressRegion: 'Pahang',
+    postalCode: '25200',
+    addressCountry: 'MY',
+  },
+  sameAs: ['https://www.facebook.com/SothysKuantan/'],
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '10:00', closes: '19:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday', 'Sunday'], opens: '10:00', closes: '18:00' },
+  ],
+  areaServed: { '@type': 'City', name: 'Kuantan' },
+};
+const pageSchemas = Array.isArray(schema) ? schema : [schema];
 ---
 
 <!doctype html>
@@ -32,13 +71,29 @@ const appointmentHref = `https://wa.me/60129816966?text=${encodeURIComponent(app
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl.href} />
+    <meta property="og:type" content={pageType} />
+    <meta property="og:title" content={`${title} · Sothys Kuantan`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl.href} />
+    <meta property="og:image" content={socialImage.href} />
+    <meta property="og:locale" content="en_MY" />
+    <meta property="og:site_name" content="Sothys Kuantan" />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} · Sothys Kuantan`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage.href} />
     <link rel="icon" type="image/png" href="/brand/sothys-favicon.png" />
     <title>{title} · Sothys Kuantan</title>
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    {pageSchemas.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)} />)}
   </head>
   <body class:list={{ 'home-page': path === '/' }}>
     <header class="site-header">
-      <a class="brand" href="/" aria-label="Sothys Malaysia home">
-        <img src="/brand/sothys-logo.png" alt="Sothys Malaysia" />
+      <a class="brand" href="/" aria-label="Sothys Kuantan home">
+        <img src="/brand/sothys-logo.png" alt="Sothys Kuantan" />
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
         {links.map((link) => (

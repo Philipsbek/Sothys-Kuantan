@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FacebookFeed from '../components/FacebookFeed.astro';
+import ReelsShowcase from '../components/ReelsShowcase.astro';
 import ResultsShowcase from '../components/ResultsShowcase.astro';
 import { appointmentHref, productCategories, productEnquiryHref, services } from '../data/catalog';
 ---
@@ -84,12 +85,18 @@ import { appointmentHref, productCategories, productEnquiryHref, services } from
     </article>
 
     <div class="hero-slider-controls" aria-label="Hero slider controls">
+      <button class="hero-arrow" type="button" data-hero-prev aria-label="Show previous hero slide">
+        <span aria-hidden="true">←</span>
+      </button>
       <div class="hero-dots" role="tablist" aria-label="Choose a hero slide">
         <button class="hero-dot is-active" type="button" data-hero-dot role="tab" aria-label="Show hydration treatment slide" aria-selected="true"></button>
         <button class="hero-dot" type="button" data-hero-dot role="tab" aria-label="Show acne treatment slide" aria-selected="false"></button>
         <button class="hero-dot" type="button" data-hero-dot role="tab" aria-label="Show firming treatment slide" aria-selected="false"></button>
         <button class="hero-dot" type="button" data-hero-dot role="tab" aria-label="Show Sothys skincare products slide" aria-selected="false"></button>
       </div>
+      <button class="hero-arrow" type="button" data-hero-next aria-label="Show next hero slide">
+        <span aria-hidden="true">→</span>
+      </button>
     </div>
   </section>
 
@@ -122,6 +129,8 @@ import { appointmentHref, productCategories, productEnquiryHref, services } from
   </section>
 
   <ResultsShowcase />
+
+  <ReelsShowcase />
 
   <section class="consultation-band shell">
     <div><p class="eyebrow">Not sure where to begin?</p><h2>Your best treatment starts with a conversation.</h2></div>
