@@ -1,0 +1,558 @@
+---
+const membershipMessage = "Hi! I'm interested in joining the Sothys Kuantan membership. Could you share the current membership benefits, privileges, eligibility, and how to join?";
+const membershipHref = `https://wa.me/60129816966?text=${encodeURIComponent(membershipMessage)}`;
+---
+
+<dialog class="membership-dialog" data-membership-dialog aria-labelledby="membership-title" aria-describedby="membership-description">
+  <div class="membership-popup">
+    <div class="membership-popup-visual" aria-hidden="true">
+      <img src="/hero-sothys-products.webp" alt="" width="1200" height="1200" loading="eager" decoding="async" />
+      <div>
+        <span>Members · Sothys Kuantan</span>
+        <p>Care that continues beyond the treatment room.</p>
+      </div>
+    </div>
+
+    <div class="membership-popup-copy">
+      <button class="membership-close" type="button" data-membership-close aria-label="Close membership invitation">
+        <span aria-hidden="true">×</span>
+      </button>
+      <p class="eyebrow">A little more, reserved for members</p>
+      <h2 id="membership-title">Your skin deserves the inside track.</h2>
+      <p class="membership-lede" id="membership-description">Join the Sothys Kuantan membership circle and stay closer to the care, guidance, and privileges created around your beauty journey.</p>
+
+      <div class="membership-benefits" aria-label="Membership benefits">
+        <div><span>01</span><p>Be first to hear about current member privileges and salon opportunities.</p></div>
+        <div><span>02</span><p>Receive relevant treatment, homecare, and seasonal beauty updates.</p></div>
+        <div><span>03</span><p>Stay connected with our Kuantan team for personalised guidance.</p></div>
+      </div>
+
+      <div class="membership-actions">
+        <a class="membership-join" href={membershipHref} target="_blank" rel="noopener noreferrer">Join via WhatsApp <span aria-hidden="true">↗</span></a>
+        <button type="button" data-membership-close>Maybe later</button>
+      </div>
+      <p class="membership-note">Message our team for current membership details, eligibility, and available privileges.</p>
+    </div>
+  </div>
+
+  <script>
+    const membershipDialog = document.querySelector<HTMLDialogElement>('[data-membership-dialog]');
+    const closeMembershipButtons = Array.from(membershipDialog?.querySelectorAll<HTMLButtonElement>('[data-membership-close]') ?? []);
+    const reduceMembershipMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let membershipIsClosing = false;
+    let membershipCloseTimer: number | undefined;
+
+    const openMembership = () => {
+      if (!membershipDialog || membershipDialog.open) return;
+
+      membershipIsClosing = false;
+      membershipDialog.classList.remove('is-closing');
+      membershipDialog.showModal();
+    };
+
+    const finishMembershipClose = () => {
+      if (!membershipDialog || !membershipIsClosing) return;
+
+      if (membershipDialog.open) membershipDialog.close();
+      membershipDialog.classList.remove('is-closing');
+      membershipIsClosing = false;
+
+      if (membershipCloseTimer !== undefined) {
+        window.clearTimeout(membershipCloseTimer);
+        membershipCloseTimer = undefined;
+      }
+    };
+
+    const closeMembership = () => {
+      if (!membershipDialog?.open || membershipIsClosing) return;
+
+      if (reduceMembershipMotion.matches) {
+        membershipDialog.close();
+        return;
+      }
+
+      membershipIsClosing = true;
+      membershipDialog.classList.add('is-closing');
+      membershipCloseTimer = window.setTimeout(finishMembershipClose, 420);
+    };
+
+    closeMembershipButtons.forEach((button) => button.addEventListener('click', closeMembership));
+    membershipDialog?.addEventListener('click', (event) => {
+      if (event.target === membershipDialog) closeMembership();
+    });
+    membershipDialog?.addEventListener('cancel', (event) => {
+      event.preventDefault();
+      closeMembership();
+    });
+    membershipDialog?.addEventListener('animationend', (event) => {
+      if (event.target === membershipDialog && event.animationName === 'membership-dialog-out') {
+        finishMembershipClose();
+      }
+    });
+    membershipDialog?.addEventListener('close', () => {
+      membershipDialog.classList.remove('is-closing');
+      membershipIsClosing = false;
+    });
+
+    window.setTimeout(openMembership, 850);
+  </script>
+</dialog>
+
+<style>
+  .membership-dialog {
+    width: min(920px, calc(100vw - 32px));
+    max-width: none;
+    max-height: calc(100svh - 32px);
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    color: var(--charcoal);
+    background: #fff;
+    border: 1px solid var(--charcoal);
+    border-radius: 26px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, .2);
+    transform-origin: center;
+  }
+
+  .membership-dialog[open] {
+    animation: membership-dialog-in .58s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .membership-dialog::backdrop {
+    background: rgba(20, 22, 23, .62);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+  }
+
+  .membership-dialog[open]::backdrop {
+    animation: membership-backdrop-in .46s ease-out both;
+  }
+
+  .membership-dialog.is-closing {
+    animation: membership-dialog-out .32s cubic-bezier(.4, 0, 1, 1) both;
+    pointer-events: none;
+  }
+
+  .membership-dialog.is-closing::backdrop {
+    animation: membership-backdrop-out .32s ease-in both;
+  }
+
+  .membership-popup {
+    min-height: 580px;
+    display: grid;
+    grid-template-columns: minmax(300px, .82fr) minmax(0, 1.18fr);
+  }
+
+  .membership-popup-visual {
+    position: relative;
+    min-height: 580px;
+    overflow: hidden;
+    background: #ebeae3;
+  }
+
+  .membership-popup-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 48%, rgba(0, 0, 0, .75));
+  }
+
+  .membership-popup-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  .membership-dialog[open]:not(.is-closing) .membership-popup-visual img {
+    animation: membership-image-in 1.05s cubic-bezier(.22, 1, .36, 1) .04s both;
+  }
+
+  .membership-popup-visual > div {
+    position: absolute;
+    right: 28px;
+    bottom: 28px;
+    left: 28px;
+    z-index: 1;
+    color: #fff;
+  }
+
+  .membership-dialog[open]:not(.is-closing) .membership-popup-visual > div {
+    animation: membership-content-in .55s cubic-bezier(.22, 1, .36, 1) .22s both;
+  }
+
+  .membership-popup-visual span {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+  }
+
+  .membership-popup-visual p {
+    max-width: 270px;
+    margin: 12px 0 0;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -.04em;
+  }
+
+  .membership-popup-copy {
+    position: relative;
+    padding: 50px clamp(34px, 5vw, 60px) 38px;
+  }
+
+  .membership-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--charcoal);
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    transition: color .2s ease, background-color .2s ease, transform .2s ease;
+  }
+
+  .membership-close:hover {
+    color: #fff;
+    background: var(--ink);
+    transform: rotate(5deg);
+  }
+
+  .membership-close:focus-visible,
+  .membership-actions a:focus-visible,
+  .membership-actions button:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  .membership-popup-copy .eyebrow {
+    max-width: calc(100% - 34px);
+    margin-bottom: 24px;
+  }
+
+  .membership-popup-copy h2 {
+    max-width: 500px;
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(48px, 5.4vw, 66px);
+    line-height: .9;
+    letter-spacing: -.06em;
+  }
+
+  .membership-lede {
+    margin: 26px 0 0;
+    color: var(--granite);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .membership-benefits {
+    margin-top: 28px;
+    border-top: 1px solid var(--charcoal);
+  }
+
+  .membership-benefits > div {
+    padding: 12px 0;
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 10px;
+    border-bottom: 1px solid var(--mist);
+  }
+
+  .membership-benefits span {
+    color: var(--slate);
+    font-size: 10px;
+    letter-spacing: .08em;
+  }
+
+  .membership-benefits p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .membership-actions {
+    margin-top: 26px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .membership-join,
+  .membership-actions button {
+    min-height: 48px;
+    padding: 0 21px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .membership-join {
+    color: #fff;
+    background: var(--ink);
+    border: 1px solid var(--ink);
+    transition: color .2s ease, background-color .2s ease, transform .2s ease;
+  }
+
+  .membership-join:hover {
+    color: var(--ink);
+    background: #fff;
+    transform: translateY(-1px);
+  }
+
+  .membership-actions button {
+    color: var(--charcoal);
+    background: #fff;
+    border: 1px solid var(--charcoal);
+  }
+
+  .membership-actions button:hover {
+    color: #fff;
+    background: var(--charcoal);
+  }
+
+  .membership-note {
+    margin: 17px 0 0;
+    color: var(--slate);
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+  .membership-dialog[open]:not(.is-closing) .membership-close {
+    animation: membership-close-in .42s cubic-bezier(.22, 1, .36, 1) .24s both;
+  }
+
+  .membership-dialog[open]:not(.is-closing) .membership-popup-copy > .eyebrow {
+    animation: membership-content-in .5s cubic-bezier(.22, 1, .36, 1) .12s both;
+  }
+
+  .membership-dialog[open]:not(.is-closing) .membership-popup-copy > h2 {
+    animation: membership-content-in .58s cubic-bezier(.22, 1, .36, 1) .17s both;
+  }
+
+  .membership-dialog[open]:not(.is-closing) .membership-lede {
+    animation: membership-content-in .52s cubic-bezier(.22, 1, .36, 1) .23s both;
+  }
+
+  .membership-dialog[open]:not(.is-closing) .membership-benefits {
+    animation: membership-content-in .5s cubic-bezier(.22, 1, .36, 1) .28s both;
+  }
+
+  .membership-dialog[open]:not(.is-closing) .membership-benefits > div:nth-child(1) {
+    animation: membership-row-in .46s cubic-bezier(.22, 1, .36, 1) .34s both;
+  }
+
+  .membership-dialog[open]:not(.is-closing) .membership-benefits > div:nth-child(2) {
+    animation: membership-row-in .46s cubic-bezier(.22, 1, .36, 1) .4s both;
+  }
+
+  .membership-dialog[open]:not(.is-closing) .membership-benefits > div:nth-child(3) {
+    animation: membership-row-in .46s cubic-bezier(.22, 1, .36, 1) .46s both;
+  }
+
+  .membership-dialog[open]:not(.is-closing) .membership-actions {
+    animation: membership-content-in .5s cubic-bezier(.22, 1, .36, 1) .5s both;
+  }
+
+  .membership-dialog[open]:not(.is-closing) .membership-note {
+    animation: membership-content-in .5s cubic-bezier(.22, 1, .36, 1) .55s both;
+  }
+
+  @keyframes membership-dialog-in {
+    from {
+      opacity: 0;
+      transform: translateY(22px) scale(.97);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes membership-dialog-out {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(14px) scale(.985);
+    }
+  }
+
+  @keyframes membership-backdrop-in {
+    from {
+      background: rgba(20, 22, 23, 0);
+      -webkit-backdrop-filter: blur(0);
+      backdrop-filter: blur(0);
+    }
+    to {
+      background: rgba(20, 22, 23, .62);
+      -webkit-backdrop-filter: blur(7px);
+      backdrop-filter: blur(7px);
+    }
+  }
+
+  @keyframes membership-backdrop-out {
+    from {
+      background: rgba(20, 22, 23, .62);
+      -webkit-backdrop-filter: blur(7px);
+      backdrop-filter: blur(7px);
+    }
+    to {
+      background: rgba(20, 22, 23, 0);
+      -webkit-backdrop-filter: blur(0);
+      backdrop-filter: blur(0);
+    }
+  }
+
+  @keyframes membership-image-in {
+    from {
+      opacity: .84;
+      transform: scale(1.055);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes membership-content-in {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes membership-row-in {
+    from {
+      opacity: 0;
+      transform: translateX(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes membership-close-in {
+    from {
+      opacity: 0;
+      transform: scale(.7) rotate(-12deg);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .membership-dialog {
+      width: min(520px, calc(100% - 32px));
+      max-height: calc(100svh - 32px);
+      overflow-y: auto;
+      border-radius: 20px;
+    }
+
+    .membership-popup {
+      min-height: 0;
+      grid-template-columns: 1fr;
+    }
+
+    .membership-popup-visual {
+      min-height: 170px;
+      height: 170px;
+    }
+
+    .membership-popup-visual img {
+      object-position: center 42%;
+    }
+
+    .membership-popup-visual > div {
+      right: 20px;
+      bottom: 18px;
+      left: 20px;
+    }
+
+    .membership-popup-visual p {
+      max-width: 230px;
+      font-size: 21px;
+    }
+
+    .membership-popup-copy {
+      padding: 30px 22px 24px;
+    }
+
+    .membership-close {
+      top: 12px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+    }
+
+    .membership-popup-copy .eyebrow {
+      margin-bottom: 18px;
+      padding-right: 28px;
+    }
+
+    .membership-popup-copy h2 {
+      font-size: clamp(40px, 12vw, 52px);
+    }
+
+    .membership-lede {
+      margin-top: 20px;
+      font-size: 15px;
+    }
+
+    .membership-benefits {
+      margin-top: 22px;
+    }
+
+    .membership-benefits > div {
+      padding: 10px 0;
+    }
+
+    .membership-actions {
+      margin-top: 22px;
+      flex-direction: column;
+    }
+
+    .membership-join,
+    .membership-actions button {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .membership-close,
+    .membership-join { transition: none; }
+
+    .membership-dialog[open],
+    .membership-dialog.is-closing,
+    .membership-dialog[open]::backdrop,
+    .membership-dialog.is-closing::backdrop,
+    .membership-dialog[open] .membership-popup-visual img,
+    .membership-dialog[open] .membership-popup-visual > div,
+    .membership-dialog[open] .membership-popup-copy > *,
+    .membership-dialog[open] .membership-benefits > div {
+      animation: none !important;
+    }
+  }
+</style>

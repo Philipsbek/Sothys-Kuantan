@@ -1,12 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FacebookFeed from '../components/FacebookFeed.astro';
+import MembershipPopup from '../components/MembershipPopup.astro';
 import ReelsShowcase from '../components/ReelsShowcase.astro';
 import ResultsShowcase from '../components/ResultsShowcase.astro';
 import { appointmentHref, productCategories, productEnquiryHref, services } from '../data/catalog';
 ---
 
 <BaseLayout title="Professional Beauty Treatments" description="Discover personalised professional facial treatments and skin consultations at Sothys Kuantan.">
+  <MembershipPopup />
+
   <section class="hero hero-carousel" data-hero-carousel aria-label="Featured treatments and Sothys homecare">
     <article class="hero-slide hero-slide-hydration is-active" data-hero-slide aria-hidden="false">
       <div class="hero-copy">
