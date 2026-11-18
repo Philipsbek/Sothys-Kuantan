@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const sections = [
+  ['1. 网站用途', '本网站提供一般美容护理、产品与预约资讯，不构成医疗诊断、医疗建议或结果保证。'],
+  ['2. 预约与咨询', '通过网站或 WhatsApp 提交的请求只有在美容院确认后才算完成预约。请提供准确的联系方式，并及时告知取消或更改。'],
+  ['3. 护理适合度', '护理与产品建议会根据咨询时提供的资料作出。请主动说明过敏、处方产品、怀孕、近期程序或相关健康状况。'],
+  ['4. 价格与供应', '疗程、产品、优惠、会员权益与供应情况可能更改。最终价格与详情以 Sothys Kuantan 团队确认为准。'],
+  ['5. 知识产权', '除另有说明外，网站文字、设计、品牌与视觉内容受相关知识产权保护，不得未经许可复制或商业使用。'],
+  ['6. 外部链接', '网站可能链接至 WhatsApp、Facebook、Google 或其他第三方服务。使用这些服务时须遵守相关平台的条款与隐私政策。'],
+  ['7. 责任限制', '我们会尽力保持网站资讯准确，但不保证内容始终完整或没有错误。你应根据个人状况寻求合适的专业意见。'],
+  ['8. 条款更新', '我们可能不时更新本条款。继续使用本网站即表示接受最新版本。'],
+  ['9. 联系我们', '如对本条款有疑问，请通过 ivonliew@gmail.com、012-981 6966 或到店与我们联系。'],
+];
+---
+<BaseLayout lang="zh" title="条款与条件" description="Sothys Kuantan 网站使用、护理咨询、预约与沟通条款。">
+  <section class="page-hero shell"><p class="eyebrow">法律资讯 · 2026年10月8日更新</p><h1 class="display display-sm">清楚条款。<br />简单易懂。</h1><div class="intro-grid"><p class="eyebrow">Sothys Kuantan</p><p>这些条款适用于本网站、护理咨询、预约请求与美容院沟通。</p></div></section>
+  <section class="legal-layout shell"><aside class="legal-index" aria-label="条款目录">{sections.map((section,index)=><a href={`#section-${index+1}`}>{section[0]}</a>)}</aside><div class="legal-copy"><section class="legal-section"><h2>内容概览</h2><p>使用本网站即表示你同意以下条款。若你不同意，请停止使用网站并直接联系团队查询。</p></section>{sections.map((section,index)=><section class="legal-section" id={`section-${index+1}`}><h2>{section[0]}</h2><p>{section[1]}</p></section>)}</div></section>
+</BaseLayout>

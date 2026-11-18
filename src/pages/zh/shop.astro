@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { appointmentHrefZh, productCategoriesZh, productEnquiryHrefZh, servicesZh } from '../../data/catalog.zh';
+---
+<BaseLayout lang="zh" title="专业面部护理" description="浏览 Sothys Kuantan 的个性化专业面部护理方向，并通过 WhatsApp 预约皮肤咨询。">
+  <section class="page-hero services-hero shell"><p class="eyebrow">专业美容护理</p><h1 class="display display-sm">围绕你的肌肤<br />定制专业护理。</h1><div class="intro-grid"><p class="eyebrow">个性化照顾</p><div><p>选择最接近你当前肌肤状况的护理方向。我们的团队会聆听、分析并协助你选择合适的专业疗程。</p><a class="pill" href={appointmentHrefZh} target="_blank" rel="noopener noreferrer">预约皮肤咨询</a></div></div></section>
+  <section class="services-directory shell"><div class="service-list">{servicesZh.map((service) => <article class="service-row-expanded"><span class="number">{service.number}</span><div class="service-name"><p class="eyebrow">护理方向</p><h2>{service.title}</h2></div><div class="service-copy"><p>{service.description}</p><strong>{service.outcome}</strong></div><a href={service.whatsappHref} target="_blank" rel="noopener noreferrer" aria-label={`咨询${service.title}`}>咨询这项护理</a></article>)}</div></section>
+  <section class="consultation-band shell"><div><p class="eyebrow">第一步</p><h2>先了解你的肌肤。</h2></div><div><p>你不需要事先知道该选哪项护理。告诉我们你的问题，团队会协助你开始。</p><a class="pill" href={appointmentHrefZh} target="_blank" rel="noopener noreferrer">联系团队</a></div></section>
+  <section class="home-section shell product-enquiry-section"><div class="product-enquiry-copy"><p class="eyebrow">咨询式居家护理</p><h2 class="section-heading">为日常程序<br />选择合适支持。</h2><p class="lede">店内提供精选 Sothys 居家护理类别。我们不在网上逐一列出产品，请联系团队了解推荐、库存与价格。</p><a class="pill-secondary" href={productEnquiryHrefZh} target="_blank" rel="noopener noreferrer">WhatsApp 咨询</a></div><div class="product-category-list" aria-label="居家护理类别">{productCategoriesZh.map((category,index)=><div><span>{String(index+1).padStart(2,'0')}</span><p>{category}</p></div>)}</div></section>
+</BaseLayout>

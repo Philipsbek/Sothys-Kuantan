@@ -33,6 +33,9 @@ main { padding-top: 96px; }
 .desktop-nav { display: flex; align-items: center; gap: 22px; }
 .desktop-nav a { padding-block: 8px; font-size: 14px; border-bottom: 1px solid transparent; }
 .desktop-nav a:hover, .desktop-nav a.active { color: var(--blue); border-color: var(--blue); }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.language-switcher { min-width: 42px; padding: 8px 10px; color: var(--ink); border: 1px solid rgba(37,42,45,.45); border-radius: 999px; font-size: 12px; font-weight: 600; text-align: center; transition: color .2s ease, background-color .2s ease, border-color .2s ease; }
+.language-switcher:hover { color: #fff; background: var(--charcoal); border-color: var(--charcoal); }
 .header-booking { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 20px; color: #fff; background: var(--ink); border: 1px solid var(--ink); border-radius: 999px; font-size: 13px; font-weight: 500; transition: background-color .2s ease, color .2s ease, transform .2s ease; }
 .header-booking:hover { color: var(--ink); background: #fff; transform: translateY(-1px); }
 .menu-toggle { display: none; border: 0; background: transparent; color: var(--ink); padding: 8px 0; gap: 8px; align-items: center; cursor: pointer; -webkit-appearance: none; appearance: none; }
@@ -43,6 +46,11 @@ main { padding-top: 96px; }
 .mobile-menu a span { font-size: 11px; color: var(--slate); font-weight: 400; letter-spacing: 0; }
 .mobile-menu .mobile-booking { justify-content: center; margin-top: 14px; padding: 15px 20px; color: #fff; background: var(--ink); border: 1px solid var(--ink); border-radius: 999px; font-size: 15px; font-weight: 500; letter-spacing: 0; }
 .mobile-menu .mobile-booking span { color: inherit; font-size: inherit; }
+.mobile-language { margin-top: 12px; padding: 12px 4px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid var(--mist); border-bottom: 1px solid var(--mist); }
+.mobile-language > span { color: var(--slate); font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+.mobile-language a { min-height: 36px; padding: 8px 14px; display: inline-flex; align-items: center; justify-content: center; color: var(--ink); border: 1px solid var(--charcoal); border-radius: 999px; font-size: 14px; font-weight: 600; letter-spacing: 0; }
+html[lang="zh-Hans"] body { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; }
+html[lang="zh-Hans"] .display, html[lang="zh-Hans"] .display-sm, html[lang="zh-Hans"] .section-heading { letter-spacing: -.045em; line-height: 1.02; }
 
 .eyebrow { margin: 0 0 20px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .display { margin: 0; color: var(--ink); font-size: clamp(64px, 9.2vw, 120px); line-height: .9; letter-spacing: -.065em; font-weight: 700; }
@@ -280,7 +288,7 @@ main { padding-top: 96px; }
 
 @media (max-width: 900px) {
   .desktop-nav { display: none; }
-  .header-booking { display: none; }
+  .header-actions { display: none; }
   .menu-toggle { display: flex; }
   .service-card-grid { grid-template-columns: repeat(2, 1fr); }
   .results-heading { grid-template-columns: 1fr; gap: 32px; }

@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const timeline = [
+  ['1946', '诞生于巴黎', 'Max Hotz 博士在法国美容新浪潮中创立 Sothys。'],
+  ['1947', '全球首创', '推出首款以安瓶盛装的生物活性精华。'],
+  ['1966', 'Mas 家族', 'Mas 家族收购 Sothys，开启家族传承的新篇章。'],
+  ['1968', '美容院专业经验', 'Sothys 首个提拉面部护理正式推出。'],
+  ['1978', '培训专业人才', 'Sothys 专业培训学校成立。'],
+  ['1993', '从巴黎来到马来西亚', 'Société Française De Cosmétiques 在马来西亚成立。'],
+  ['2006', 'Les Jardins Sothys™', '植物园于法国科雷兹省 Auriac 开幕。'],
+  ['今天', '遍布120个国家', '第三代家族品牌持续结合专业技术、科学与感官体验。'],
+];
+---
+<BaseLayout lang="zh" title="关于 Sothys Kuantan" description="认识 Sothys 自1946年起的法国专业美容传承，以及 Sothys Kuantan 的个性化护理理念。">
+  <section class="page-hero shell"><p class="eyebrow">品牌故事</p><h1 class="display display-sm">法国专业传承。<br />贴心个性护理。</h1><div class="intro-grid"><p class="eyebrow">始于1946年</p><p>Sothys 是专业美容院与水疗品牌的先驱之一。品牌坚持由受过专业训练的美容师提供护理，足迹遍布全球120个国家。</p></div></section>
+  <section class="home-section shell" style="padding-top:40px"><div class="heading-block"><p class="eyebrow">创立愿景</p><h2 class="section-heading">护理肌肤。<br />重拾自信。</h2><p class="lede">Sothys 由 Max Hotz 博士在巴黎创立，最初以恢复肌肤健康为使命。他研发的安瓶精华，为专业护肤带来重要突破。</p></div><div class="timeline">{timeline.map(([year,title,copy]) => <div class="timeline-row"><span class="year">{year}</span><h3>{title}</h3><p>{copy}</p></div>)}</div></section>
+  <section class="home-section shell" style="padding-top:30px"><div class="heading-block"><p class="eyebrow">成效背后的科学</p><h2 class="section-heading">四项标准。<br />一个承诺。</h2></div><div class="value-grid"><article class="value-card"><span>01</span><h3>安全</h3><p>严谨挑选成分，并在医疗监督下进行临床测试。</p></article><article class="value-card"><span>02</span><h3>感官体验</h3><p>精致质地与超过130种品牌专属香气。</p></article><article class="value-card"><span>03</span><h3>效果</h3><p>由专家与众多参与者评估配方，追求看得见的护理成果。</p></article><article class="value-card"><span>04</span><h3>天然理念</h3><p>植物活性成分、绿色化学，以及来自 Les Jardins Sothys™ 的灵感。</p></article></div></section>
+</BaseLayout>
