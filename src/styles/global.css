@@ -49,8 +49,92 @@ main { padding-top: 96px; }
 .mobile-language { margin-top: 12px; padding: 12px 4px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid var(--mist); border-bottom: 1px solid var(--mist); }
 .mobile-language > span { color: var(--slate); font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
 .mobile-language a { min-height: 36px; padding: 8px 14px; display: inline-flex; align-items: center; justify-content: center; color: var(--ink); border: 1px solid var(--charcoal); border-radius: 999px; font-size: 14px; font-weight: 600; letter-spacing: 0; }
-html[lang="zh-Hans"] body { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; }
-html[lang="zh-Hans"] .display, html[lang="zh-Hans"] .display-sm, html[lang="zh-Hans"] .section-heading { letter-spacing: -.045em; line-height: 1.02; }
+html[lang="zh-Hans"] body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif;
+  letter-spacing: .025em;
+  line-height: 1.68;
+}
+html[lang="zh-Hans"] .display,
+html[lang="zh-Hans"] .display-sm,
+html[lang="zh-Hans"] .section-heading,
+html[lang="zh-Hans"] .hero-slide .display,
+html[lang="zh-Hans"] .service-card h3,
+html[lang="zh-Hans"] .result-story-copy h3,
+html[lang="zh-Hans"] .consultation-band h2,
+html[lang="zh-Hans"] .principles h2,
+html[lang="zh-Hans"] .facebook-copy h2,
+html[lang="zh-Hans"] .facebook-profile-copy h3,
+html[lang="zh-Hans"] .service-name h2,
+html[lang="zh-Hans"] .legal-section h2,
+html[lang="zh-Hans"] .footer-lead h2,
+html[lang="zh-Hans"] .reel-caption h3,
+html[lang="zh-Hans"] .reels-follow-card h3,
+html[lang="zh-Hans"] .google-reviews-heading h2,
+html[lang="zh-Hans"] .google-review-card blockquote,
+html[lang="zh-Hans"] .blog-section-heading h2,
+html[lang="zh-Hans"] .blog-featured-card h3,
+html[lang="zh-Hans"] .blog-card h3,
+html[lang="zh-Hans"] .article-header h1,
+html[lang="zh-Hans"] .article-content h2,
+html[lang="zh-Hans"] .related-grid h3,
+html[lang="zh-Hans"] .membership-popup-copy h2 {
+  letter-spacing: .018em !important;
+  line-height: 1.2 !important;
+}
+html[lang="zh-Hans"] .hero-slide .display,
+html[lang="zh-Hans"] .article-header h1,
+html[lang="zh-Hans"] .facebook-copy h2,
+html[lang="zh-Hans"] .footer-lead h2,
+html[lang="zh-Hans"] .membership-popup-copy h2 {
+  line-height: 1.16 !important;
+}
+html[lang="zh-Hans"] .lede,
+html[lang="zh-Hans"] .hero-slide .lede,
+html[lang="zh-Hans"] .hero-benefit p,
+html[lang="zh-Hans"] .service-card p,
+html[lang="zh-Hans"] .result-story-copy p,
+html[lang="zh-Hans"] .reels-intro > p,
+html[lang="zh-Hans"] .reels-follow-card div > p,
+html[lang="zh-Hans"] .google-reviews-footer > p,
+html[lang="zh-Hans"] .facebook-copy p,
+html[lang="zh-Hans"] .intro-grid p,
+html[lang="zh-Hans"] .timeline-row p,
+html[lang="zh-Hans"] .value-card p,
+html[lang="zh-Hans"] .service-copy p,
+html[lang="zh-Hans"] .legal-section p,
+html[lang="zh-Hans"] .contact-line p,
+html[lang="zh-Hans"] .blog-index-intro p,
+html[lang="zh-Hans"] .blog-card-copy > p:not(.blog-card-meta),
+html[lang="zh-Hans"] .article-deck,
+html[lang="zh-Hans"] .article-summary > p:nth-child(2),
+html[lang="zh-Hans"] .article-content section > p:not(.article-section-number),
+html[lang="zh-Hans"] .article-local-note > p:not(.eyebrow),
+html[lang="zh-Hans"] .article-disclaimer,
+html[lang="zh-Hans"] .membership-lede,
+html[lang="zh-Hans"] .membership-benefits p,
+html[lang="zh-Hans"] .membership-note {
+  letter-spacing: .025em !important;
+  line-height: 1.75 !important;
+}
+html[lang="zh-Hans"] .desktop-nav a,
+html[lang="zh-Hans"] .mobile-menu a,
+html[lang="zh-Hans"] .header-booking,
+html[lang="zh-Hans"] .language-switcher,
+html[lang="zh-Hans"] .pill,
+html[lang="zh-Hans"] .pill-secondary,
+html[lang="zh-Hans"] button,
+html[lang="zh-Hans"] label {
+  letter-spacing: .035em;
+  line-height: 1.45;
+}
+html[lang="zh-Hans"] .eyebrow,
+html[lang="zh-Hans"] .footer-label,
+html[lang="zh-Hans"] .article-section-number,
+html[lang="zh-Hans"] .blog-card-meta,
+html[lang="zh-Hans"] .google-review-source {
+  letter-spacing: .12em;
+  line-height: 1.65;
+}
 
 .eyebrow { margin: 0 0 20px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
 .display { margin: 0; color: var(--ink); font-size: clamp(64px, 9.2vw, 120px); line-height: .9; letter-spacing: -.065em; font-weight: 700; }
