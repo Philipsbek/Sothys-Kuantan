@@ -42,13 +42,12 @@ main { padding-top: 96px; }
 .menu-mark { width: 24px; height: 24px; color: var(--ink); border: 1px solid var(--ink); border-radius: 50%; display: grid; place-items: center; line-height: 1; }
 .mobile-menu { position: absolute; top: 80px; left: 0; right: 0; padding: 16px; background: #fff; border: 1px solid rgba(23,23,23,.28); border-radius: 22px; box-shadow: 0 16px 40px rgba(23,23,23,.12); }
 .mobile-menu a { display: flex; gap: 16px; align-items: baseline; padding: 16px 4px; border-bottom: 1px solid var(--mist); font-size: 24px; font-weight: 700; letter-spacing: -.04em; }
-.mobile-menu a:last-child { border-bottom: 0; }
 .mobile-menu a span { font-size: 11px; color: var(--slate); font-weight: 400; letter-spacing: 0; }
 .mobile-menu .mobile-booking { justify-content: center; margin-top: 14px; padding: 15px 20px; color: #fff; background: var(--ink); border: 1px solid var(--ink); border-radius: 999px; font-size: 15px; font-weight: 500; letter-spacing: 0; }
 .mobile-menu .mobile-booking span { color: inherit; font-size: inherit; }
 .mobile-language { margin-top: 12px; padding: 12px 4px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid var(--mist); border-bottom: 1px solid var(--mist); }
 .mobile-language > span { color: var(--slate); font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
-.mobile-language a { min-height: 36px; padding: 8px 14px; display: inline-flex; align-items: center; justify-content: center; color: var(--ink); border: 1px solid var(--charcoal); border-radius: 999px; font-size: 14px; font-weight: 600; letter-spacing: 0; }
+.mobile-language a { min-height: 38px; padding: 8px 14px; display: inline-flex; align-items: center; justify-content: center; color: var(--ink); border: 1px solid var(--charcoal); border-radius: 999px; font-size: 14px; font-weight: 600; line-height: 1.35; letter-spacing: 0; }
 html[lang="zh-Hans"] body {
   font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif;
   letter-spacing: .025em;
