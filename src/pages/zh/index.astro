@@ -1,5 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FacebookFeed from '../../components/FacebookFeed.astro';
+import GoogleReviews from '../../components/GoogleReviews.astro';
+import MembershipPopup from '../../components/MembershipPopup.astro';
+import ReelsShowcase from '../../components/ReelsShowcase.astro';
+import ResultsShowcase from '../../components/ResultsShowcase.astro';
 import { appointmentHrefZh, productCategoriesZh, productEnquiryHrefZh, servicesZh } from '../../data/catalog.zh';
 
 const treatmentConcernImages = [
@@ -13,6 +18,7 @@ const treatmentConcernImages = [
 ---
 
 <BaseLayout lang="zh" title="关丹专业美容护理" description="Sothys Kuantan 提供个性化专业面部护理、皮肤咨询与 Sothys 居家护肤建议。">
+  <MembershipPopup lang="zh" />
   <section class="hero hero-carousel" data-hero-carousel aria-label="精选专业护理与 Sothys 居家护肤">
     <div class="hero-frame">
       <div class="hero-stage">
@@ -52,11 +58,15 @@ const treatmentConcernImages = [
       </div>
       <div class="hero-lower">
         <div class="hero-benefits" aria-label="选择 Sothys Kuantan 的理由">
-          <div class="hero-benefit"><span class="hero-benefit-icon" aria-hidden="true">✦</span><div><strong>以肌肤为本</strong><p>每次护理都从你当下的肌肤问题、舒适度与目标开始。</p></div></div>
-          <div class="hero-benefit"><span class="hero-benefit-icon" aria-hidden="true">◎</span><div><strong>专业经验</strong><p>根据个人肌肤需要选择针对性的专业面部护理。</p></div></div>
-          <div class="hero-benefit"><span class="hero-benefit-icon" aria-hidden="true">♡</span><div><strong>持续照顾</strong><p>护理后继续提供贴心的居家保养与专业建议。</p></div></div>
+          <div class="hero-benefit"><span class="hero-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4" /></svg></span><div><strong>以肌肤为本</strong><p>每次护理都从你当下的肌肤问题、舒适度与目标开始。</p></div></div>
+          <div class="hero-benefit"><span class="hero-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" /><circle cx="12" cy="12" r="2.5" /></svg></span><div><strong>专业经验</strong><p>根据个人肌肤需要选择针对性的专业面部护理。</p></div></div>
+          <div class="hero-benefit"><span class="hero-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.35-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.65-7 10-7 10Z" /></svg></span><div><strong>持续照顾</strong><p>护理后继续提供贴心的居家保养与专业建议。</p></div></div>
         </div>
-        <div class="hero-socials" aria-label="联系 Sothys Kuantan"><span>保持联系</span><div><a href="https://www.facebook.com/SothysKuantan/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a><a href={appointmentHrefZh} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">W</a><a href="tel:+60129816966" aria-label="致电 Sothys Kuantan">☎</a></div></div>
+        <div class="hero-socials" aria-label="联系 Sothys Kuantan"><span>保持联系</span><div>
+          <a href="https://www.facebook.com/SothysKuantan/" target="_blank" rel="noopener noreferrer" aria-label="在 Facebook 关注 Sothys Kuantan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.03 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.96h-1.51c-1.49 0-1.95.93-1.95 1.88v2.28h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07Z" /></svg></a>
+          <a href={appointmentHrefZh} target="_blank" rel="noopener noreferrer" aria-label="通过 WhatsApp 联系 Sothys Kuantan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.966-.273-.099-.471-.149-.67.149-.198.297-.768.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.058-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.173.198-.297.297-.495.099-.198.05-.372-.025-.52-.074-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.57-.01s-.52.074-.792.372c-.273.297-1.04 1.016-1.04 2.479s1.065 2.875 1.213 3.073c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.693.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.035 21.868h-.004a9.93 9.93 0 0 1-5.06-1.386l-.363-.216-3.762.987 1.004-3.667-.236-.376a9.93 9.93 0 0 1-1.523-5.315c.002-5.478 4.46-9.936 9.94-9.936a9.88 9.88 0 0 1 7.03 2.912 9.88 9.88 0 0 1 2.909 7.035c-.003 5.478-4.461 9.936-9.935 9.936zm8.455-18.39A11.88 11.88 0 0 0 12.034 0C5.446 0 .084 5.362.082 11.952a11.9 11.9 0 0 0 1.595 5.96L0 24l6.233-1.635a11.95 11.95 0 0 0 5.796 1.476h.005c6.589 0 11.951-5.362 11.954-11.952a11.88 11.88 0 0 0-3.498-8.411z" /></svg></a>
+          <a href="tel:+60129816966" aria-label="致电 Sothys Kuantan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 3.5 4.8 5.9c-.7.7-.8 1.8-.3 2.7 2.5 4.7 6.3 8.5 11 11 .9.5 2 .4 2.7-.3l2.3-2.3-4.1-4.1-2.4 2.4a15.5 15.5 0 0 1-5.3-5.3l2.4-2.4-3.9-4.1Z" /></svg></a>
+        </div></div>
       </div>
     </div>
   </section>
@@ -65,14 +75,21 @@ const treatmentConcernImages = [
 
   <section class="home-section shell services-intro">
     <div class="heading-block"><p class="eyebrow">专业美容护理</p><h2 class="section-heading">从你的肌肤出发。<br />为你定制护理方向。</h2><p class="lede">每次预约都从你最在意的肌肤问题开始。浏览护理方向，再与团队沟通适合你的方案。</p></div>
-    <div class="service-card-grid">{servicesZh.slice(0,6).map((service, index) => <a class="service-card" href={service.whatsappHref} target="_blank" rel="noopener noreferrer"><div class="service-card-image"><img src={treatmentConcernImages[index].src} alt={treatmentConcernImages[index].alt} width="900" height="900" loading="lazy" /><div class="service-card-top"><span>{service.number}</span><span aria-hidden="true">↗</span></div></div><div class="service-card-copy"><div><h3>{service.title}</h3><p>{service.description}</p></div><strong>{service.outcome}</strong></div></a>)}</div>
+    <div class="service-card-grid">{servicesZh.slice(0,6).map((service, index) => <a class="service-card" href={service.whatsappHref} target="_blank" rel="noopener noreferrer"><div class="service-card-image"><img src={treatmentConcernImages[index].src} alt={treatmentConcernImages[index].alt} width="1200" height="900" loading="lazy" decoding="async" /><div class="service-card-top"><span>{service.number}</span><span aria-hidden="true">↗</span></div></div><div class="service-card-copy"><div><h3>{service.title}</h3><p>{service.description}</p></div><strong>{service.outcome}</strong></div></a>)}</div>
+    <div class="section-action"><a class="pill-secondary" href="/zh/shop">查看全部护理方向</a></div>
   </section>
 
-  <section class="google-reviews-section shell" aria-labelledby="zh-reviews-heading"><div class="google-reviews-panel"><div class="google-reviews-heading"><div><p class="eyebrow">真实顾客体验 · Google 评价</p><h2 id="zh-reviews-heading">真实护理。<br />真实信心。</h2></div><a class="google-rating" href="https://share.google/y02Yvi5B5SKaETXkV" target="_blank" rel="noopener noreferrer"><span class="google-rating-score">5.0</span><span class="google-rating-details"><span class="google-review-stars">★★★★★</span><span>Google 63 条评价</span></span><span class="google-mark">G</span></a></div><div class="google-review-grid"><article class="google-review-card"><blockquote>“员工非常专业、细心且技术熟练。”</blockquote><div class="google-review-author"><strong>Janesse Liew</strong></div></article><article class="google-review-card"><blockquote>“美容师都受过良好训练，非常专业。”</blockquote><div class="google-review-author"><strong>Chia Keow Luang</strong></div></article><article class="google-review-card"><blockquote>“护理后我的肌肤看起来清新有光泽。”</blockquote><div class="google-review-author"><strong>Eng Sek Ooi</strong></div></article></div><div class="google-reviews-footer"><p>评价与评分于 2026 年 11 月核对。</p><a class="pill" href="https://share.google/y02Yvi5B5SKaETXkV" target="_blank" rel="noopener noreferrer">查看全部 Google 评价</a></div></div></section>
+  <ResultsShowcase lang="zh" />
 
-  <section class="home-section shell product-enquiry-section" id="homecare"><div class="product-enquiry-copy"><p class="eyebrow">咨询式居家护理</p><h2 class="section-heading">为日常程序<br />选择合适支持。</h2><p class="lede">我们不在网上逐一列出产品。请联系团队了解适合你的产品类别、库存与价格。</p><a class="pill-secondary" href={productEnquiryHrefZh} target="_blank" rel="noopener noreferrer">WhatsApp 咨询</a></div><div class="product-category-list" aria-label="居家护理产品类别">{productCategoriesZh.map((category,index) => <div><span>{String(index+1).padStart(2,'0')}</span><p>{category}</p></div>)}</div></section>
+  <ReelsShowcase lang="zh" />
 
-  <section class="facebook-section home-section shell"><div class="facebook-panel"><div class="facebook-copy"><div><p class="eyebrow">保持联系</p><h2>掌握美容院<br />最新动态。</h2><p>关注 Sothys Kuantan Facebook，了解活动、专业护理、护肤建议与最新消息。</p></div><a class="pill" href="https://www.facebook.com/SothysKuantan/" target="_blank" rel="noopener noreferrer">关注 Facebook</a></div></div></section>
+  <GoogleReviews lang="zh" />
+
+  <section class="home-section shell product-enquiry-section" id="homecare"><div class="product-enquiry-copy"><p class="eyebrow">专业居家护理</p><h2 class="section-heading">延续每次到店<br />护理的效果。</h2><p class="lede">美容院亦提供精选 Sothys 居家护理类别。欢迎通过 WhatsApp 联系团队，了解个性化推荐、库存与价格。</p><a class="pill" href={productEnquiryHrefZh} target="_blank" rel="noopener noreferrer">咨询居家护理 <span aria-hidden="true">↗</span></a></div><div class="product-category-list" aria-label="居家护理产品类别">{productCategoriesZh.map((category,index) => <div><span>{String(index+1).padStart(2,'0')}</span><p>{category}</p></div>)}</div></section>
+
+  <section class="home-section shell" style="padding-top: 0;"><div class="principles"><div><p class="eyebrow">Sothys 护理理念</p><h2>专业双手。<br />个性化照顾。</h2></div><div class="principle-list"><div class="principle"><span>01</span><p>从你的肌肤问题与护理目标开始一次深入沟通。</p></div><div class="principle"><span>02</span><p>根据个人肌肤需要选择专业护理方向。</p></div><div class="principle"><span>03</span><p>在宁静舒适的美容院环境中体验法国专业技术。</p></div><div class="principle"><span>04</span><p>提供贴心居家护理建议，延续到店护理效果。</p></div></div></div></section>
+
+  <FacebookFeed lang="zh" />
 
   <script>
     const carousel = document.querySelector<HTMLElement>('[data-hero-carousel]');
@@ -80,9 +97,36 @@ const treatmentConcernImages = [
     const dots = Array.from(carousel?.querySelectorAll<HTMLButtonElement>('[data-hero-dot]') ?? []);
     const previous = carousel?.querySelector<HTMLButtonElement>('[data-hero-prev]');
     const next = carousel?.querySelector<HTMLButtonElement>('[data-hero-next]');
-    let active = 0; let timer: number | undefined;
-    const show = (index: number) => { active = (index + slides.length) % slides.length; slides.forEach((slide,i) => { const selected=i===active; slide.classList.toggle('is-active',selected); slide.setAttribute('aria-hidden',String(!selected)); }); dots.forEach((dot,i)=>{const selected=i===active;dot.classList.toggle('is-active',selected);dot.setAttribute('aria-selected',String(selected));}); };
-    const start = () => { if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; window.clearInterval(timer); timer=window.setInterval(()=>show(active+1),6500); };
-    previous?.addEventListener('click',()=>{show(active-1);start();}); next?.addEventListener('click',()=>{show(active+1);start();}); dots.forEach((dot,i)=>dot.addEventListener('click',()=>{show(i);start();})); start();
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let activeSlide = 0;
+    let timer: number | undefined;
+    const showSlide = (index: number) => {
+      activeSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === activeSlide;
+        slide.classList.toggle('is-active', isActive);
+        slide.setAttribute('aria-hidden', String(!isActive));
+        slide.querySelectorAll<HTMLElement>('a, button').forEach((control) => { control.tabIndex = isActive ? 0 : -1; });
+      });
+      dots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === activeSlide;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-selected', String(isActive));
+      });
+    };
+    const stopAutoplay = () => { if (timer !== undefined) window.clearInterval(timer); timer = undefined; };
+    const startAutoplay = () => { stopAutoplay(); if (!reduceMotion.matches && slides.length > 1) timer = window.setInterval(() => showSlide(activeSlide + 1), 6500); };
+    previous?.addEventListener('click', () => { showSlide(activeSlide - 1); startAutoplay(); });
+    next?.addEventListener('click', () => { showSlide(activeSlide + 1); startAutoplay(); });
+    dots.forEach((dot, index) => dot.addEventListener('click', () => { showSlide(index); startAutoplay(); }));
+    carousel?.addEventListener('mouseenter', stopAutoplay);
+    carousel?.addEventListener('mouseleave', startAutoplay);
+    carousel?.addEventListener('focusin', stopAutoplay);
+    carousel?.addEventListener('focusout', (event) => { const nextFocus = event.relatedTarget; if (!(nextFocus instanceof Node) || !carousel.contains(nextFocus)) startAutoplay(); });
+    carousel?.addEventListener('keydown', (event) => { if (event.key === 'ArrowLeft') showSlide(activeSlide - 1); if (event.key === 'ArrowRight') showSlide(activeSlide + 1); });
+    document.addEventListener('visibilitychange', () => document.hidden ? stopAutoplay() : startAutoplay());
+    reduceMotion.addEventListener('change', startAutoplay);
+    showSlide(0);
+    startAutoplay();
   </script>
 </BaseLayout>

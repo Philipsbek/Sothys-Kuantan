@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import { services } from '../data/catalog';
+import { servicesZh } from '../data/catalog.zh';
 
 import acneBefore from '../assets/results/acne-before.jpg';
 import acneAfter from '../assets/results/acne-after.jpg';
@@ -16,6 +17,12 @@ import rednessCaseTwoBefore from '../assets/results/redness-case-2-before.png';
 import rednessCaseTwoAfter from '../assets/results/redness-case-2-after.png';
 import rednessCaseTwoComparison from '../assets/results/redness-case-2-comparison.png';
 import youthAmpouleResult from '../assets/results/youth-ampoule-result.png';
+
+interface Props { lang?: 'en' | 'zh' }
+const { lang = 'en' } = Astro.props;
+const isZh = lang === 'zh';
+const tx = (en: string, zh: string) => isZh ? zh : en;
+const serviceCatalogue = isZh ? servicesZh : services;
 
 type StoryBase = {
   category: string;
@@ -41,108 +48,108 @@ type SingleStory = StoryBase & {
 const resultStories: Array<PairStory | SingleStory> = [
   {
     type: 'pair',
-    category: 'Acne & blemishes',
-    title: 'Clarity-focused care',
-    description: 'A visible-results example for skin experiencing breakouts and post-blemish marks.',
+    category: tx('Acne & blemishes', '痘痘与瑕疵'),
+    title: tx('Clarity-focused care', '清透净肤护理'),
+    description: tx('A visible-results example for skin experiencing breakouts and post-blemish marks.', '展示痘痘与痘印肌肤接受专业护理后的可见变化。'),
     before: acneBefore,
     after: acneAfter,
-    beforeAlt: 'Skin experiencing visible acne and blemishes before treatment',
-    afterAlt: 'The same skin appearing clearer after treatment',
-    href: services[1].whatsappHref,
+    beforeAlt: tx('Skin experiencing visible acne and blemishes before treatment', '专业护理前有明显痘痘与瑕疵的肌肤'),
+    afterAlt: tx('The same skin appearing clearer after treatment', '专业护理后看起来更清透的同一肌肤'),
+    href: serviceCatalogue[1].whatsappHref,
   },
   {
     type: 'pair',
-    category: 'Redness & sensitivity',
-    title: 'Comfort for reactive skin',
-    description: 'A soothing treatment example focused on visible redness and skin comfort.',
+    category: tx('Redness & sensitivity', '泛红与敏感'),
+    title: tx('Comfort for reactive skin', '舒缓敏感肌肤'),
+    description: tx('A soothing treatment example focused on visible redness and skin comfort.', '以改善明显泛红与提升肌肤舒适度为重点的舒缓护理实例。'),
     before: sensitivityBefore,
     after: sensitivityAfter,
-    beforeAlt: 'Sensitive skin with visible redness before treatment',
-    afterAlt: 'The same skin appearing calmer after treatment',
-    href: services[2].whatsappHref,
+    beforeAlt: tx('Sensitive skin with visible redness before treatment', '专业护理前明显泛红的敏感肌肤'),
+    afterAlt: tx('The same skin appearing calmer after treatment', '专业护理后看起来更平静的同一肌肤'),
+    href: serviceCatalogue[2].whatsappHref,
   },
   {
     type: 'pair',
-    category: 'Elasticity & wrinkles',
-    title: 'Age-defying support',
-    description: 'A professional care example for smoother, more refined-looking skin.',
+    category: tx('Elasticity & wrinkles', '弹性与皱纹'),
+    title: tx('Age-defying support', '专业抗老护理'),
+    description: tx('A professional care example for smoother, more refined-looking skin.', '帮助肌肤看起来更平滑、更细致的专业护理实例。'),
     before: antiAgeingBefore,
     after: antiAgeingAfter,
-    beforeAlt: 'Mature skin before an age-defying treatment',
-    afterAlt: 'The same mature skin after an age-defying treatment',
-    href: services[4].whatsappHref,
+    beforeAlt: tx('Mature skin before an age-defying treatment', '抗老护理前的熟龄肌肤'),
+    afterAlt: tx('The same mature skin after an age-defying treatment', '抗老护理后的同一熟龄肌肤'),
+    href: serviceCatalogue[4].whatsappHref,
   },
   {
     type: 'pair',
-    category: 'Dermo Booster relief',
-    title: 'Redness result · Case 01',
-    description: 'Double Peel Professional treatment paired with the Pro Dermo Booster Relief ampoule.',
+    category: tx('Dermo Booster relief', 'Dermo Booster 舒缓护理'),
+    title: tx('Redness result · Case 01', '泛红护理效果 · 案例01'),
+    description: tx('Double Peel Professional treatment paired with the Pro Dermo Booster Relief ampoule.', 'Double Peel 专业护理配合 Pro Dermo Booster Relief 舒缓安瓶。'),
     before: rednessCaseOneBefore,
     after: rednessCaseOneAfter,
-    beforeAlt: 'Visible facial redness before the Dermo Booster relief protocol, case one',
-    afterAlt: 'The same skin after the Dermo Booster relief protocol, case one',
-    href: services[2].whatsappHref,
+    beforeAlt: tx('Visible facial redness before the Dermo Booster relief protocol, case one', 'Dermo Booster 舒缓护理前明显泛红的肌肤，案例一'),
+    afterAlt: tx('The same skin after the Dermo Booster relief protocol, case one', 'Dermo Booster 舒缓护理后的同一肌肤，案例一'),
+    href: serviceCatalogue[2].whatsappHref,
   },
   {
     type: 'pair',
-    category: 'Dermo Booster relief',
-    title: 'Redness result · Case 02',
-    description: 'A second professional protocol example for visibly redness-prone skin.',
+    category: tx('Dermo Booster relief', 'Dermo Booster 舒缓护理'),
+    title: tx('Redness result · Case 02', '泛红护理效果 · 案例02'),
+    description: tx('A second professional protocol example for visibly redness-prone skin.', '第二个针对明显易泛红肌肤的专业护理实例。'),
     before: rednessCaseTwoBefore,
     after: rednessCaseTwoAfter,
-    beforeAlt: 'Visible facial redness before the Dermo Booster relief protocol, case two',
-    afterAlt: 'The same skin after the Dermo Booster relief protocol, case two',
-    href: services[2].whatsappHref,
+    beforeAlt: tx('Visible facial redness before the Dermo Booster relief protocol, case two', 'Dermo Booster 舒缓护理前明显泛红的肌肤，案例二'),
+    afterAlt: tx('The same skin after the Dermo Booster relief protocol, case two', 'Dermo Booster 舒缓护理后的同一肌肤，案例二'),
+    href: serviceCatalogue[2].whatsappHref,
   },
 ];
 
 const protocolStories: Array<PairStory | SingleStory> = [
   {
     type: 'single',
-    category: 'Professional protocol',
-    title: 'Relief protocol · Case 01',
-    description: 'The complete Sothys comparison panel for the professional Double Peel and Relief ampoule protocol.',
+    category: tx('Professional protocol', '专业护理方案'),
+    title: tx('Relief protocol · Case 01', '舒缓护理方案 · 案例01'),
+    description: tx('The complete Sothys comparison panel for the professional Double Peel and Relief ampoule protocol.', '完整展示 Sothys Double Peel 专业护理与 Relief 安瓶方案的前后对比。'),
     image: rednessCaseOneComparison,
-    alt: 'Sothys before and after comparison for Double Peel Professional treatment with Dermo Booster Relief ampoule, case one',
-    href: services[2].whatsappHref,
+    alt: tx('Sothys before and after comparison for Double Peel Professional treatment with Dermo Booster Relief ampoule, case one', 'Sothys Double Peel 专业护理配合 Dermo Booster Relief 安瓶前后对比，案例一'),
+    href: serviceCatalogue[2].whatsappHref,
   },
   {
     type: 'single',
-    category: 'Professional protocol',
-    title: 'Relief protocol · Case 02',
-    description: 'A second complete comparison panel showing the professional redness-care protocol.',
+    category: tx('Professional protocol', '专业护理方案'),
+    title: tx('Relief protocol · Case 02', '舒缓护理方案 · 案例02'),
+    description: tx('A second complete comparison panel showing the professional redness-care protocol.', '第二组完整对比，展示针对泛红肌肤的专业护理方案。'),
     image: rednessCaseTwoComparison,
-    alt: 'Sothys before and after comparison for Double Peel Professional treatment with Dermo Booster Relief ampoule, case two',
-    href: services[2].whatsappHref,
+    alt: tx('Sothys before and after comparison for Double Peel Professional treatment with Dermo Booster Relief ampoule, case two', 'Sothys Double Peel 专业护理配合 Dermo Booster Relief 安瓶前后对比，案例二'),
+    href: serviceCatalogue[2].whatsappHref,
   },
   {
     type: 'single',
-    category: 'Youth ampoule',
-    title: 'Smoother-looking skin',
-    description: 'A prepared Sothys comparison showing the visible-looking result of the Youth ampoule.',
+    category: tx('Youth ampoule', 'Youth 青春安瓶'),
+    title: tx('Smoother-looking skin', '肌肤看起来更平滑'),
+    description: tx('A prepared Sothys comparison showing the visible-looking result of the Youth ampoule.', 'Sothys Youth 青春安瓶护理效果的前后对比。'),
     image: youthAmpouleResult,
-    alt: 'Sothys Youth ampoule before and after comparison',
-    href: services[4].whatsappHref,
+    alt: tx('Sothys Youth ampoule before and after comparison', 'Sothys Youth 青春安瓶护理前后对比'),
+    href: serviceCatalogue[4].whatsappHref,
   },
 ];
 
 const galleries = [
   {
     id: 'results-heading',
-    eyebrow: 'Dermo Booster · Visible results',
-    heading: ['Real skin.', 'Professional care.'],
-    intro: 'Explore professional treatment examples across acne, sensitivity, redness, and visible ageing concerns.',
-    viewportLabel: 'Treatment result gallery',
-    note: 'Images supplied by Sothys. Treatment suitability and outcomes vary by individual skin condition.',
+    eyebrow: tx('Dermo Booster · Visible results', 'Dermo Booster · 可见护理效果'),
+    heading: [tx('Real skin.', '真实肌肤。'), tx('Professional care.', '专业护理。')],
+    intro: tx('Explore professional treatment examples across acne, sensitivity, redness, and visible ageing concerns.', '浏览针对痘痘、敏感、泛红与明显老化问题的专业护理实例。'),
+    viewportLabel: tx('Treatment result gallery', '专业护理效果图片库'),
+    note: tx('Images supplied by Sothys. Treatment suitability and outcomes vary by individual skin condition.', '图片由 Sothys 提供。护理适合度与效果会因个人肌肤状况而异。'),
     stories: resultStories,
   },
   {
     id: 'protocols-heading',
-    eyebrow: 'Professional treatment protocols',
-    heading: ['Focused protocols.', 'Closer detail.'],
-    intro: 'Explore complete professional comparison panels for redness relief and youth-supporting care.',
-    viewportLabel: 'Professional treatment protocol gallery',
-    note: 'Protocol images supplied by Sothys. Your beauty professional will recommend the most suitable treatment for your skin.',
+    eyebrow: tx('Professional treatment protocols', '专业护理方案'),
+    heading: [tx('Focused protocols.', '针对性方案。'), tx('Closer detail.', '更深入细节。')],
+    intro: tx('Explore complete professional comparison panels for redness relief and youth-supporting care.', '浏览针对泛红舒缓与青春护理的完整专业前后对比。'),
+    viewportLabel: tx('Professional treatment protocol gallery', '专业护理方案图片库'),
+    note: tx('Protocol images supplied by Sothys. Your beauty professional will recommend the most suitable treatment for your skin.', '护理方案图片由 Sothys 提供。美容师会根据你的肌肤推荐合适的专业护理。'),
     stories: protocolStories,
   },
 ];
@@ -161,9 +168,9 @@ const galleries = [
       </div>
       <div class="results-intro">
         <p>{gallery.intro}</p>
-        <div class="results-controls" aria-label={`${gallery.eyebrow} gallery controls`}>
-          <button type="button" data-results-prev aria-label="Show previous result">←</button>
-          <button type="button" data-results-next aria-label="Show next result">→</button>
+        <div class="results-controls" aria-label={`${gallery.eyebrow}${isZh ? '图片库控制' : ' gallery controls'}`}>
+          <button type="button" data-results-prev aria-label={isZh ? '上一项护理效果' : 'Show previous result'}>←</button>
+          <button type="button" data-results-next aria-label={isZh ? '下一项护理效果' : 'Show next result'}>→</button>
         </div>
       </div>
     </div>
@@ -177,11 +184,11 @@ const galleries = [
               <div class="result-pair">
                 <figure>
                   <Image src={story.before} alt={story.beforeAlt} widths={[260, 420, 560]} sizes="(max-width: 640px) 46vw, 340px" quality={80} loading="lazy" />
-                  <figcaption>Before</figcaption>
+                  <figcaption>{isZh ? '护理前' : 'Before'}</figcaption>
                 </figure>
                 <figure>
                   <Image src={story.after} alt={story.afterAlt} widths={[260, 420, 560]} sizes="(max-width: 640px) 46vw, 340px" quality={80} loading="lazy" />
-                  <figcaption>After</figcaption>
+                  <figcaption>{isZh ? '护理后' : 'After'}</figcaption>
                 </figure>
               </div>
             ) : (
@@ -195,7 +202,7 @@ const galleries = [
                 <h3>{story.title}</h3>
                 <p>{story.description}</p>
               </div>
-              <a href={story.href} target="_blank" rel="noopener noreferrer">Ask about this treatment <span aria-hidden="true">↗</span></a>
+              <a href={story.href} target="_blank" rel="noopener noreferrer">{isZh ? '咨询这项护理' : 'Ask about this treatment'} <span aria-hidden="true">↗</span></a>
             </div>
           </article>
         ))}
@@ -204,7 +211,7 @@ const galleries = [
 
     <div class="results-note shell">
       <p>{gallery.note}</p>
-      <span>Scroll to explore all results</span>
+      <span>{isZh ? '滑动浏览全部护理效果' : 'Scroll to explore all results'}</span>
     </div>
   </section>
 ))}

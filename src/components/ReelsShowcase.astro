@@ -1,38 +1,46 @@
 ---
+interface Props { lang?: 'en' | 'zh' }
+const { lang = 'en' } = Astro.props;
+const isZh = lang === 'zh';
 const reels = [
   {
     number: '01',
-    title: 'Double Peel professional treatment',
-    label: 'Treatment ritual',
+    title: isZh ? 'Double Peel 专业护理' : 'Double Peel professional treatment',
+    label: isZh ? '专业护理过程' : 'Treatment ritual',
     src: '/reels/double-peel-treatment.mp4',
     poster: '/reels/double-peel-treatment.jpg',
   },
   {
     number: '02',
-    title: 'Dermo_Booster treatment in action',
-    label: 'Inside the salon',
+    title: isZh ? 'Dermo_Booster 专业护理实录' : 'Dermo_Booster treatment in action',
+    label: isZh ? '美容院现场' : 'Inside the salon',
     src: '/reels/dermo-booster-treatment.mp4',
     poster: '/reels/dermo-booster-treatment.jpg',
   },
 ];
+const copy = isZh ? {
+  eyebrow: '走进 Sothys Kuantan', headingA: '专业护理故事。', headingB: '值得亲眼看见。', intro: '走进我们的专业护理过程，感受每次到店体验背后的细心、技术与宁静。', nav: '视频导航', previous: '上一段视频', next: '下一段视频', viewport: 'Sothys Kuantan 专业护理视频', soundOn: '开启声音', soundOff: '关闭声音', play: '播放视频', tap: '点击观看', more: '更多美容院动态', followTitle: '关注我们的最新故事。', followCopy: '了解最新护理、美容院日常、公告与 Sothys Kuantan 护肤资讯。', facebook: '浏览 Facebook', swipe: '滑动浏览',
+} : {
+  eyebrow: 'Inside Sothys Kuantan', headingA: 'Treatment stories.', headingB: 'Made to be seen.', intro: 'Step inside our professional treatment rituals and discover the care, technique, and calm behind every salon visit.', nav: 'Reel navigation', previous: 'Show previous reel', next: 'Show next reel', viewport: 'Sothys Kuantan treatment reels', soundOn: 'Turn sound on', soundOff: 'Turn sound off', play: 'Play reel', tap: 'Tap to watch', more: 'More from the salon', followTitle: 'Follow our latest stories.', followCopy: 'See new treatments, salon moments, announcements, and skincare updates from Sothys Kuantan.', facebook: 'Visit Facebook', swipe: 'Swipe to explore',
+};
 ---
 
 <section class="reels-showcase home-section" id="reels" data-reels aria-labelledby="reels-heading">
   <div class="reels-heading shell">
     <div>
-      <p class="eyebrow">Inside Sothys Kuantan</p>
-      <h2 class="section-heading" id="reels-heading">Treatment stories.<br />Made to be seen.</h2>
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h2 class="section-heading" id="reels-heading">{copy.headingA}<br />{copy.headingB}</h2>
     </div>
     <div class="reels-intro">
-      <p>Step inside our professional treatment rituals and discover the care, technique, and calm behind every salon visit.</p>
-      <div class="reels-controls" aria-label="Reel navigation">
-        <button type="button" data-reels-previous aria-label="Show previous reel"><span aria-hidden="true">←</span></button>
-        <button type="button" data-reels-next aria-label="Show next reel"><span aria-hidden="true">→</span></button>
+      <p>{copy.intro}</p>
+      <div class="reels-controls" aria-label={copy.nav}>
+        <button type="button" data-reels-previous aria-label={copy.previous}><span aria-hidden="true">←</span></button>
+        <button type="button" data-reels-next aria-label={copy.next}><span aria-hidden="true">→</span></button>
       </div>
     </div>
   </div>
 
-  <div class="reels-viewport" data-reels-viewport tabindex="0" aria-label="Sothys Kuantan treatment reels">
+  <div class="reels-viewport" data-reels-viewport tabindex="0" aria-label={copy.viewport}>
     <div class="reels-track">
       {reels.map((reel) => (
         <article class="reel-card" data-reel-card>
@@ -49,37 +57,38 @@ const reels = [
             ></video>
             <div class="reel-shade" aria-hidden="true"></div>
             <p class="reel-index"><span>{reel.label}</span><span>{reel.number}</span></p>
-            <button class="reel-sound" type="button" data-reel-sound aria-label={`Turn sound on for ${reel.title}`}>
-              <span data-sound-label>Sound off</span>
+            <button class="reel-sound" type="button" data-reel-sound aria-label={`${copy.soundOn}：${reel.title}`}>
+              <span data-sound-label>{isZh ? '声音关闭' : 'Sound off'}</span>
             </button>
-            <button class="reel-play" type="button" data-reel-toggle aria-label={`Play ${reel.title}`}>
+            <button class="reel-play" type="button" data-reel-toggle aria-label={`${copy.play}：${reel.title}`}>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.8v12.4L18 12 8 5.8Z" /></svg>
-              <span data-reel-status>Play reel</span>
+              <span data-reel-status>{copy.play}</span>
             </button>
             <div class="reel-caption">
               <h3>{reel.title}</h3>
-              <p>Tap to watch</p>
+              <p>{copy.tap}</p>
             </div>
           </div>
         </article>
       ))}
 
       <aside class="reels-follow-card">
-        <p class="eyebrow">More from the salon</p>
+        <p class="eyebrow">{copy.more}</p>
         <div>
           <span class="reels-follow-mark" aria-hidden="true">f</span>
-          <h3>Follow our latest stories.</h3>
-          <p>See new treatments, salon moments, announcements, and skincare updates from Sothys Kuantan.</p>
+          <h3>{copy.followTitle}</h3>
+          <p>{copy.followCopy}</p>
         </div>
-        <a class="pill-secondary" href="https://www.facebook.com/SothysKuantan/" target="_blank" rel="noopener noreferrer">Visit Facebook <span aria-hidden="true">↗</span></a>
+        <a class="pill-secondary" href="https://www.facebook.com/SothysKuantan/" target="_blank" rel="noopener noreferrer">{copy.facebook} <span aria-hidden="true">↗</span></a>
       </aside>
     </div>
   </div>
 
-  <div class="reels-mobile-note shell" aria-hidden="true"><span>Swipe to explore</span><span>↔</span></div>
+  <div class="reels-mobile-note shell" aria-hidden="true"><span>{copy.swipe}</span><span>↔</span></div>
 
   <script>
     const reelSection = document.querySelector<HTMLElement>('[data-reels]');
+    const reelsZh = document.documentElement.lang.startsWith('zh');
     const reelViewport = reelSection?.querySelector<HTMLElement>('[data-reels-viewport]');
     const reelCards = Array.from(reelSection?.querySelectorAll<HTMLElement>('[data-reel-card]') ?? []);
     const reelVideos = Array.from(reelSection?.querySelectorAll<HTMLVideoElement>('[data-reel-video]') ?? []);
@@ -91,8 +100,8 @@ const reels = [
       const status = card.querySelector<HTMLElement>('[data-reel-status]');
       const title = card.querySelector('h3')?.textContent?.trim() ?? 'reel';
       card.classList.toggle('is-playing', playing);
-      if (status) status.textContent = playing ? 'Pause reel' : 'Play reel';
-      toggle?.setAttribute('aria-label', `${playing ? 'Pause' : 'Play'} ${title}`);
+      if (status) status.textContent = playing ? (reelsZh ? '暂停视频' : 'Pause reel') : (reelsZh ? '播放视频' : 'Play reel');
+      toggle?.setAttribute('aria-label', `${playing ? (reelsZh ? '暂停' : 'Pause') : (reelsZh ? '播放' : 'Play')} ${title}`);
     };
 
     reelCards.forEach((card) => {
@@ -116,8 +125,8 @@ const reels = [
       sound?.addEventListener('click', () => {
         video.muted = !video.muted;
         const muted = video.muted;
-        if (soundLabel) soundLabel.textContent = muted ? 'Sound off' : 'Sound on';
-        sound.setAttribute('aria-label', `${muted ? 'Turn sound on' : 'Turn sound off'} for ${card.querySelector('h3')?.textContent?.trim() ?? 'this reel'}`);
+        if (soundLabel) soundLabel.textContent = muted ? (reelsZh ? '声音关闭' : 'Sound off') : (reelsZh ? '声音开启' : 'Sound on');
+        sound.setAttribute('aria-label', `${muted ? (reelsZh ? '开启声音' : 'Turn sound on') : (reelsZh ? '关闭声音' : 'Turn sound off')}：${card.querySelector('h3')?.textContent?.trim() ?? (reelsZh ? '这段视频' : 'this reel')}`);
       });
 
       video.addEventListener('play', () => setCardState(card, true));

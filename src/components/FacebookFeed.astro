@@ -1,17 +1,25 @@
 ---
+interface Props { lang?: 'en' | 'zh' }
+const { lang = 'en' } = Astro.props;
+const isZh = lang === 'zh';
 const facebookPageUrl = 'https://www.facebook.com/SothysKuantan/';
+const copy = isZh ? {
+  eyebrow: '保持联系', headingA: '掌握美容院', headingB: '最新动态。', intro: '关注 Sothys Kuantan Facebook，了解美容院消息、近期活动、护理亮点、护肤建议与最新资讯。', follow: '关注我们的 Facebook', profileAria: '前往 Sothys Kuantan Premium Salon Facebook 页面', label: 'Facebook', footer: '消息 · 活动 · 护肤', visit: '浏览页面',
+} : {
+  eyebrow: 'Stay connected', headingA: 'The latest from', headingB: 'our salon.', intro: 'Follow Sothys Kuantan on Facebook for salon news, upcoming events, treatment highlights, skincare guidance, and our latest updates.', follow: 'Follow us on Facebook', profileAria: 'Visit Sothys Kuantan Premium Salon on Facebook', label: 'Facebook', footer: 'News · Events · Skincare', visit: 'Visit page',
+};
 ---
 
 <section class="facebook-section home-section shell" aria-labelledby="facebook-heading">
   <div class="facebook-panel">
     <div class="facebook-copy">
       <div>
-        <p class="eyebrow">Stay connected</p>
-        <h2 id="facebook-heading">The latest from<br />our salon.</h2>
-        <p>Follow Sothys Kuantan on Facebook for salon news, upcoming events, treatment highlights, skincare guidance, and our latest updates.</p>
+        <p class="eyebrow">{copy.eyebrow}</p>
+        <h2 id="facebook-heading">{copy.headingA}<br />{copy.headingB}</h2>
+        <p>{copy.intro}</p>
       </div>
       <a class="pill" href={facebookPageUrl} target="_blank" rel="noopener noreferrer">
-        Follow us on Facebook <span aria-hidden="true">↗</span>
+        {copy.follow} <span aria-hidden="true">↗</span>
       </a>
     </div>
 
@@ -20,7 +28,7 @@ const facebookPageUrl = 'https://www.facebook.com/SothysKuantan/';
       href={facebookPageUrl}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Visit Sothys Kuantan Premium Salon on Facebook"
+      aria-label={copy.profileAria}
     >
       <div class="facebook-mark" aria-hidden="true">
         <svg viewBox="0 0 24 24" role="img">
@@ -28,13 +36,13 @@ const facebookPageUrl = 'https://www.facebook.com/SothysKuantan/';
         </svg>
       </div>
       <div class="facebook-profile-copy">
-        <p class="facebook-profile-label">Facebook</p>
+        <p class="facebook-profile-label">{copy.label}</p>
         <h3>Sothys Kuantan<br />Premium Salon</h3>
         <p>@SothysKuantan</p>
       </div>
       <div class="facebook-profile-footer">
-        <span>News · Events · Skincare</span>
-        <strong>Visit page <span aria-hidden="true">↗</span></strong>
+        <span>{copy.footer}</span>
+        <strong>{copy.visit} <span aria-hidden="true">↗</span></strong>
       </div>
     </a>
   </div>

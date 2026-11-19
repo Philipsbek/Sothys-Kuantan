@@ -1,6 +1,22 @@
 ---
-const membershipMessage = "Hi! I'm interested in joining the Sothys Kuantan membership. Could you share the current membership benefits, privileges, eligibility, and how to join?";
+interface Props { lang?: 'en' | 'zh' }
+const { lang = 'en' } = Astro.props;
+const isZh = lang === 'zh';
+const membershipMessage = isZh
+  ? '您好！我想加入 Sothys Kuantan 会员。请问目前有哪些会员福利、优惠、加入条件与申请方式？'
+  : "Hi! I'm interested in joining the Sothys Kuantan membership. Could you share the current membership benefits, privileges, eligibility, and how to join?";
 const membershipHref = `https://wa.me/60129816966?text=${encodeURIComponent(membershipMessage)}`;
+const copy = isZh ? {
+  visualLabel: '会员 · Sothys Kuantan', visualTitle: '护理结束后，关怀仍然继续。', close: '关闭会员邀请', eyebrow: '专属会员，享受更多', title: '让你的肌肤优先掌握最新资讯。',
+  lede: '加入 Sothys Kuantan 会员圈，获得围绕你的美容旅程而准备的护理资讯、专业建议与会员礼遇。', benefitsLabel: '会员福利',
+  benefits: ['优先获知最新会员礼遇与美容院活动。', '接收相关护理、居家保养与季节美容资讯。', '与关丹团队保持联系，获得个性化建议。'],
+  join: '通过 WhatsApp 加入', later: '稍后再说', note: '欢迎联系团队了解当前会员详情、加入条件与可享礼遇。',
+} : {
+  visualLabel: 'Members · Sothys Kuantan', visualTitle: 'Care that continues beyond the treatment room.', close: 'Close membership invitation', eyebrow: 'A little more, reserved for members', title: 'Your skin deserves the inside track.',
+  lede: 'Join the Sothys Kuantan membership circle and stay closer to the care, guidance, and privileges created around your beauty journey.', benefitsLabel: 'Membership benefits',
+  benefits: ['Be first to hear about current member privileges and salon opportunities.', 'Receive relevant treatment, homecare, and seasonal beauty updates.', 'Stay connected with our Kuantan team for personalised guidance.'],
+  join: 'Join via WhatsApp', later: 'Maybe later', note: 'Message our team for current membership details, eligibility, and available privileges.',
+};
 ---
 
 <dialog class="membership-dialog" data-membership-dialog aria-labelledby="membership-title" aria-describedby="membership-description">
@@ -8,30 +24,28 @@ const membershipHref = `https://wa.me/60129816966?text=${encodeURIComponent(memb
     <div class="membership-popup-visual" aria-hidden="true">
       <img src="/hero-sothys-products.webp" alt="" width="1200" height="1200" loading="eager" decoding="async" />
       <div>
-        <span>Members · Sothys Kuantan</span>
-        <p>Care that continues beyond the treatment room.</p>
+        <span>{copy.visualLabel}</span>
+        <p>{copy.visualTitle}</p>
       </div>
     </div>
 
     <div class="membership-popup-copy">
-      <button class="membership-close" type="button" data-membership-close aria-label="Close membership invitation">
+      <button class="membership-close" type="button" data-membership-close aria-label={copy.close}>
         <span aria-hidden="true">×</span>
       </button>
-      <p class="eyebrow">A little more, reserved for members</p>
-      <h2 id="membership-title">Your skin deserves the inside track.</h2>
-      <p class="membership-lede" id="membership-description">Join the Sothys Kuantan membership circle and stay closer to the care, guidance, and privileges created around your beauty journey.</p>
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h2 id="membership-title">{copy.title}</h2>
+      <p class="membership-lede" id="membership-description">{copy.lede}</p>
 
-      <div class="membership-benefits" aria-label="Membership benefits">
-        <div><span>01</span><p>Be first to hear about current member privileges and salon opportunities.</p></div>
-        <div><span>02</span><p>Receive relevant treatment, homecare, and seasonal beauty updates.</p></div>
-        <div><span>03</span><p>Stay connected with our Kuantan team for personalised guidance.</p></div>
+      <div class="membership-benefits" aria-label={copy.benefitsLabel}>
+        {copy.benefits.map((benefit, index) => <div><span>0{index + 1}</span><p>{benefit}</p></div>)}
       </div>
 
       <div class="membership-actions">
-        <a class="membership-join" href={membershipHref} target="_blank" rel="noopener noreferrer">Join via WhatsApp <span aria-hidden="true">↗</span></a>
-        <button type="button" data-membership-close>Maybe later</button>
+        <a class="membership-join" href={membershipHref} target="_blank" rel="noopener noreferrer">{copy.join} <span aria-hidden="true">↗</span></a>
+        <button type="button" data-membership-close>{copy.later}</button>
       </div>
-      <p class="membership-note">Message our team for current membership details, eligibility, and available privileges.</p>
+      <p class="membership-note">{copy.note}</p>
     </div>
   </div>
 

@@ -1,68 +1,76 @@
 ---
+interface Props { lang?: 'en' | 'zh' }
+const { lang = 'en' } = Astro.props;
+const isZh = lang === 'zh';
 const googleProfileHref = 'https://share.google/y02Yvi5B5SKaETXkV';
 
 const reviews = [
   {
     author: 'Janesse Liew',
     initials: 'JL',
-    quote: '“Staffs are incredibly professional, attentive and skilled.”',
+    quote: isZh ? '“员工非常专业、细心且技术熟练。”' : '“Staffs are incredibly professional, attentive and skilled.”',
     href: 'https://www.google.com/maps/contrib/108437253337356478774/reviews',
   },
   {
     author: 'Chia Keow Luang',
     initials: 'CK',
-    quote: '“The therapists are well-trained and professional.”',
+    quote: isZh ? '“美容师都受过良好训练，非常专业。”' : '“The therapists are well-trained and professional.”',
     href: 'https://www.google.com/maps/contrib/115675920435162923607/reviews',
   },
   {
     author: 'Eng Sek Ooi',
     initials: 'EO',
-    quote: '“My skin looked fresh and glowing.”',
+    quote: isZh ? '“护理后我的肌肤看起来清新有光泽。”' : '“My skin looked fresh and glowing.”',
     href: 'https://www.google.com/maps/contrib/110039318173149116145/reviews',
   },
 ];
+const copy = isZh ? {
+  eyebrow: '顾客体验 · Google 评价', headingA: '真实护理。', headingB: '真实信心。', ratingAria: '在 Google 查看 Sothys Kuantan 的 5 星评分与 63 条评价', reviewCount: 'Google 63 条评价', selected: '精选 Google 评价', stars: '满分5星，评分5星', source: 'Google 评价', reviewer: 'Google 评价者', view: '在 Google 查看评价', note: '精选自 Google 相关性排序评价。评分与评价数量于 2026 年 11 月核对。', readAll: '查看全部 Google 评价', share: '分享你的体验',
+} : {
+  eyebrow: 'Client experiences · Google Reviews', headingA: 'Real care.', headingB: 'Real confidence.', ratingAria: "View Sothys Kuantan's 5 star rating and 63 reviews on Google", reviewCount: '63 reviews on Google', selected: 'Selected Google reviews', stars: '5 out of 5 stars', source: 'Google review', reviewer: 'Google reviewer', view: 'View reviews on Google', note: 'Selected from Google’s relevance-ranked reviews. Rating and review count checked in November 2026.', readAll: 'Read all Google reviews', share: 'Share your experience',
+};
 ---
 
 <section class="google-reviews-section shell" aria-labelledby="google-reviews-heading">
   <div class="google-reviews-panel">
     <div class="google-reviews-heading">
       <div>
-        <p class="eyebrow">Client experiences · Google Reviews</p>
-        <h2 id="google-reviews-heading">Real care.<br />Real confidence.</h2>
+        <p class="eyebrow">{copy.eyebrow}</p>
+        <h2 id="google-reviews-heading">{copy.headingA}<br />{copy.headingB}</h2>
       </div>
 
-      <a class="google-rating" href={googleProfileHref} target="_blank" rel="noopener noreferrer" aria-label="View Sothys Kuantan's 5 star rating and 63 reviews on Google">
+      <a class="google-rating" href={googleProfileHref} target="_blank" rel="noopener noreferrer" aria-label={copy.ratingAria}>
         <span class="google-rating-score">5.0</span>
         <span class="google-rating-details">
-          <span class="google-review-stars" aria-label="5 out of 5 stars">★★★★★</span>
-          <span>63 reviews on Google</span>
+          <span class="google-review-stars" aria-label={copy.stars}>★★★★★</span>
+          <span>{copy.reviewCount}</span>
         </span>
         <span class="google-mark" aria-hidden="true">G</span>
       </a>
     </div>
 
-    <div class="google-review-grid" aria-label="Selected Google reviews">
+    <div class="google-review-grid" aria-label={copy.selected}>
       {reviews.map((review) => (
         <article class="google-review-card">
           <div class="google-review-card-top">
-            <span class="google-review-stars" aria-label="5 out of 5 stars">★★★★★</span>
-            <span class="google-review-source">Google review</span>
+            <span class="google-review-stars" aria-label={copy.stars}>★★★★★</span>
+            <span class="google-review-source">{copy.source}</span>
           </div>
           <blockquote>{review.quote}</blockquote>
           <div class="google-review-author">
             <span class="google-review-avatar" aria-hidden="true">{review.initials}</span>
-            <div><strong>{review.author}</strong><span>Google reviewer</span></div>
-            <a href={review.href} target="_blank" rel="noopener noreferrer" aria-label={`View ${review.author}'s reviews on Google`}>↗</a>
+            <div><strong>{review.author}</strong><span>{copy.reviewer}</span></div>
+            <a href={review.href} target="_blank" rel="noopener noreferrer" aria-label={`${copy.view}：${review.author}`}>↗</a>
           </div>
         </article>
       ))}
     </div>
 
     <div class="google-reviews-footer">
-      <p>Selected from Google’s relevance-ranked reviews. Rating and review count checked in November 2026.</p>
+      <p>{copy.note}</p>
       <div>
-        <a class="pill google-reviews-primary" href={googleProfileHref} target="_blank" rel="noopener noreferrer">Read all Google reviews <span>↗</span></a>
-        <a class="google-reviews-link" href={googleProfileHref} target="_blank" rel="noopener noreferrer">Share your experience <span>→</span></a>
+        <a class="pill google-reviews-primary" href={googleProfileHref} target="_blank" rel="noopener noreferrer">{copy.readAll} <span>↗</span></a>
+        <a class="google-reviews-link" href={googleProfileHref} target="_blank" rel="noopener noreferrer">{copy.share} <span>→</span></a>
       </div>
     </div>
   </div>

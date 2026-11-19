@@ -1,18 +1,20 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 const sections = [
-  ['1. 网站用途', '本网站提供一般美容护理、产品与预约资讯，不构成医疗诊断、医疗建议或结果保证。'],
-  ['2. 预约与咨询', '通过网站或 WhatsApp 提交的请求只有在美容院确认后才算完成预约。请提供准确的联系方式，并及时告知取消或更改。'],
-  ['3. 护理适合度', '护理与产品建议会根据咨询时提供的资料作出。请主动说明过敏、处方产品、怀孕、近期程序或相关健康状况。'],
-  ['4. 价格与供应', '疗程、产品、优惠、会员权益与供应情况可能更改。最终价格与详情以 Sothys Kuantan 团队确认为准。'],
-  ['5. 知识产权', '除另有说明外，网站文字、设计、品牌与视觉内容受相关知识产权保护，不得未经许可复制或商业使用。'],
-  ['6. 外部链接', '网站可能链接至 WhatsApp、Facebook、Google 或其他第三方服务。使用这些服务时须遵守相关平台的条款与隐私政策。'],
-  ['7. 责任限制', '我们会尽力保持网站资讯准确，但不保证内容始终完整或没有错误。你应根据个人状况寻求合适的专业意见。'],
-  ['8. 条款更新', '我们可能不时更新本条款。继续使用本网站即表示接受最新版本。'],
-  ['9. 联系我们', '如对本条款有疑问，请通过 ivonliew@gmail.com、012-981 6966 或到店与我们联系。'],
+  ['1. 关于本网站', '本网站由位于 43, Jalan Putra Square 3, China Town, 25200 Kuantan, Pahang, Malaysia 的 Sothys Kuantan 运营，提供美容院服务与居家护理类别的一般资讯。'],
+  ['2. 护理资讯', '护理说明仅作为一般参考，不构成医疗建议、诊断或特定效果保证。每个人的肌肤、目标、敏感状况与护理记录不同，咨询后的建议可能有所调整。'],
+  ['3. 预约', 'WhatsApp 留言与网站表单仅视为预约请求。美容院团队回复并双方确认日期与时间后，预约才正式成立。如需更改或取消已确认的预约，请直接联系美容院。'],
+  ['4. 居家护理咨询', '网站只列出居家护理产品类别。具体产品、库存、适合度与价格由美容院直接确认。本网站不提供网上结账或产品订购服务。'],
+  ['5. 资讯准确性与供应情况', '我们会尽力保持资讯最新，但服务供应、预约时间与美容院详情可能更改。到店前，请直接向美容院确认与时间相关的资讯。'],
+  ['6. 知识产权', '本网站的文字、设计、图片、商标与标志归相关所有者与授权方所有。你可将网站用于个人及非商业用途，但未经许可不得复制、分发、修改或镜像其内容。'],
+  ['7. WhatsApp 与外部服务', '网站提供 WhatsApp、电邮、电话或其他外部服务链接以方便访客。这些服务各自受其条款与隐私政策约束。'],
+  ['8. 个人资料', '你通过联系表单提交的资料会用于回复查询与安排美容院服务。请避免通过网站发送敏感医疗资料；如需讨论私人问题，请直接联系美容院。'],
+  ['9. 免责声明与责任', '本网站及其内容按现状提供。在马来西亚法律允许的最大范围内，美容院不对纯粹因使用本资讯网站而产生的间接或后果性损失负责。'],
+  ['10. 适用法律', '本条款受马来西亚法律管辖。任何与本网站有关的争议均受马来西亚法院管辖。'],
+  ['11. 联系方式', '如对本条款、服务或预约有疑问，请通过 WhatsApp 012-981 6966、美容院电话 09-517 3699，或电邮 ivonliew@gmail.com 联系 Sothys Kuantan。'],
 ];
 ---
 <BaseLayout lang="zh" title="条款与条件" description="Sothys Kuantan 网站使用、护理咨询、预约与沟通条款。">
   <section class="page-hero shell"><p class="eyebrow">法律资讯 · 2026年10月8日更新</p><h1 class="display display-sm">清楚条款。<br />简单易懂。</h1><div class="intro-grid"><p class="eyebrow">Sothys Kuantan</p><p>这些条款适用于本网站、护理咨询、预约请求与美容院沟通。</p></div></section>
-  <section class="legal-layout shell"><aside class="legal-index" aria-label="条款目录">{sections.map((section,index)=><a href={`#section-${index+1}`}>{section[0]}</a>)}</aside><div class="legal-copy"><section class="legal-section"><h2>内容概览</h2><p>使用本网站即表示你同意以下条款。若你不同意，请停止使用网站并直接联系团队查询。</p></section>{sections.map((section,index)=><section class="legal-section" id={`section-${index+1}`}><h2>{section[0]}</h2><p>{section[1]}</p></section>)}</div></section>
+  <section class="legal-layout shell"><aside class="legal-index" aria-label="条款目录">{sections.map((section,index)=><a href={`#section-${index+1}`}>{section[0]}</a>)}</aside><div class="legal-copy"><section class="legal-section"><h2>内容概览</h2><p>本网站介绍美容院、专业护理方向以及联系团队的方式。护理适合度、供应情况、时间与价格均由美容院直接确认。</p></section>{sections.map((section,index)=><section class="legal-section" id={`section-${index+1}`}><h2>{section[0]}</h2><p>{section[1]}</p></section>)}</div></section>
 </BaseLayout>
